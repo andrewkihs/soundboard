@@ -8,6 +8,8 @@ class Header extends React.Component {
   
   render() {
     const { openModal } = this.props;
+
+
     const sessionLinks = () => (
     <nav className="login-signup">
       <button onClick={() => openModal('login')}>Login</button>
@@ -15,6 +17,8 @@ class Header extends React.Component {
       <button onClick={() => openModal('signup')}>Signup</button>
     </nav>
   );
+
+
     let currentUser = this.props.currentUser;
     const { logout } = this.props
     const display = currentUser ? (
@@ -23,17 +27,28 @@ class Header extends React.Component {
         <button onClick={logout}>Log Out</button>
       </div>
     ) : (
+
+      // NOT LOGGED IN DISPLAY
       <div>
         <h1>Not logged in</h1>
-        
-        <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link>
+        {sessionLinks()}
       </div>
     );
-
+    
     return(
-      <div>{display}
-      {sessionLinks()}</div>
+      <nav className='full_header'>
+        <nav className='header__left'>
+          <ul>
+            <li>
+              <a ></a>
+            </li>
+          </ul>
+        </nav>
+        <img width='100px' height='100px' src={window.logoURL} />
+        {display}
+      {/* {sessionLinks()} */}
+      
+      </nav>
     )
   }
 }
