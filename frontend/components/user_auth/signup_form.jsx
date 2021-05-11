@@ -14,10 +14,11 @@ class SignUpForm extends React.Component {
       emailError: false,
       ageError: false,
       genderError: false,
-
+      
 
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.generateRandomUsername = this.generateRandomUsername.bind(this)
   }
 
   update(field) {
@@ -25,19 +26,24 @@ class SignUpForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
-
+  
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({username: this.generateRandomUsername()})
     const user = Object.assign({}, this.state);
     this.props.closeModal()
     this.props.processForm(user);
     // console.log(user)
   }
+
+  componentDidMount(){
+    const randUsername = this.generateRandomUsername()
+    this.setState({username: randUsername})
+  }
+
   generateRandomUsername() {
     const randNum = String(Math.floor(Math.random() * 1000000000))
-    debugger
-    return ('user-'.concat(randNum))
+    const randName = ('user-'.concat(randNum));
+    return randName
   }
 
   nextForm(num) {
@@ -88,6 +94,7 @@ class SignUpForm extends React.Component {
             />
           </label>
           <br/>
+       
           <p>By signing up I accept the Terms of use. I have read and understood the Privacy Policy and Cookies Policy</p>
           <br/>
           <button onClick={this.nextForm(2)}>{'Accept & continue'}</button>
@@ -114,7 +121,6 @@ class SignUpForm extends React.Component {
               <option value="">Indicate your Gender</option>
               <option value>Female</option>
               <option value>Male</option>
-              <option value>Custom</option>
               <option value>Prefer not to say</option>
             </select>
     
@@ -147,14 +153,7 @@ class SignUpForm extends React.Component {
           <br/>
           <p>Your display name can be anyting you like. Your name or artist name are good choices</p>
           <br/>
-          <br/>
-           <label>Username to be ignored:
-             <input type="text"
-               value={this.state.username}
-               onChange={this.update('username')}
-               className="login-input"
-             />
-           </label>
+         
            <br/>
           
           <button onClick={this.handleSubmit}>Get Started</button>
