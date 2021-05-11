@@ -17,9 +17,10 @@ import StreamContainer from './stream/stream_container'
 const App = () => (
   <div>
     <Modal/>
-    <h2>hello</h2>
+    {/* <h2>hello</h2> */}
     <HeaderContainer/>
     <Switch>
+      {/* <Route path="/users/:userId" component={UserPageShowContainer} /> */}
       {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/" component={StreamContainer} />
