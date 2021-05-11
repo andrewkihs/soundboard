@@ -5,8 +5,16 @@ class Header extends React.Component {
   constructor(props){
     super(props);
   }
-
+  
   render() {
+    const { openModal } = this.props;
+    const sessionLinks = () => (
+    <nav className="login-signup">
+      <button onClick={() => openModal('login')}>Login</button>
+      &nbsp;or&nbsp;
+      <button onClick={() => openModal('signup')}>Signup</button>
+    </nav>
+  );
     let currentUser = this.props.currentUser;
     const { logout } = this.props
     const display = currentUser ? (
@@ -24,7 +32,8 @@ class Header extends React.Component {
     );
 
     return(
-      <div>{display}</div>
+      <div>{display}
+      {sessionLinks()}</div>
     )
   }
 }
