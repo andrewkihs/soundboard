@@ -8,11 +8,11 @@ class Header extends React.Component {
 
   render() {
     let currentUser = this.props.currentUser;
-
+    const { logout } = this.props
     const display = currentUser ? (
       <div>
         <p>Welcome, {currentUser.username}</p>
-        <button onClick={this.props.logout}>Log Out</button>
+        <button onClick={logout}>Log Out</button>
       </div>
     ) : (
       <div>
