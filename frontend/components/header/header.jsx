@@ -14,9 +14,8 @@ class Header extends React.Component {
 
     const sessionLinks = () => (
     <nav className="login-signup">
-      <button onClick={() => openModal('login')}>Login</button>
-      &nbsp;or&nbsp;
-      <button onClick={() => openModal('signup')}>Signup</button>
+      <button className="loginBtn" onClick={() => openModal('login')}>Sign In</button>
+      <button className="signupBtn" onClick={() => openModal('signup')}>Create account</button>
     </nav>
   );
 
@@ -25,40 +24,55 @@ class Header extends React.Component {
     const { logout } = this.props
     const display = currentUser ? (
       <>
-        <div>
+          <span className="header__right_ele">
             <Link to="/tryPro">Try Pro</Link>
-          </div>
-          <div>
+          </span>
+          <span>
             <Link to="/upload">Upload</Link>
-          </div>
-          <div className="header__userNav">
-            <div className="userDropDown">
-              <img className="header__userImage"/>
-              <span>{currentUser.username}</span>
-              {/* User profile dropdown goes here */}
+          </span>
+          <div className="userIcons">
+            <div className="header__userNav">
+              <div className="userDropDown">
+                <img className="header__userImage"/>
+                <span>{currentUser.username}</span>
+                {/* User profile dropdown goes here */}
+              </div>
             </div>
-          </div>
-          <div className="header__userNotifications">
-            {/* notification dropdown goes here */}
-            <button>
-              <Messages/>
-            </button>
-          </div>
-          <div className="header__messages">
-            {/* message dropdown goes here */}
-            <button>
-              <NotifBell/>
-            </button>
+            <div className="header__userNotifications">
+              {/* notification dropdown goes here */}
+              <button>
+                <Messages/>
+              </button>
+            </div>
+            <div className="header__messages">
+              {/* message dropdown goes here */}
+              <button>
+                <NotifBell/>
+              </button>
+            </div>
+            <div className="header__settings">
+              {/* message dropdown goes here */}
+              <button>
+                <MoreOptions/>             
+              </button>
+            </div>
           </div>
       </>
     ) : (
 
       // NOT LOGGED IN DISPLAY
       <>
-        <h1>Not logged in</h1>
         {sessionLinks()}
-        <div>
+        <span>
           <Link to="/upload">Upload</Link>
+        </span>
+        <div className="userIcons">
+          <div>
+
+            <button>
+              <MoreOptions/>             
+            </button>
+          </div>
         </div>
       </>
     );
@@ -115,17 +129,17 @@ class Header extends React.Component {
               </button> */}
             {/* </div>  */}
             {display}
-            <div className="header__settings">
+            {/* <div className="header__settings">
               {/* message dropdown goes here */}
-              <button>
+              {/* <button>
                 <MoreOptions/>             
-              </button>
-            </div>
+              </button> */}
+            {/* </div> */}
           </div>
         {/* <img width='100px' height='100px' src={window.logoURL} /> */}
       {/* {sessionLinks()} */}
       </div>
-      <button onClick={logout}> lgt</button>
+        <button onClick={logout}> lgt</button>
       </nav>
     )
   }
