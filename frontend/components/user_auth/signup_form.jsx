@@ -113,9 +113,7 @@ class SignUpForm extends React.Component {
       return this.setState({showGenderError: true})
     } else if (this.state.gender === ''){
       return this.setState({showGenderError: true})
-    } else {
-      this.setState({showGenderError: false})
-    }
+    } 
     if (this.state.showGenderError == false && this.state.showAgeError == false){
       // debugger
       return this.setState({formNum: 3})
