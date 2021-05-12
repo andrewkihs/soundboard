@@ -1,4 +1,5 @@
 import React from 'react';
+import { closeModal } from '../../actions/modal_actions';
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -17,14 +18,18 @@ class SignUpForm extends React.Component {
       showPasswordError: false,
       showGenderError: false,
       showAgeError: false,
+      showDisplayNameEror: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.generateRandomUsername = this.generateRandomUsername.bind(this)
-    this.handleDemo = this.handleDemo.bind(this)
+    this.handleDemoUser = this.handleDemoUser.bind(this)
     this.isValidEmail = this.isValidEmail.bind(this)
     this.handleEmail = this.handleEmail.bind(this)
     this.handlePassword = this.handlePassword.bind(this)
     this.handleAgeAndGender = this.handleAgeAndGender.bind(this)
+    this.handleDisplayName = this.handleDisplayName.bind(this)
+    this.handleEnterClick = this.handleEnterClick.bind(this)
+
   }
   
   update(field) {
@@ -34,11 +39,9 @@ class SignUpForm extends React.Component {
   }
   
   handleSubmit(e) {
-    e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.closeModal()
     this.props.processForm(user);
-    // console.log(user)
   }
 
   componentDidMount(){
@@ -68,19 +71,17 @@ class SignUpForm extends React.Component {
     }    
   }
   isValidEmail(email) {
+
     //regex pulled from https://www.w3resource.com/javascript/form/email-validation.php
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
-    {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)){
       return true
+    } else {
+      return false
     }
-    // alert("You have entered an invalid email address!")
-    return false
   }
 
   handleEmail(){
-  
     if (!this.isValidEmail(this.state.email)){
-  
       this.setState({showEmailError: true})
     } else {
         return this.setState({formNum: 1})
@@ -88,50 +89,72 @@ class SignUpForm extends React.Component {
   }
 
   handlePassword(){
-    // debugger
     if (this.state.password.length < 6){
-      //bad password
+      // password too short
       return this.setState({showPasswordError: true})
     } else {
       return this.setState({formNum: 2})
     }
   }
 
-  handleDemo(e){
-    this.setState({username: 'DemoUser', password: 'password'})
-  }
 
   handleAgeAndGender(){
-    // this.setState({showGenderError: false, showAgeError: false})
     if (this.state.age < 13){
       return this.setState({showAgeError: true})
     } else {
       this.setState({showAgeError: false})
     }
-    // debugger
     if (this.state.gender === 'Indicate your Gender'){
       return this.setState({showGenderError: true})
     } else if (this.state.gender === ''){
       return this.setState({showGenderError: true})
     } 
     if (this.state.showGenderError == false && this.state.showAgeError == false){
-      // debugger
       return this.setState({formNum: 3})
     }
     return 
   }
 
+  handleDisplayName(){
+    if (this.state.display_name === ''){
+      return this.setState({showDisplayNameEror: true})
+    } else {
+      this.handleSubmit();
+    }
+  }
+
+  handleEnterClick = e => {
+    if (e.key === 'Enter' ) {
+      if (this.state.formNum === 0){
+        this.handleEmail();
+      }
+      if(this.state.formNum === 1){
+        this.handlePassword();
+      }
+      if(this.state.formNum === 2){
+        this.handleAgeAndGender();
+      }
+      if(this.state.formNum === 3){
+        this.handleDisplayName();
+      }
+    }
+  };
+  
+  handleDemoUser(e){
+    const user = {email: 'demouser@gmail.com', password: 'password'}
+    this.props.login(user).then(this.props.closeModal())
+  }
   render() {
     if (this.state.formNum === 0){
       return (
         <>
-          <div className="fakeAuthBtn">
+          <div className="fakeAuthBtns">
 
-            <button className="demoFB">Continue with Demo User</button>
+            <button className="demoFB" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
-            <button className="demoGoog">Continue with Demo User</button>
+            <button className="demoGoog" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
-            <button className="demoApple">Continue with Demo User</button>
+            <button className="demoApple" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
           </div>
           <div className="auth-method-separator">
@@ -144,12 +167,13 @@ class SignUpForm extends React.Component {
             value={this.state.email}
             onChange={this.update('email')}
             className="login-input"
-            placeholder="Email"
+            placeholder="Your email address"
+            onKeyPress={this.handleEnterClick}
             />
          
           <p>{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
           <br/>
-          <button onClick={this.handleEmail}>Continue</button>
+          <button onClick={this.handleEmail} >Continue</button>
 
 
           <p className="form-boilerplate">We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
@@ -162,13 +186,14 @@ We may use information you provide us in order to show you targeted ads as descr
     if (this.state.formNum === 1) {
       return (
         <>
-          {/* <button onClick={this.nextForm(0)}>{this.state.email}</button> */}
+          <button onClick={this.nextForm(0)}>{this.state.email}</button>
           <br/>
           <label>Choose a password
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               className="login-input"
+              onKeyPress={this.handleEnterClick}
             />
           </label>
           <br/>
@@ -188,14 +213,17 @@ We may use information you provide us in order to show you targeted ads as descr
             <input type="number"
               value={this.state.age}
               onChange={this.update('age')}
+              onKeyPress={this.handleEnterClick}
               className="login-input"
             />
-            {/* on Error Sorry, but you don't meet SoundBoard's age requirements*/}
           </label>
           <p>{this.state.showAgeError ? "Sorry, but you don't meet SoundBoard's age requirements": ""}</p>
           <br/>
           <label>Gender
-            <select onChange={this.update('gender')} defaultValue="Indicate your gender">
+            <select 
+            onChange={this.update('gender')} 
+            onKeyPress={this.handleEnterClick}
+            defaultValue="Indicate your gender">
               <option value="">Indicate your Gender</option>
               <option value>Female</option>
               <option value>Male</option>
@@ -219,16 +247,18 @@ We may use information you provide us in order to show you targeted ads as descr
             <input type="text"
             value={this.state.display_name}
             onChange={this.update('display_name')}
+            onKeyPress={this.handleEnterClick}
             className="login-input"
             />
           </label>
           <br/>
+          <p>{this.state.showDisplayNameEror? 'Display name cannot be blank': ""}</p>
           <p>Your display name can be anyting you like. Your name or artist name are good choices</p>
           <br/>
          
            <br/>
           
-          <button onClick={this.handleSubmit}>Get Started</button>
+          <button onClick={this.handleDisplayName}>Get Started</button>
         </>
       )
     }
