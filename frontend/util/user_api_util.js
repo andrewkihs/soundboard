@@ -14,19 +14,19 @@ export const logout = () =>
 export const signup = (user) =>
   $.ajax({
     method: "POST",
-    url: "/api/user",
+    url: "/api/users",
     data: { user },
   });
 
 export const fetchUser = (userId) =>
   $.ajax({
     method: "GET",
-    url: `/api/user/${userId}`,
+    url: `/api/users/${userId}`,
   });
 
 export const updateUser = (user) =>
   $.ajax({
     method: "PATCH",
-    url: `/api/user/${user.id}`,
+    url: `/api/users/${user.id}`,
     data: { user },
   });

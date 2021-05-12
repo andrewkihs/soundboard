@@ -144,6 +144,7 @@ class SignUpForm extends React.Component {
     const user = {email: 'demouser@gmail.com', password: 'password'}
     this.props.login(user).then(this.props.closeModal())
   }
+  
   render() {
     if (this.state.formNum === 0){
       return (

@@ -14,13 +14,14 @@ import  SignUpFormContainer  from './user_auth/signup_form_container'
 import Modal from './modal/modal'
 import Splash from './splash'
 import StreamContainer from './stream/stream_container'
+import UserPageShowContainer from './user_page/user_page_show_container'
 const App = () => (
   <div>
     <Modal/>
 
     <HeaderContainer/>
     <Switch>
-      {/* <Route path="/users/:userId" component={UserPageShowContainer} /> */}
+      <Route path="/users/:userId" component={UserPageShowContainer} />
       {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
       <AuthRoute exact path="/login" component={SignUpFormContainer} />
       <AuthRoute exact path="/" component={Splash} />
