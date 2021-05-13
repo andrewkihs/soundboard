@@ -5,7 +5,6 @@ import SongUpload from './song_upload'
 
 const mSTP = (state, ownProps) => {
   // debugger
-  console.log('song upload container')
   return {
     currentUser: state.entities.users[state.session.id],
     song: {

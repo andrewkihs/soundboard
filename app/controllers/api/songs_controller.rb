@@ -27,6 +27,7 @@ class Api::SongsController < ApplicationController
     params.require(:song).permit(
       :artist_id,
       :title,
+      :description,
       :audio,
       :image
 

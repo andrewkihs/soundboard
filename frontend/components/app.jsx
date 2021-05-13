@@ -26,11 +26,12 @@ const App = () => (
     <Switch>
       <Route path="/users/:userId" component={UserPageShowContainer} />
       <Route path="/songs/:songId" component={SongShowContainer} />
-      <Route path="/upload" component={SongUploadContainer} />
+      {/* <Route path="/upload" component={SongUploadContainer} /> */}
       {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
       <AuthRoute exact path="/login" component={SignUpFormContainer} />
       <AuthRoute exact path="/" component={Splash} />
       {/* <ProtectedRoute exact path="/discover" component={StreamContainer}/> */}
+      <ProtectedRoute exact path ="/upload" component ={SongUploadContainer} />
       <ProtectedRoute exact path ="/stream" component ={StreamContainer} />
     </Switch>
   </div>
