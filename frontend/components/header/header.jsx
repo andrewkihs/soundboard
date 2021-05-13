@@ -19,7 +19,6 @@ class Header extends React.Component {
     </nav>
   );
 
-
     let currentUser = this.props.currentUser;
     const { logout } = this.props
     const display = currentUser ? (
@@ -34,7 +33,7 @@ class Header extends React.Component {
             <div className="header__userNav">
               <div className="userDropDown">
                 <img className="header__userImage"/>
-                <span>{currentUser.username}</span>
+                <span>{currentUser.display_name}</span>
                 {/* User profile dropdown goes here */}
               </div>
             </div>

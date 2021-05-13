@@ -6,6 +6,7 @@ const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user,
 });
+// const loadUser = userId;
 
 export const fetchUser = (userId) => (dispatch) => {
   UserAPIUtil.fetchUser(userId).then((user) => dispatch(receiveUser(user)));

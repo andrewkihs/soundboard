@@ -19,7 +19,7 @@ export const signup = (user) =>
   });
 
 export const fetchUser = (userId) =>
-  $.ajax({
+  $.ajax({ 
     method: "GET",
     url: `/api/users/${userId}`,
   });

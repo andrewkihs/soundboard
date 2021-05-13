@@ -15,6 +15,9 @@ import Modal from './modal/modal'
 import Splash from './splash'
 import StreamContainer from './stream/stream_container'
 import UserPageShowContainer from './user_page/user_page_show_container'
+import SongShowContainer from './songs/song_show_container'
+
+
 const App = () => (
   <div>
     <Modal/>
@@ -22,6 +25,7 @@ const App = () => (
     <HeaderContainer/>
     <Switch>
       <Route path="/users/:userId" component={UserPageShowContainer} />
+      <Route path="/songs/:songId" component={SongShowContainer} />
       {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
       <AuthRoute exact path="/login" component={SignUpFormContainer} />
       <AuthRoute exact path="/" component={Splash} />

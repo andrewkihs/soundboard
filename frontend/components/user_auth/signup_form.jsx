@@ -172,7 +172,7 @@ class SignUpForm extends React.Component {
             onKeyPress={this.handleEnterClick}
             />
          
-          <p>{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
+          <p className="modal-error">{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
           <br/>
           <button onClick={this.handleEmail} >Continue</button>
 
@@ -198,7 +198,7 @@ We may use information you provide us in order to show you targeted ads as descr
             />
           </label>
           <br/>
-          <p>{this.state.showPasswordError ? 'Password must be longer than 6 characters': ""}</p>
+          <p className="modal-error">{this.state.showPasswordError ? 'Password must be longer than 6 characters': ""}</p>
           <p>By signing up I accept the Terms of use. I have read and understood the Privacy Policy and Cookies Policy</p>
           <br/>
           <button onClick={this.handlePassword}>{'Accept & continue'}</button>
@@ -218,7 +218,7 @@ We may use information you provide us in order to show you targeted ads as descr
               className="login-input"
             />
           </label>
-          <p>{this.state.showAgeError ? "Sorry, but you don't meet SoundBoard's age requirements": ""}</p>
+          <p className="modal-error">{this.state.showAgeError ? "Sorry, but you don't meet SoundBoard's age requirements": ""}</p>
           <br/>
           <label>Gender
             <select 
@@ -232,7 +232,7 @@ We may use information you provide us in order to show you targeted ads as descr
             </select>
     
           </label>
-          <p>{this.state.showGenderError ? "Please indicate your gender": ""}</p>
+          <p className="modal-error">{this.state.showGenderError ? "Please indicate your gender": ""}</p>
           <button onClick={this.handleAgeAndGender}>{'Accept & continue'}</button>
         </>
       )
@@ -253,7 +253,7 @@ We may use information you provide us in order to show you targeted ads as descr
             />
           </label>
           <br/>
-          <p>{this.state.showDisplayNameEror? 'Display name cannot be blank': ""}</p>
+          <p className="modal-error">{this.state.showDisplayNameEror? 'Display name cannot be blank': ""}</p>
           <p>Your display name can be anyting you like. Your name or artist name are good choices</p>
           <br/>
          

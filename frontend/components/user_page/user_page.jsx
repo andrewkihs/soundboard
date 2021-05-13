@@ -4,16 +4,26 @@ class UserPage extends React.Component{
   constructor(props){
     super(props)
   }
+  componentDidMount(){
+    this.props.fetchUser(this.props.userId)
+  }
+  handlePageLoad(){
+  }
 
   render(){
-    const { user } = this.props
-    debugger
-    return (
+    const { pageOwner } = this.props
+    if (pageOwner === undefined){
+      // still loading user info
+      return (<></>)
+    }else {
 
-      <>
-        Hello, {user.display_name}
+      return (
+        
+        <>
+         {pageOwner.display_name}
       </>
     )
+    }
   }
 }
 

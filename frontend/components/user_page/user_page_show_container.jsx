@@ -2,11 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions'
 import UserPage from './user_page'
+
 const mSTP = (state, ownProps) => {
   // debugger
+  // let user;
   return {
     currentUser: state.entities.users[state.session.id],
-    user: state.entities.users[ownProps.match.params.userId]
+    userId: ownProps.match.params.userId,
+    pageOwner: state.entities.users[ownProps.match.params.userId],
   }
 }
 

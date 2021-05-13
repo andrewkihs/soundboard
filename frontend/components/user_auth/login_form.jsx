@@ -115,7 +115,7 @@ class LogInForm extends React.Component {
             onKeyPress={this.handleEnterClick}
             />
          
-          <p>{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
+          <p className="modal-error">{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
           <br/>
           <button onClick={this.handleEmail} >Continue</button>
 
@@ -142,7 +142,7 @@ We may use information you provide us in order to show you targeted ads as descr
           />
           
           <br/>
-          <ul>
+          <ul className="modal-error">
             {Object.values(this.props.errors)}
         </ul>
           <p>Don't know your password?</p>
