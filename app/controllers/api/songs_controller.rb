@@ -11,7 +11,13 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create!(song_params)
+    debugger
+    @song = Song.new(song_params)
+    if @song.save
+      render '/api/songs/show'
+    else
+      render json: @songs.errors.full_messages, status: 401
+    end
     render :show
   end
 
@@ -20,7 +26,10 @@ class Api::SongsController < ApplicationController
   def song_params
     params.require(:song).permit(
       :artist_id,
-      :title
+      :title,
+      :audio,
+      :image
+
     )
   end
 

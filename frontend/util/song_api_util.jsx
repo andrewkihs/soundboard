@@ -14,12 +14,15 @@ export const fetchSong = (songId) => (
 
 
 // TODO
-// export const createSong = (song) => (
-//   $.ajax({
-//     method: 'POST',
-//     url: `api/songs/`
-//   })
-// )
+export const createSong = (formData) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/songs/`,
+    data: formData,
+    contentType: false,
+    processData: false,
+  })
+)
 
 // TODO
 // export const updateSong = (song) => (

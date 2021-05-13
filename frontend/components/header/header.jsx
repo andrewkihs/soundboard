@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import {SearchIcon, NotifBell, Messages, MoreOptions } from '../icons'
-
+import SongUploadContainer from '../songs/song_upload_container'
 class Header extends React.Component {
   constructor(props){
     super(props);
@@ -27,7 +27,7 @@ class Header extends React.Component {
             <Link to="/tryPro">Try Pro</Link>
           </span>
           <span>
-            <Link to="/upload">Upload</Link>
+            <Link to="/upload" >Upload</Link>
           </span>
           <div className="userIcons">
             <div className="header__userNav">

@@ -31,7 +31,8 @@ andrewKihs = User.create!(
   city: 'New York',
   country: "United States",
   first_name: 'Andrew',
-  last_name: 'Kihs'
+  last_name: 'Kihs',
+  bio: "Your favorite artist"
 )
 
 aphexTwin = User.create!(
@@ -45,4 +46,18 @@ aphexTwin = User.create!(
   country: "N/A",
   first_name: 'Aphex',
   last_name: 'Twin'
+)
+
+beyonce1234 = User.create!(
+  username: 'beyoncefan4lyfe',
+  email: 'beyoncerocks@gmail.com',
+  password: 'password',
+  age: 26,
+  display_name: 'Beyoncé [official page]',
+  gender: 'Female',
+  city: 'New York',
+  country: "United States",
+  first_name: 'Beyoncé',
+  last_name: 'Knowles',
+  bio: "Beyoncé Giselle Knowles-Carter is an American singer and actress. Born and raised in Houston, Texas, Beyoncé performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as the lead singer of Destiny's Child, one of the best-selling girl groups of all time. "
 )
