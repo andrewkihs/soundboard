@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactPlayer from 'react-player'
 
 class SongShow extends React.Component{
   constructor(props){
@@ -36,7 +35,7 @@ class SongShow extends React.Component{
 
  render() {
     const { song } = this.props
-    debugger
+    // debugger
     if (song === undefined){
       return (<></>)
     } 

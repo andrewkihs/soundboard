@@ -1,0 +1,16 @@
+.playhead-container {
+  width: 100%;
+  background-color: grey;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playhead-title {
+}
+
+.playhead-photo {
+  height: 24px;
+  width: 24px;
+}
