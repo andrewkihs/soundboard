@@ -16,8 +16,8 @@ export const fetchSong = (songId) => (
 
 
 export const createSong = (formDataObj) => {
-  let formData = convert.convertToSnakeCase(formDataObj);
-
+  let formData = convert.formDataConvert(formDataObj);
+  // debugger
   const req = $.ajax({
     method: 'POST',
     url: `api/songs/`,
