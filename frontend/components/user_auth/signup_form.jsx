@@ -149,13 +149,13 @@ class SignUpForm extends React.Component {
     if (this.state.formNum === 0){
       return (
         <>
-          <div className="fakeAuthBtns">
+          <div className="fake-auth-btns">
 
-            <button className="demoFB" onClick={this.handleDemoUser}>Continue with Demo User</button>
+            <button className="demo-fb" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
-            <button className="demoGoog" onClick={this.handleDemoUser}>Continue with Demo User</button>
+            <button className="demo-goog" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
-            <button className="demoApple" onClick={this.handleDemoUser}>Continue with Demo User</button>
+            <button className="demo-apple" onClick={this.handleDemoUser}>Continue with Demo User</button>
             <br/>
           </div>
           <div className="auth-method-separator">
@@ -174,7 +174,9 @@ class SignUpForm extends React.Component {
          
           <p className="modal-error">{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
           <br/>
-          <button onClick={this.handleEmail} >Continue</button>
+          <button 
+          onClick={this.handleEmail} 
+          className="continue-btn">Continue</button>
 
 
           <p className="form-boilerplate">We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
