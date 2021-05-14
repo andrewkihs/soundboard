@@ -3,6 +3,6 @@ json.song do
   json.id @song.id
   json.title @song.title
   json.description @song.description
-  json.artist_id @song.artist_id
-  json.song_url url_for(@song.audio)
+  json.artistId @song.artist_id
+  json.songUrl url_for(@song.audio)
 end

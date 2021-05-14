@@ -10,11 +10,11 @@ const mSTP = (state, ownProps) => {
     song: {
       title: '',
       description: '',
-      artist_id: state.session.id,
-      photo_file: null,
-      photo_url: null,
-      audio_file: null,
-      audio_url: null,
+      artistId: state.session.id,
+      photoFile: null,
+      photoUrl: null,
+      audioFile: null,
+      audioUrl: null,
     }
     // songId: ownProps.match.params.songId,
     // song: state.entities.songs[ownProps.match.params.songId]

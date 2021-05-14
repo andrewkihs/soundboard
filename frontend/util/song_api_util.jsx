@@ -1,3 +1,5 @@
+import * as convert from "../util/camel_to_snake";
+
 export const fetchSongs = () => (
   $.ajax({
     method: 'GET',
@@ -13,15 +15,18 @@ export const fetchSong = (songId) => (
 )
 
 
-export const createSong = (formData) => (
-  $.ajax({
+export const createSong = (formDataObj) => {
+  let formData = convert.convertToSnakeCase(formDataObj);
+
+  const req = $.ajax({
     method: 'POST',
     url: `api/songs/`,
     data: formData,
     contentType: false,
     processData: false,
   })
-)
+  return req
+}
 
 // TODO
 // export const updateSong = (song) => (
