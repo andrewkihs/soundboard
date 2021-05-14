@@ -17,11 +17,10 @@ import StreamContainer from './stream/stream_container'
 import UserPageShowContainer from './user_page/user_page_show_container'
 import SongShowContainer from './songs/song_show_container'
 import SongUploadContainer from './songs/song_upload_container'
-
+import PlayheadContainer from './playhead/playhead_container'
 const App = () => (
   <div>
     <Modal/>
-
     <HeaderContainer/>
     <Switch>
       <Route path="/users/:userId" component={UserPageShowContainer} />
@@ -34,6 +33,7 @@ const App = () => (
       <ProtectedRoute exact path ="/upload" component ={SongUploadContainer} />
       <ProtectedRoute exact path ="/stream" component ={StreamContainer} />
     </Switch>
+    <PlayheadContainer/>
   </div>
 )
 

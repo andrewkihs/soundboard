@@ -3,6 +3,7 @@ import {
   LOGOUT_CURRENT_USER,
 } from "../actions/session_actions";
 
+// import { RECEIVE_CURRENT_SONG } from "../";
 const _nullSession = {
   id: null,
 };

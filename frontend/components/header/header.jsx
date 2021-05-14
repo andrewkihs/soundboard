@@ -33,7 +33,7 @@ class Header extends React.Component {
             <div className="header__userNav">
               <div className="userDropDown">
                 <img className="header__userImage"/>
-                <span>{currentUser.display_name}</span>
+                <span>{currentUser.displayName}</span>
                 {/* User profile dropdown goes here */}
               </div>
             </div>

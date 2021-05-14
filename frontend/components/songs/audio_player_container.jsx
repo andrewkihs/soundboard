@@ -1,10 +1,3 @@
-import React from 'react'
-import { connect } from 'react-redux';
-import { fetchSong } from '../../actions/song_actions'
-import { setCurrentSong } from '../../actions/playhead_actions'
-import SongShow from './song_show'
-
-
 const mSTP = (state, ownProps) => {
 
   const songLoaded = () => {
@@ -25,8 +18,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return {
-    fetchSong: (songId) => dispatch(fetchSong(songId)),
-    setCurrentSong: (song) => dispatch(setCurrentSong(song))
+    fetchSong: (songId) => dispatch(fetchSong(songId))
   }
 }
 

@@ -80,7 +80,7 @@ a {
   align-items: center;
 }
 
-.song-form-photo-container {
+.song-form-image-container {
   vertical-align: auto;
   background: pink;
   margin: 0;
@@ -96,7 +96,7 @@ a {
   display: flex;
 }
 
-.photo-button {
+.image-button {
   background: red;
 }
 
@@ -115,7 +115,7 @@ a {
     /* height: auto; */
   }
 
-  .change-photo-btn {
+  .change-image-btn {
     position: absolute;
     top: 60%;
     left: 20%;
@@ -132,6 +132,6 @@ a {
   }
 }
 
-.init-photo-input {
+.init-image-input {
   display: none;
 }

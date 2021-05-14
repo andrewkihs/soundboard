@@ -130,9 +130,12 @@ We may use information you provide us in order to show you targeted ads as descr
     }
     if (this.state.formNum === 1) {
       return (
-        <>
+        <div className="password-form-container">
+          {/* <div className="p"> */}
 
-          <button onClick={this.nextForm(0)}>{this.state.email}</button>
+          
+          <button className="login-form-back-btn"
+          onClick={this.nextForm(0)}>{this.state.email}</button>
           <br/>
           
           <input type="password"
@@ -147,10 +150,11 @@ We may use information you provide us in order to show you targeted ads as descr
           <ul className="modal-error">
             {Object.values(this.props.errors)}
         </ul>
-          <p>Don't know your password?</p>
           <br/>
-          <button onClick={this.handleSubmit}>{'Sign in'}</button>
-        </>
+          <button className="continue-btn" onClick={this.handleSubmit}>{'Sign in'}</button>
+          <p>Don't know your password?</p>
+          {/* </div> */}
+        </div>
       )
     }
   }

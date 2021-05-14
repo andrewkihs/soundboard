@@ -4,76 +4,50 @@ import ReactPlayer from 'react-player'
 class SongShow extends React.Component{
   constructor(props){
     super(props)
+    this.state = {
+      play: false,
+      pause: true,
+      song: props.song,
+      // songUrl: props.songUrl,
+      // audioPlayer: new Audio(this.state.songUrl)
+    }
+    // debugger
+    // this.url = props.song.audioUrl;
+    // this.audio = new Audio(this.state.songUrl);
+    this.play = this.play.bind(this)
   }
   
+  play = () => {
+  // this.setState({ play: true, pause: false })
+  //   this.state.audioPlayer.play();
+    // debugger
+    this.props.setCurrentSong(this.props.song)
+  }
+  
+  pause = () => {
+  this.setState({ play: false, pause: true })
+    this.state.audioPlayer.pause();
+  }
 
   componentDidMount(){
     this.props.fetchSong(this.props.songId)
   }
-  // parseAudio(e){
-  //   const reader = new FileReader();
-  //   const file = e.currentTarget.files[0];
-  //   reader.onloadend = () =>
-  //     this.setState({ imageUrl: reader.result, imageFile: file });
-
-  //   if (file) {
-  //     reader.readAsDataURL(file);
-  //   } else {
-  //     this.setState({ imageUrl: "", imageFile: null });
-  //   }
-  // }
-  // blobToDataURL(blob, callback) {
-  // var fileReader = new FileReader();
-  // fileReader.onload = function(e) {callback(e.target.result);}
-  // fileReader.readAsDataURL(blob);
   
-// }
 
-  // togglePlay(){
-  //   var myAudio = document.getElementById("audioPlayer");
-  //   var isPlaying = false;
-
-  // }
-  // togglePlay() {
-  //   isPlaying ? myAudio.pause() : myAudio.play();
-  // };
-
-
-  //   myAudio.onplaying = function() {
-  //     this.setState({isPlaying: true};
-  //   };
-  //   myAudio.onpause = function() {
-  //     isPlaying = false;
-
-  render(){
+ render() {
     const { song } = this.props
-    // debugger
+    debugger
     if (song === undefined){
-      // still loading user info
-      return (<audio id="audioPlayer"></audio>)
-    }else {
-      // console.log(song.image_url instanceof Blob)
-      // console.log(song.image_url)
-      // const reader = new FileReader();
-      // console.log(song.song_url)
-      // console.log(song.title)
-      // console.log(song.description)
+      return (<></>)
+    } 
+    else {
+
       return (
-        
         <>
-        {/* {song.title instanceof Blob} */}
-        {/* <ReactPlayer url={song.song_url} playing/> */}
-        <audio id="audioPlayer" autoPlay>
-          
-          <source src={(song.song_url)}></source>
-        </audio>
-        {/* <a onClick={this.togglePlay}">Click here to hear.</a> */}
-         <h1>{song.title}</h1>
-         <h2>{song.description}</h2>
-      </>
-    )
-    }
+        <button onClick={this.play}>Set Current song</button>
+        </>
+      );
+   }
   }
 }
-
 export default SongShow

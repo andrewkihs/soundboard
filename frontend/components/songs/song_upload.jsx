@@ -11,7 +11,7 @@ class SongUpload extends React.Component {
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateAudio = this.updateAudio.bind(this)
-    this.updatePhoto = this.updatePhoto.bind(this)
+    this.updateimage = this.updateimage.bind(this)
   }
 
   
@@ -35,16 +35,16 @@ class SongUpload extends React.Component {
     this.setState({formNum: 1})
   }
 
-  updatePhoto(e){
+  updateimage(e){
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () =>
-      this.setState({ photoUrl: reader.result, photoFile: file });
+      this.setState({ imageUrl: reader.result, imageFile: file });
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ photoUrl: "", photoFile: null });
+      this.setState({ imageUrl: "", imageFile: null });
     }
   }
 
@@ -56,13 +56,13 @@ class SongUpload extends React.Component {
     formData.append('song[title]', this.state.title);
     formData.append('song[description]', this.state.description);
     formData.append('song[artist_id]', this.state.artistId);
-    if (this.state.photo_file) {
-      formData.append('song[image]', this.state.photo_file);
+    if (this.state.imageFile) {
+      formData.append('song[image]', this.state.imageFile);
     }
-    if (this.state.audio_file) {
-      formData.append('song[audio]', this.state.audio_file);
+    if (this.state.audioFile) {
+      formData.append('song[audio]', this.state.audioFile);
     }
-    // debugger
+    debugger
     this.props.createSong(formData)
     // debugger
   }
@@ -89,8 +89,8 @@ class SongUpload extends React.Component {
   secondPage() {
     // debugger
     let dispImg 
-    if (this.state.photoFile){
-      dispImg = <img className="song-form-album-art" src={this.state.photoUrl} />
+    if (this.state.imageFile){
+      dispImg = <img className="song-form-album-art" src={this.state.imageUrl} />
     } 
     else {
       dispImg = <div className="placeholder-album-art"/>
@@ -99,19 +99,19 @@ class SongUpload extends React.Component {
 
     
       <div className="first-form-container">
-        <div className="song-form-photo-container">
+        <div className="song-form-image-container">
 
           <div className="image-container">
             {dispImg}
-            {/* <button className="change-photo-btn">Upload Image</button> */}
-            <label className="change-photo-btn" 
-            // for="init-photo-input"
+            {/* <button className="change-image-btn">Upload Image</button> */}
+            <label className="change-image-btn" 
+            // for="init-image-input"
             >Upload image
               <input 
               type="file"
-              id ="init-photo-input"
-              className="init-photo-input"
-              onChange={(e) => this.updatePhoto(e)}
+              id ="init-image-input"
+              className="init-image-input"
+              onChange={(e) => this.updateimage(e)}
               />
             </label>
           </div>
@@ -134,12 +134,12 @@ class SongUpload extends React.Component {
                 className="songform-description"
                 />
             </label>
-            {/* <label className="photo-button" for="init-photo-input">
+            {/* <label className="image-button" for="init-image-input">
               <input 
               type="file"
-              id ="init-photo-input"
-              className="init-photo-input"
-              onChange={(e) => this.updatePhoto(e)}
+              id ="init-image-input"
+              className="init-image-input"
+              onChange={(e) => this.updateimage(e)}
               />
             </label> */}
             <br/>

@@ -18,7 +18,7 @@ class Api::SongsController < ApplicationController
     else
       render json: @songs.errors.full_messages, status: 401
     end
-    render :show
+    # render :show
   end
 
   private
@@ -30,7 +30,6 @@ class Api::SongsController < ApplicationController
       :description,
       :audio,
       :image
-
     )
   end
 
