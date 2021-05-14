@@ -29,7 +29,8 @@ class Api::SongsController < ApplicationController
       :title,
       :description,
       :audio,
-      :image
+      :image,
+      :genre
     )
   end
 

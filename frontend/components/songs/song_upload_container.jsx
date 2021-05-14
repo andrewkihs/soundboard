@@ -11,6 +11,7 @@ const mSTP = (state, ownProps) => {
       title: '',
       description: '',
       artistId: state.session.id,
+      genre: 'None',
       imageFile: null,
       imageUrl: null,
       audioFile: null,

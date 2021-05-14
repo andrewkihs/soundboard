@@ -228,9 +228,9 @@ We may use information you provide us in order to show you targeted ads as descr
             onKeyPress={this.handleEnterClick}
             defaultValue="Indicate your gender">
               <option value="">Indicate your Gender</option>
-              <option value>Female</option>
-              <option value>Male</option>
-              <option value>Prefer not to say</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Prefer not to say">Prefer not to say</option>
             </select>
     
           </label>
