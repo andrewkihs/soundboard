@@ -91,7 +91,7 @@ class LogInForm extends React.Component {
 
      if (this.state.formNum === 0){
       return (
-        <>
+        <div className="login-container">
           <div className="fake-auth-btns">
 
             <button className="demo-fb" onClick={this.handleDemoUser}>Continue with Demo User</button>
@@ -125,7 +125,7 @@ class LogInForm extends React.Component {
           <p className="form-boilerplate">We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
 
 We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
-        </>
+        </div>
       )
     }
     if (this.state.formNum === 1) {
