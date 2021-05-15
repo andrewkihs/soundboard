@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const VolumeButton = (props) => {
+export const VolumeButton = (props) => (
 <svg 
 xmlns="http://www.w3.org/2000/svg" 
 width="24" 
@@ -9,9 +9,10 @@ height="24"
   <path fill="#333" 
   d="M4 9h4.002L12 5v14c-2.446-2.667-3.778-4-3.998-4H4V9zm10 4a1 1 0 0 0 0-2V9a3 3 0 0 1 0 6v-2zm0 4a5 5 0 0 0 0-10V5a7 7 0 0 1 0 14v-2z"/>
 </svg>
-}
+)
 
-export const PlayButton = (props) => {
+export const PlayButton = (props) => (
+
   <svg 
   xmlns="http://www.w3.org/2000/svg" 
   width="24" 
@@ -19,10 +20,11 @@ export const PlayButton = (props) => {
   {...props}>
     <path fill="#333" d="M8 5v14l11-7z"/></svg>
 
-}
+)
 
 
-export const BackButton = (props) => {
+
+export const BackButton = (props) => (
   <svg 
   xmlns="http://www.w3.org/2000/svg" 
   width="24" 
@@ -33,9 +35,9 @@ export const BackButton = (props) => {
     d="M7 6h2v12H7V6zm2 6l8 6V6l-8 6z"
     />
   </svg>
-}
+)
 
-export const NextButton = (props) => {
+export const NextButton = (props) => (
   <svg 
   xmlns="http://www.w3.org/2000/svg" 
   width="24" 
@@ -46,8 +48,8 @@ export const NextButton = (props) => {
     d="M7 18l8-6-8-6v12zm8-12v12h2V6h-2z"/>
     </svg>
 
-}
-export const LikeButton = (props) => {
+)
+export const LikeButton = (props) => (
 
   <svg 
   width="16px" 
@@ -69,8 +71,8 @@ export const LikeButton = (props) => {
     </g>
 </svg>
 
-}
-export const FollowButton = (props) => {
+)
+export const FollowButton = (props) => (
   <svg 
   xmlns="http://www.w3.org/2000/svg" 
   width="24" 
@@ -81,9 +83,9 @@ export const FollowButton = (props) => {
     d="M10.5 5c3.25 0 3.944 3.236 2.5 7 3.717 1.534 4 4.85 4 6H4c0-1.15.283-4.466 4-6-1.445-3.775-.75-7 2.5-7zM18 4a1 1 0 011 1v1h1a1 1 0 010 2h-1v1a1 1 0 01-2 0V7.999L16 8a1 1 0 010-2l1-.001V5a1 1 0 011-1z"/>
     </svg>
 
-}
+)
 
-export const AfterLikeButton = (props) => {
+export const AfterLikeButton = (props) => (
 <svg 
 width="16px" 
 height="16px" 
@@ -103,5 +105,17 @@ version="1.1"
     </g>
 </svg>
 
-}
+)
+export const PauseButton = props => (
+  <svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  width="24" 
+  height="24"
+  {...props}>
+    <path 
+    fill="#333" 
+    d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+    </svg>
+
+)
 

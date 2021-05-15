@@ -25,12 +25,17 @@ class Playhead extends React.Component {
       return (
         <>
         <div className="playhead-container">
-          <AudioPlayer currentSong={currentSong}/>
-          <img className="playhead-photo" src={currentSong.imageUrl}/>
+          <div className="playhead-outer">
 
-          
-                        
-          <div className="playhead-title">{currentSong.title}</div>
+            <AudioPlayer currentSong={currentSong}/>
+            <br/>
+
+            <br/>
+            <div className="playhead-song-info">
+              <img className="playhead-photo" src={currentSong.imageUrl}/>
+              <div className="playhead-title">{currentSong.title}</div>
+            </div>
+          </div>
         </div>
         </>
       )

@@ -1,4 +1,5 @@
 import React from 'react'
+import {PlayButton, PauseButton } from '../icons/'
 class AudioPlayer extends React.Component{
   constructor(props) {
     super(props)
@@ -94,11 +95,12 @@ class AudioPlayer extends React.Component{
     console.log(this.state.songDuration)
     // debugger
     return (
-      <div>
-        <button onClick={this.play}>Play</button>
-        <button onClick={this.pause}>Pause</button>
+      <>
+        {this.state.play ? <button onClick={this.pause}><PauseButton/></button> : <button onClick={this.play}><PlayButton/></button>}
+        {/* <button onClick={this.play}><PlayButton/></button>
+        <button onClick={this.pause}><PauseButton/></button> */}
         {this.playheadSlider()}
-      </div>
+      </>
       );
   }
 

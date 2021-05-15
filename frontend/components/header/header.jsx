@@ -11,7 +11,6 @@ class Header extends React.Component {
   render() {
     const { openModal } = this.props;
 
-    // debugger
     const sessionLinks = () => (
     <nav className="login-signup">
       <button className="loginBtn" onClick={() => openModal('login')}>Sign In</button>
@@ -23,15 +22,15 @@ class Header extends React.Component {
     const { logout } = this.props
     const display = currentUser ? (
       <>
-          <span className="header__right_ele">
-            <Link to="/tryPro">Try Pro</Link>
-          </span>
-          <span>
-            <Link to="/upload" >Upload</Link>
-          </span>
-          <div className="userIcons">
-            <div className="header__userNav">
-              <div className="userDropDown">
+            <Link className="header-box"to="/tryPro">Try Pro
+              <span/>
+            </Link>
+            <Link className="header-box"to="/upload" >Upload
+              <span />
+            </Link>
+          <div className="user-icons">
+            <div className="header__user-nav">
+              <div className="user-drop-down">
                 <img className="header__userImage"/>
                 <span>{currentUser.displayName}</span>
                 {/* User profile dropdown goes here */}
@@ -62,10 +61,10 @@ class Header extends React.Component {
       // NOT LOGGED IN DISPLAY
       <>
         {sessionLinks()}
-        <span>
-          <Link to="/upload">Upload</Link>
-        </span>
-        <div className="userIcons">
+          <Link className="header-box" to="/upload">Upload
+            <span/>
+          </Link>
+        <div className="user-icons">
           <div>
 
             <button>
@@ -82,15 +81,16 @@ class Header extends React.Component {
           <div className='header__left'>
             <img className="headerLogo"src={window.logoURL} />
 
-              <span className="selected" id="selected">
-                <Link to="/discover">Home</Link>
-              </span>
-              <span>
-                <Link to="/stream">Stream</Link>
-              </span>
-              <span>
-                <Link to="/you/library">Library</Link>
-              </span>
+                <Link className="header-box" to="/discover">Home
+                  <span className="selected" id="selected"/>         
+                </Link>
+                <Link className="header-box" to="/stream">Stream
+                  <span/>
+                </Link>
+                <Link className="header-box" to="/you/library">Library
+                  <span/>
+                </Link>
+              {/* </span> */}
 
           </div>
           <div className='header__middle'>

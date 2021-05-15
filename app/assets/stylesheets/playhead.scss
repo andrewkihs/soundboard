@@ -1,10 +1,16 @@
 .playhead-container {
   width: 100%;
   background-color: grey;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: row;
+  // align-items: center;
+  // justify-content: space-between;
+  height: 40px;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  // background-color: #393838;
+  opacity: 1;
 }
 
 .playhead-title {
@@ -13,4 +19,15 @@
 .playhead-photo {
   height: 24px;
   width: 24px;
+}
+.playhead-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playhead-song-info {
+  display: flex;
+  flex-direction: row;
 }
