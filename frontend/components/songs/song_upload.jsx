@@ -11,7 +11,8 @@ class SongUpload extends React.Component {
     // song = this.props.song
     this.state = {
       ...props.song,
-      formNum: 0
+      formNum: 0,
+      fileName: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateAudio = this.updateAudio.bind(this)
@@ -33,7 +34,7 @@ class SongUpload extends React.Component {
     if (file === undefined) {
       file = e.currentTarget.files[0];
     } 
- 
+    this.setState({fileName: file.name})
     jsmediatags.read(file, {
       onSuccess: tag => {
         debugger
@@ -45,12 +46,7 @@ class SongUpload extends React.Component {
       }
     })
 
-    // if (audioID3.tags){
-
-    //   if (audioID3.tags.picture){
-    //     this.updateImage(e, audioID3.tags.picture)
-    //   }
-    // }
+   
     console.log('after id3')
     debugger;
 
@@ -102,7 +98,6 @@ class SongUpload extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const formData = new FormData();
     // debugger
@@ -129,7 +124,7 @@ class SongUpload extends React.Component {
         onDropCapture={this.handleDrop}
         onDragOver={this.handleDragOver}
         >
-
+          
           <div className='song-form-center-ele'>
             <h1> Drag and drop your tracks and albums here</h1>
             <input 
@@ -155,8 +150,16 @@ class SongUpload extends React.Component {
     }
     return (
 
-    
-      <div className="first-form-container">
+      <div className="large-second-form-container">
+      <div className='learn-more-audio'>
+        <p>Provide FLAC, WAV, ALAC, or AIFF for highest audio quality. Learn more about lossless HD.</p>
+        <button>Replace file</button>
+      </div>
+      <div className="song-progress-bar">
+          <p className="filename"> {this.state.fileName}</p>
+          <p className="ready-post"> Ready. Click Save to post this track.</p>
+      </div>
+      <div className="second-form-container">
         <div className="song-form-image-container">
 
           <div className="image-container">
@@ -255,6 +258,7 @@ class SongUpload extends React.Component {
             <br/>
             <button type="submit" onClick={this.handleSubmit}>Submit</button>
           </div>
+        </div>
         </div>
       </div>
       )
