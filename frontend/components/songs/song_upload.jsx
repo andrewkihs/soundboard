@@ -47,7 +47,7 @@ class SongUpload extends React.Component {
     })
 
    
-    console.log('after id3')
+    // console.log('after id3')
     debugger;
 
     reader.onloadend = () => {
@@ -120,6 +120,7 @@ class SongUpload extends React.Component {
     return (
 
       <div className="first-form-container">
+        {/* <div className="above-drag-drop"></div> */}
         <div className="drag-drop-song-form" 
         onDropCapture={this.handleDrop}
         onDragOver={this.handleDragOver}

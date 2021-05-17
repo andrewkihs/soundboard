@@ -22,6 +22,7 @@ class Playhead extends React.Component {
     else{
       // audioPlayer = new Audio(currentSong.songUrl)
       // audioPlayer.play();
+      debugger
       return (
         <>
         <div className="playhead-container">

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import SongIndexItemContainer from './song_index_item_container'
 class SongShow extends React.Component{
   constructor(props){
     super(props)
@@ -40,10 +40,14 @@ class SongShow extends React.Component{
       return (<></>)
     } 
     else {
-
+      // debugger
       return (
         <>
-        <button onClick={this.play}>Set Current song</button>
+          {/* <img className="image" src={song.imageURL} width="100px" height="100px"/>
+          <div className="title">{song.title}</div>
+          <div className="genre">{song.genre}</div>
+          <button onClick={this.play}>Set Current song</button> */}
+          <SongIndexItemContainer song={this.props.song}/>
         </>
       );
    }

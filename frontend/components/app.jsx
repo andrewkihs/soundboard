@@ -28,6 +28,7 @@ const App = () => (
     <Switch>
         <Route path="/users/:userId" component={UserPageShowContainer} />
         <Route path="/songs/:songId" component={SongShowContainer} />
+        {/* <Route path="/songs/" component={SongUploadContainer}/> */}
         {/* <Route path="/upload" component={SongUploadContainer} /> */}
         {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
         <AuthRoute exact path="/login" component={LoginFormContainer} />

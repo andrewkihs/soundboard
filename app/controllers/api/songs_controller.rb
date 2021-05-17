@@ -1,9 +1,9 @@
 class Api::SongsController < ApplicationController
 
-  # def index
-  #   @songs = Song.all
-  #   render 'api/songs/index'
-  # end
+  def index
+    @songs = Song.all
+    render 'api/songs/index'
+  end
 
   def show
     @song = Song.find(params[:id])
@@ -11,12 +11,13 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    debugger
+    # debugger
     @song = Song.new(song_params)
+    # debugger
     if @song.save
       render '/api/songs/show'
     else
-      render json: @songs.errors.full_messages, status: 401
+      render json: @song.errors.full_messages, status: 401
     end
     # render :show
   end
