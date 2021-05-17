@@ -115,7 +115,7 @@ class LogInForm extends React.Component {
             onKeyPress={this.handleEnterClick}
             />
          
-          <p className="modal-error">{this.state.showEmailError ? 'Please Enter a valid email': ""}</p>
+          <p className="modal-error">{this.state.showEmailError ? 'Please enter a valid email': ""}</p>
           <br/>
           <button 
           onClick={this.handleEmail} 

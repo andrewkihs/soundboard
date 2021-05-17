@@ -10,6 +10,7 @@ class Header extends React.Component {
       settingsDrop: false,
       messageDrop: false,
       notifDrop: false,
+      userDrop: false,
       // currPath: this.props.currPath
     }
     // debugger
@@ -33,14 +34,20 @@ class Header extends React.Component {
 
   handleSettingsClick(e) {
     const currClass = e.currentTarget.className;
-   
-    if (currClass === 'settings-btn'){
+    const currEle = e.currentTarget
+
+    currEle.classList.add("selected")
+    if (currClass === 'user-drop-down'){
+      this.setState({userDrop: true})
+    }
+    if (currClass === 'settings-btn-container'){
+      console.log('enter')
       this.setState({settingsDrop: true})
     }
-    if (currClass === 'message-btn'){
+    else if (currClass === 'message-btn-container'){
       this.setState({messageDrop: true})
     }
-    if (currClass === 'notif-btn'){
+    else if (currClass === 'notif-btn-container'){
       this.setState({notifDrop: true})
     }
   }
@@ -48,13 +55,19 @@ class Header extends React.Component {
 
   leave(e) {
     const currClass = e.currentTarget.className;
-    if (currClass === 'settings-btn'){
+    const currEle = e.currentTarget;
+    currEle.classList.remove("selected")
+    if (currClass === 'user-drop-down'){
+      this.setState({userDrop: false})
+    }
+    if (currClass === 'settings-btn-container selected'){
+      console.log('leave')
       this.setState({settingsDrop: false})
     }
-    if (currClass === 'message-btn'){
+    if (currClass === 'message-btn-container selected'){
       this.setState({messageDrop: false})
     }
-    if (currClass === 'notif-btn'){
+    if (currClass === 'notif-btn-container selected'){
       this.setState({notifDrop: false})
     }
   }
@@ -82,29 +95,32 @@ class Header extends React.Component {
     const { logout } = this.props
     const display = currentUser ? (
       <>
+        <div>
+
         <Link 
           onFocus={this.handleTabClick} 
           onBlur={this.leaveTab} 
-          className="header-box"
+          className="header-box-right"
           to="/tryPro">Try Pro
           <span />
         </Link>
         <Link 
           onFocus={this.handleTabClick} 
           onBlur={this.leaveTab} 
-          className="header-box"
+          className="header-box-right"
           to="/upload" >Upload
         <span />
         </Link>
+        </div>
         <div className="user-icons">
           <div className="header__user-nav">
             <div className="user-drop-down">
-              <img className="header__userImage"/>
-              <span>{currentUser.displayName}</span>
+              <img className="header__user-image"/>
+              <span className="header-display-name">{currentUser.displayName}</span>
               {/* User profile dropdown goes here */}
             </div>
           </div>
-          <div className="message-btn-container">
+          <div className="message-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
             {/* notification dropdown goes here */}
             <button className="message-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <Messages/>
@@ -114,7 +130,7 @@ class Header extends React.Component {
               </ul>
             </button>
           </div>
-          <div className="notif-btn-container">
+          <div className="notif-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
             {/* message dropdown goes here */}
             <button className="notif-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <NotifBell/>
@@ -124,12 +140,12 @@ class Header extends React.Component {
               </ul>
             </button>
           </div>
-          <div className="settings-btn-container">
+          <div className="settings-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
             <button className="settings-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}> 
               <MoreOptions/>   
               <ul id="settings-dropdown" className={this.state.settingsDrop ? 'reveal' : 'hide'}>
                 <li>Settings dropdown</li>
-                <li> Dropdown content 2</li>
+                <li><a onClick={logout}> Logout</a></li>
               </ul>
             </button>
           </div>
@@ -141,13 +157,16 @@ class Header extends React.Component {
       // NOT LOGGED IN DISPLAY
       <>
         {sessionLinks()}
+        <div>
+
           <Link 
             onFocus={this.handleTabClick} 
             onBlur={this.leaveTab} 
-            className="header-box" 
+            className="header-box-right" 
             to="/upload">Upload
             <span/>
           </Link>
+        </div>
         <div className="user-icons">
           <div>
 
@@ -200,7 +219,7 @@ class Header extends React.Component {
             {display}          
           </div>
       </div>
-        <button onClick={logout}> lgt</button>
+        {/* <button onClick={logout}> lgt</button> */}
       </nav>
     )
   }

@@ -2,9 +2,13 @@
   padding: 0 30px;
   width: 1180px;
   background: white;
-  height: 100%;
-  margin: auto;
-  // width: 50%;
+  // min-height: 100%;
+  // position: absolute;
+  margin: 0 auto;
+  // top: 92px;
+  min-height: 100vh;
+  bottom: 0;
+  // left: ;
 }
 
 body {
