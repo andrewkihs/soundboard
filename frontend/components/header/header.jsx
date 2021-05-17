@@ -35,9 +35,10 @@ class Header extends React.Component {
   handleSettingsClick(e) {
     const currClass = e.currentTarget.className;
     const currEle = e.currentTarget
-
+    
     currEle.classList.add("selected")
     if (currClass === 'user-drop-down'){
+      console.log('user-drop-down click')
       this.setState({userDrop: true})
     }
     if (currClass === 'settings-btn-container'){
@@ -57,11 +58,11 @@ class Header extends React.Component {
     const currClass = e.currentTarget.className;
     const currEle = e.currentTarget;
     currEle.classList.remove("selected")
-    if (currClass === 'user-drop-down'){
+    if (currClass === 'user-drop-down selected'){
+      console.log('user-drop-down leave')
       this.setState({userDrop: false})
     }
     if (currClass === 'settings-btn-container selected'){
-      console.log('leave')
       this.setState({settingsDrop: false})
     }
     if (currClass === 'message-btn-container selected'){
@@ -97,13 +98,20 @@ class Header extends React.Component {
       <>
         <div>
 
-        <Link 
+        {/* <Link 
           onFocus={this.handleTabClick} 
           onBlur={this.leaveTab} 
           className="header-box-right"
-          to="/tryPro">Try Pro
+          to="/Github"
+          target="_blank">GitHub
           <span />
-        </Link>
+        </Link> */}
+        <a 
+        target="_blank" 
+        className="header-box-right"
+        href="https://github.com/andrewkihs">GitHub
+        <span />
+        </a>
         <Link 
           onFocus={this.handleTabClick} 
           onBlur={this.leaveTab} 
@@ -114,14 +122,16 @@ class Header extends React.Component {
         </div>
         <div className="user-icons">
           <div className="header__user-nav">
-            <div className="user-drop-down">
+            <div className="user-drop-down" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <img className="header__user-image"/>
-              <span className="header-display-name">{currentUser.displayName}</span>
-              {/* User profile dropdown goes here */}
+                <span className="header-display-name">{currentUser.displayName}</span>
+                <ul id="message-dropdown" className={this.state.userDrop? 'reveal' : 'hide'}>
+                <li>Message dropdown</li>
+                <li> Dropdown content 2</li>
+              </ul>
             </div>
           </div>
           <div className="message-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-            {/* notification dropdown goes here */}
             <button className="message-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <Messages/>
               <ul id="message-dropdown" className={this.state.messageDrop? 'reveal' : 'hide'}>
@@ -131,7 +141,6 @@ class Header extends React.Component {
             </button>
           </div>
           <div className="notif-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-            {/* message dropdown goes here */}
             <button className="notif-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <NotifBell/>
               <ul id="notif-dropdown" className={this.state.notifDrop ? 'reveal' : 'hide'}>

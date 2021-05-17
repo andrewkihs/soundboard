@@ -1,5 +1,9 @@
 import React from 'react'
-
+import jsmediatags from 'jsmediatags'
+// var jsmediatags = require("jsmediatags");
+// TODO
+// add back button on page 2
+// 
 
 class SongUpload extends React.Component {
   constructor(props) {
@@ -12,6 +16,8 @@ class SongUpload extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateAudio = this.updateAudio.bind(this)
     this.updateimage = this.updateimage.bind(this)
+    this.handleDrop = this.handleDrop.bind(this)
+    this.handleDragOver = this.handleDragOver.bind(this)
   }
 
   
@@ -21,12 +27,38 @@ class SongUpload extends React.Component {
     });
   }
 
-  updateAudio(e){
+  updateAudio(e, file){
     const reader = new FileReader();
-    const file = e.currentTarget.files[0];
-    reader.onloadend = () =>
-      this.setState({ audioUrl: reader.result, audioFile: file });
+    const audioID3 = {}
+    if (file === undefined) {
+      file = e.currentTarget.files[0];
+    } 
+ 
+    jsmediatags.read(file, {
+      onSuccess: tag => {
+        debugger
+        Object.assign(audioID3, tag)
+        this.setState({title: tag.tags.title})  
+      },
+      onError: function(error) {
+        console.log(':(', error.type, error.info);
+      }
+    })
 
+    // if (audioID3.tags){
+
+    //   if (audioID3.tags.picture){
+    //     this.updateImage(e, audioID3.tags.picture)
+    //   }
+    // }
+    console.log('after id3')
+    debugger;
+
+    reader.onloadend = () => {
+      this.setState({ audioUrl: reader.result, audioFile: file });
+      // debugger
+    }
+    debugger
     if (file) {
       reader.readAsDataURL(file);
     } else {
@@ -35,9 +67,12 @@ class SongUpload extends React.Component {
     this.setState({formNum: 1})
   }
 
-  updateimage(e){
+  updateimage(e, file){
     const reader = new FileReader();
-    const file = e.currentTarget.files[0];
+    debugger
+    if (file === undefined){
+      file = e.currentTarget.files[0];
+    }
     reader.onloadend = () =>
       this.setState({ imageUrl: reader.result, imageFile: file });
 
@@ -46,6 +81,24 @@ class SongUpload extends React.Component {
     } else {
       this.setState({ imageUrl: "", imageFile: null });
     }
+  }
+
+  handleDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('File dropped')
+    const file = e.dataTransfer.files[0]
+    // debugger
+    if (file.type.includes('audio')){
+      this.updateAudio(e, file)
+    } else {
+      // error handling for incorrect file type
+    }
+  }
+
+  handleDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
 
   handleSubmit(e) {
@@ -63,7 +116,7 @@ class SongUpload extends React.Component {
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
     }
-    debugger
+    // debugger
     this.props.createSong(formData)
     // debugger
   }
@@ -72,12 +125,16 @@ class SongUpload extends React.Component {
     return (
 
       <div className="first-form-container">
-        <div className="drag-drop-song-form">
+        <div className="drag-drop-song-form" 
+        onDropCapture={this.handleDrop}
+        onDragOver={this.handleDragOver}
+        >
 
           <div className='song-form-center-ele'>
             <h1> Drag and drop your tracks and albums here</h1>
             <input 
               type="file"
+              accept='audio/*'
               onChange={(e) => this.updateAudio(e)}
               />
             <br/>
@@ -111,6 +168,7 @@ class SongUpload extends React.Component {
               <input 
               type="file"
               id ="init-image-input"
+              accept="image/*"
               className="init-image-input"
               onChange={(e) => this.updateimage(e)}
               />
