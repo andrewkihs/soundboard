@@ -10,6 +10,19 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "*"],
   },
+  resolve: {
+    // root: path.resolve('./src'),
+    extensions: [".js", ".jsx"],
+    alias: {
+      // workaround for https://github.com/aadsm/jsmediatags/issues/116
+      jsmediatags: "jsmediatags/dist/jsmediatags.min.js",
+
+      // We can restore this later if we solve issue #11
+      // 'preact-compat': 'preact-compat/dist/preact-compat',
+      // react: 'preact-compat/dist/preact-compat',
+      // 'react-dom': 'preact-compat/dist/preact-compat'
+    },
+  },
   module: {
     rules: [
       {

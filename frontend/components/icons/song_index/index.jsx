@@ -4,12 +4,10 @@ import React from 'react'
 export const PauseIndexButton = (props) => (
 <svg width="7px" 
 height="12px" 
-viewBox="0 0 7 12" 
-version="1.1" xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 7 12"  
 {...props}>
 
     <title>Play 24</title>
-    <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" 
     stroke="none" 
@@ -47,7 +45,6 @@ ersion="1.1"
     fillRule="evenodd" >
         <g 
         id="buttons" 
-        sketch:type="MSArtboardGroup" 
         transform="translate(-1653.000000, -890.000000)" 
         fill="#FFFFFF">
             <path 

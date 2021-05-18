@@ -6,16 +6,14 @@ import SongIndexItem from './song_index_item'
 
 const mSTP = (state, ownProps) => {
 
-  debugger
-  const songLoaded = () => {
+  // debugger
+  // const songLoaded = () => {
   
-  }
+  // }
 
   return {
     currentUser: state.entities.users[state.session.id],
-    // songId: ownProps.match.params.songId,
-    song: ownProps.song,
-    // songUrl: (songLoaded() ? state.entities.songs[ownProps.match.params.songId].songUrl : '')
+    song: state.entities.songs[ownProps.songId],
   }
 }
 
@@ -24,6 +22,7 @@ const mDTP = dispatch => {
     fetchSong: (songId) => dispatch(fetchSong(songId)),
     setCurrentSong: (song) => dispatch(setCurrentSong(song))
   }
+  
 }
 
 export default connect(mSTP, mDTP)(SongIndexItem)

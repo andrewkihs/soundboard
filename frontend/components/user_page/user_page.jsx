@@ -20,8 +20,8 @@ class UserPage extends React.Component{
       return (
         
         <>
-         <h1>Display Name: {pageOwner.display_name}</h1>
-         <h1>{pageOwner.first_name} {pageOwner.last_name}</h1>
+         <h1>Display Name: {pageOwner.displayName}</h1>
+         <h1>{pageOwner.firstName} {pageOwner.lastName}</h1>
          <h1>Username: {pageOwner.username}</h1>
          {/* <h2>Age: {pageOwner.age}</h2> */}
          <h2>{pageOwner.city},{pageOwner.country}</h2>

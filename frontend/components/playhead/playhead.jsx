@@ -9,8 +9,8 @@ class Playhead extends React.Component {
       pause: false,
     }
   }
-  debugger
   render(){
+    // debugger
     const { currentSong } = this.props
     if (!currentSong) {
       return (
@@ -22,7 +22,7 @@ class Playhead extends React.Component {
     else{
       // audioPlayer = new Audio(currentSong.songUrl)
       // audioPlayer.play();
-      debugger
+      // debugger
       return (
         <>
         <div className="playhead-container">
