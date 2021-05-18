@@ -1,18 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { fetchSong } from '../../actions/song_actions'
-import { createLike } from '../../actions/like_actions'
+import { createLike, deleteLike } from '../../actions/like_actions'
 import { playSong, setCurrentSong } from '../../actions/playhead_actions'
 import { createComment } from '../../actions/comment_actions'
 import SongIndexItem from './song_index_item'
 
 const mSTP = (state, ownProps) => {
 
-  // debugger
-  // const songLoaded = () => {
-  
-  // }
+  let currentUser = state.entities.users[state.session.id];
   let currentSongPlaying = false;
+  let userLikesSong = false;
+  let currentLikeId
+  // debugger
   if (state.playhead.currentSong){
     if (state.playhead.currentSong.id.toString() === ownProps.songId){
       currentSongPlaying = true;
@@ -20,11 +20,21 @@ const mSTP = (state, ownProps) => {
       currentSongPlaying = false;
     }
   }
-  // debugger
+  if(currentUser.likes){
+
+    if(currentUser.likes[ownProps.songId]){
+
+      userLikesSong = true;
+      currentLikeId = currentUser.likes[ownProps.songId].id
+    }
+  }
+    // debugger
   return {
-    currentUser: state.entities.users[state.session.id],
+    currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],
-    currentlyPlaying: currentSongPlaying
+    currentlyPlaying: currentSongPlaying,
+    userLikesSong: userLikesSong,
+    currentLikeId: currentLikeId
   }
 }
 
@@ -35,7 +45,8 @@ const mDTP = dispatch => {
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
     createComment: (comment, songId) => dispatch(createComment(comment, songId)),
-    createLike: (like, songId) => dispatch(createLike(like))
+    createLike: (like, songId) => dispatch(createLike(like)),
+    deleteLike: (likeId, song) => dispatch(deleteLike(likeId, song))
   }
   
 }

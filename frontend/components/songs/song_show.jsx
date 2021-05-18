@@ -43,10 +43,6 @@ class SongShow extends React.Component{
       // debugger
       return (
         <>
-          {/* <img className="image" src={song.imageURL} width="100px" height="100px"/>
-          <div className="title">{song.title}</div>
-          <div className="genre">{song.genre}</div>
-          <button onClick={this.play}>Set Current song</button> */}
           <SongIndexItemContainer songId={this.props.song.id}/>
         </>
       );

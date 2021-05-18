@@ -9,25 +9,25 @@ class AudioPlayer extends React.Component{
       songDuration: 0,
       dummyTime: 0,
     }
-    this.audio = new Audio(props.currentSong.songUrl)
+    
+  
+  this.play = this.play.bind(this)
+  this.pause = this.pause.bind(this)
+  this.setTime = this.setTime.bind(this)
+}
 
+
+  componentDidMount(){
+    this.audio = new Audio(props.currentSong.songUrl)
     this.audio.onloadedmetadata = () => {
       console.log(this.audio.duration)
       this.setState({
         songDuration: this.audio.duration,
         // currentTime: this.audio.currentTime
       })
-    }
-    this.play = this.play.bind(this)
-    this.pause = this.pause.bind(this)
-    this.setTime = this.setTime.bind(this)
+    this.play()
   }
-
-
-  componentDidMount(){
-    // debugge
-  }
-
+}
   play(){
     this.props.ownProps.playSong()
     this.setState({paused: false})
@@ -40,7 +40,7 @@ class AudioPlayer extends React.Component{
   
   pause(){
   // this.setState({ play: false, pause: true })
-    this.props.ownProps.pauseSong();
+    // this.props.ownProps.pauseSong();
     this.setState({paused: true})
     this.audio.pause();
   }
@@ -83,8 +83,6 @@ class AudioPlayer extends React.Component{
           step="0.001"
           value={this.audio.currentTime}
           onChange={this.setTime(this.value)}
-
-          // value={20}
           />
         </div>
       </>
@@ -92,10 +90,8 @@ class AudioPlayer extends React.Component{
   }
   
   render() {
-    // console.log(this.audio.currentTime);
-    // console.log(this.state.dummyTime)
-    // console.log(this.state.songDuration)
-    // debugger
+
+    debugger
     return (
       <>
         {this.state.paused ? <button onClick={this.play}><PlayButton/></button> : <button onClick={this.pause}><PauseButton/></button> }

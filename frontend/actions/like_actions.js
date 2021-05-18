@@ -9,7 +9,5 @@ export const createLike = (likerId, songId) => (dispatch) =>
     dispatch(receiveSong(song))
   );
 
-export const deleteLike = (likeId, songId) => (dispatch) =>
-  APIUtil.deleteLike(likeId, songId).then((song) =>
-    dispatch(receiveSong(song))
-  );
+export const deleteLike = (likeId, song) => (dispatch) =>
+  APIUtil.deleteLike(likeId, song.id).then(() => dispatch(receiveSong(song)));

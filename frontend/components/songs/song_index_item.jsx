@@ -16,17 +16,17 @@ class SongIndexItem extends React.Component {
     super(props)
     this.state = {
       currentlyPlaying: this.props.currentlyPlaying,
-      comment: ''
+      comment: '',
+      userLikesSong: this.props.userLikesSong
     }
     this.play = this.play.bind(this)
     this.handleComment = this.handleComment.bind(this)
     this.createLike = this.createLike.bind(this)
+    this.deleteLike = this.deleteLike.bind(this)
   }
 
   play() {
-    // this.setState({currentlyPlaying: true})
-    // this.props.setCurrentSong(this.props.song)
-    // debugger
+    this.props.setCurrentSong(this.props.song)
   }
 
   update(field) {
@@ -91,9 +91,36 @@ class SongIndexItem extends React.Component {
     const songId = this.props.songId
     const currentUserId = this.props.currentUser.id
     this.props.createLike({liker_id: currentUserId, song_id: songId})
+    this.setState({userLikesSong: true})
   }
+
+
+  deleteLike(e){
+    // debugger
+    e.preventDefault()
+    const song = this.props.song
+    const currentLikeId=  this.props.currentLikeId
+    debugger
+    this.props.deleteLike(currentLikeId, song)
+    this.setState({userLikesSong: false})
+  }
+
+  toggleLikeButtons(){
+    if (this.state.userLikesSong) {
+      return(
+        <button onClick={this.deleteLike}>Destroy like test</button>
+      )
+    }
+    else {
+      return (
+        <button onClick={this.createLike}>Like button</button>
+      )
+    }
+  }
+
+
   render() {
-    const { song} = this.props
+    const { song, userLikesSong } = this.props
 
     // debugger
       return (
@@ -148,7 +175,10 @@ class SongIndexItem extends React.Component {
                 </div>
               </div>
                <div className="song-interact-buttons">
-                 <button onClick={this.createLike}>Like button</button>
+                 {/* <button onClick={this.createLike}>{userLikesSong? 'Unlike button' : 'Like button'}</button> */}
+                 {/* <button onClick={this.deleteLike}>Destroy like test</button>
+                  */}
+                  {this.toggleLikeButtons()}
                </div>
             </div>
             

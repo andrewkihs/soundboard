@@ -8,7 +8,6 @@
     json.artistId song.artist_id
     json.uploader song.uploader.username
     json.comments song.comments.as_json(only: [:id, :body, :user_id])
-
     if song.audio.attached? 
       json.songUrl url_for(song.audio)
     end
