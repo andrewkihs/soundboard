@@ -65,7 +65,7 @@ class SongUpload extends React.Component {
 
   updateimage(e, file){
     const reader = new FileReader();
-    debugger
+    // debugger
     if (file === undefined){
       file = e.currentTarget.files[0];
     }

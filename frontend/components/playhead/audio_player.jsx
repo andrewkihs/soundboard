@@ -3,10 +3,9 @@ import {PlayButton, PauseButton } from '../icons/'
 class AudioPlayer extends React.Component{
   constructor(props) {
     super(props)
-
+    // debugger
     this.state = {
-      play: false,
-      pause: true,
+      paused: props.ownProps.paused,
       songDuration: 0,
       dummyTime: 0,
     }
@@ -26,21 +25,23 @@ class AudioPlayer extends React.Component{
 
 
   componentDidMount(){
-    // debugger
-    this.state.dummyTime = this.audio.currentTime
+    // debugge
   }
 
   play(){
-    this.setState({
-      play: true,
-      pause: false
-    });
-    this.countTime();
+    this.props.ownProps.playSong()
+    this.setState({paused: false})
+    //   pause: false
+    // });
+    // this.countTime();
+    
     this.audio.play();
   }
   
   pause(){
-  this.setState({ play: false, pause: true });
+  // this.setState({ play: false, pause: true })
+    this.props.ownProps.pauseSong();
+    this.setState({paused: true})
     this.audio.pause();
   }
 
@@ -72,31 +73,32 @@ class AudioPlayer extends React.Component{
   }
 
   playheadSlider() {
+
     return (
       <>
-      <div className="playhead-slider">
-        <input type="range" 
-        min="0"
-        max={this.state.songDuration}
-        step="0.001"
-        value={this.audio.currentTime}
-        onChange={this.setTime(this.value)}
+        <div className="playhead-slider">
+          <input type="range" 
+          min="0"
+          max={this.state.songDuration}
+          step="0.001"
+          value={this.audio.currentTime}
+          onChange={this.setTime(this.value)}
 
-        // value={20}
-        />
-      </div>
+          // value={20}
+          />
+        </div>
       </>
     )
   }
   
   render() {
-    console.log(this.audio.currentTime);
-    console.log(this.state.dummyTime)
-    console.log(this.state.songDuration)
+    // console.log(this.audio.currentTime);
+    // console.log(this.state.dummyTime)
+    // console.log(this.state.songDuration)
     // debugger
     return (
       <>
-        {this.state.play ? <button onClick={this.pause}><PauseButton/></button> : <button onClick={this.play}><PlayButton/></button>}
+        {this.state.paused ? <button onClick={this.play}><PlayButton/></button> : <button onClick={this.pause}><PauseButton/></button> }
         {/* <button onClick={this.play}><PlayButton/></button>
         <button onClick={this.pause}><PauseButton/></button> */}
         {this.playheadSlider()}

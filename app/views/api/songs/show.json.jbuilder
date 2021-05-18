@@ -8,4 +8,6 @@ json.song do
   json.artistId @song.artist_id
   json.songUrl url_for(@song.audio)
   json.imageUrl url_for(@song.image)
+  json.likes @song.likes.as_json(only: [:id])
+  json.comments @song.comments.as_json(only: [:id, :body, :user_id])
 end

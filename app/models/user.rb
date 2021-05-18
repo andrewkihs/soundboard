@@ -12,6 +12,21 @@ class User < ApplicationRecord
   primary_key: :id,
   foreign_key: :artist_id,
   class_name: :Song
+
+  has_many :comments,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :Comment
+
+  has_many :likes,
+  primary_key: :id,
+  foreign_key: :liker_id,
+  class_name: :Like
+
+  has_many :liked_songs,
+  through: :likes,
+  source: :song
+  
  
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

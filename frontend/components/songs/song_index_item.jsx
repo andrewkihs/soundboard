@@ -1,6 +1,7 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js';
 import { PauseIndexButton, PlayIndexButton} from '../icons/index'
+import  CommentShowContainer from '../comment_show/comment_show_container'
 import {
   Route,
   Redirect,
@@ -8,21 +9,36 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+
 class SongIndexItem extends React.Component {
   constructor(props){
+    // debugger
     super(props)
-
+    this.state = {
+      currentlyPlaying: this.props.currentlyPlaying,
+      comment: ''
+    }
     this.play = this.play.bind(this)
+    this.handleComment = this.handleComment.bind(this)
+    this.createLike = this.createLike.bind(this)
   }
 
   play() {
-    this.props.setCurrentSong(this.props.song)
+    // this.setState({currentlyPlaying: true})
+    // this.props.setCurrentSong(this.props.song)
+    // debugger
+  }
+
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
   }
 
 
   componentDidMount(){
     let ctx = document.createElement('canvas').getContext('2d');
-    let linGrad = ctx.createLinearGradient(0, 64, 0, 200);
+    let linGrad = ctx.createLinearGradient(0, 40, 0, 200);
     linGrad.addColorStop(0.5, 'rgba(100, 100, 100, 1.000)');
     linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
 
@@ -31,8 +47,10 @@ class SongIndexItem extends React.Component {
       progressColor: '#f50',
       backend: 'WebAudio',
       // waveStyle: 'soundWave',
-      barHeight: 4,
+      height: 120,
+      barHeight: 120,
       // barGap: .5,
+      // height: 120,
       barWidth: 1.5,
       barMinHeight: 40,
       cursorWidth: 0,
@@ -41,7 +59,7 @@ class SongIndexItem extends React.Component {
       waveColor: linGrad,
       forceDecode: true,
       // responsive: true, 
-      // normalize: true,
+      normalize: true,
        cursorColor: '#fff',
       // This parameter makes the waveform look like SoundCloud's player
       barWidth: 2,
@@ -57,8 +75,26 @@ class SongIndexItem extends React.Component {
     // wavesurfer.load(this.props.song.songUrl)
     wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3')
   }
+
+  handleComment(e){
+    // debugger
+    e.preventDefault()
+    const comment = this.state.comment
+    const songId = this.props.songId
+    // debugger
+    const currentUserId = this.props.currentUser.id
+    this.props.createComment({body: comment, song_id: songId, user_id: currentUserId }, songId)
+  }
+
+  createLike(e){
+    e.preventDefault()
+    const songId = this.props.songId
+    const currentUserId = this.props.currentUser.id
+    this.props.createLike({liker_id: currentUserId, song_id: songId})
+  }
   render() {
-    const { song } = this.props
+    const { song} = this.props
+
     // debugger
       return (
         <li className="song-list-item">
@@ -72,31 +108,47 @@ class SongIndexItem extends React.Component {
                   <div className="song-li-button-container">
 
 
-                    <button 
-                    className="song-li-play-button" 
-                    onClick={this.play}>
-                      <PlayIndexButton/>
-                    </button>
+                    {this.state.currentlyPlaying ? 
+                      <button 
+                        className="song-li-play-button" 
+                        onClick={this.play}>
+                          <PlayIndexButton/>
+                      </button> :
+                      <button 
+                        className="song-li-play-button" 
+                        onClick={this.play}>
+                          <PauseIndexButton/>
+                    </button>}
                   </div>
-                  <div>
+                  <div className="left-song-info">
                     <Link to={`users/${song.artistId}`} className="profile-link">{song.uploader}</Link>
-                    <div className="title">{song.title}</div>
+                    <br/>
+                    <Link to={`songs/${song.id}`} className="song-page-link">{song.title}</Link>
+                    {/* <div className="title">{song.title}</div> */}
 
                   </div>
                 </div>
             <div className="genre">{song.genre}</div>
               </div>
               <div className="waveform" id={`waveform_${song.id}`}></div>
+              <div><CommentShowContainer song={song}/></div>
               <br></br>
               <div className="comment-input">
-                <input
-                className="comment-input"
-                type="text"
-                placeholder="Write a comment">
-                </input>
+                <div className="comment-input-padding">
+
+                  <input
+                  className="comment-input-inner"
+                  type="text"
+                  placeholder="Write a comment"
+                  onChange={this.update('comment')}
+                  value={this.state.comment}>
+                  
+                  </input>
+                  {/* <button onClick={this.handleComment}>Submit</button> */}
+                </div>
               </div>
                <div className="song-interact-buttons">
-                 
+                 <button onClick={this.createLike}>Like button</button>
                </div>
             </div>
             

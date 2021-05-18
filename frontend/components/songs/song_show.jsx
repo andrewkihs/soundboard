@@ -47,7 +47,7 @@ class SongShow extends React.Component{
           <div className="title">{song.title}</div>
           <div className="genre">{song.genre}</div>
           <button onClick={this.play}>Set Current song</button> */}
-          <SongIndexItemContainer song={this.props.song}/>
+          <SongIndexItemContainer songId={this.props.song.id}/>
         </>
       );
    }

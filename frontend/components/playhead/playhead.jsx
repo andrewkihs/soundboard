@@ -5,8 +5,8 @@ class Playhead extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      play: true,
-      pause: false,
+      // play: true,
+      // pause: false,
     }
   }
   render(){
@@ -15,7 +15,7 @@ class Playhead extends React.Component {
     if (!currentSong) {
       return (
         <>
-          No current song
+          {/* No current song */}
         </>
       )
     }
@@ -28,7 +28,7 @@ class Playhead extends React.Component {
         <div className="playhead-container">
           <div className="playhead-outer">
 
-            <AudioPlayer currentSong={currentSong}/>
+            <AudioPlayer currentSong={currentSong} ownProps={this.props}/>
             <br/>
 
             <br/>
