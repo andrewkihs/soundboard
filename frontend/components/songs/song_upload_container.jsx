@@ -4,7 +4,7 @@ import { createSong } from '../../actions/song_actions'
 import SongUpload from './song_upload'
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     currentUser: state.entities.users[state.session.id],
     song: {

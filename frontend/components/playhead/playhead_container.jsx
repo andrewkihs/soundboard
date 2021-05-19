@@ -5,7 +5,7 @@ import {playSong, pauseSong} from '../../actions/playhead_actions'
 import Playhead from './playhead'
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     currentSong: state.playhead.currentSong,
     // userId: ownProps.match.params.userId,

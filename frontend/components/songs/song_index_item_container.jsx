@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchSong } from '../../actions/song_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
-import { playSong, setCurrentSong } from '../../actions/playhead_actions'
+import { playSong, setCurrentSong, pauseSong } from '../../actions/playhead_actions'
 import { createComment } from '../../actions/comment_actions'
 import SongIndexItem from './song_index_item'
 
@@ -12,14 +12,17 @@ const mSTP = (state, ownProps) => {
   let currentSongPlaying = false;
   let userLikesSong = false;
   let currentLikeId
-  // debugger
+  let selectedSong = null;
+
   if (state.playhead.currentSong){
-    if (state.playhead.currentSong.id.toString() === ownProps.songId){
+    selectedSong = state.playhead.currrentSong
+    if (state.playhead.currentSong.id.toString() === ownProps.songId && !state.playhead.paused){
       currentSongPlaying = true;
     } else {
       currentSongPlaying = false;
     }
   }
+
   if(currentUser.likes){
 
     if(currentUser.likes[ownProps.songId]){
@@ -28,7 +31,7 @@ const mSTP = (state, ownProps) => {
       currentLikeId = currentUser.likes[ownProps.songId].id
     }
   }
-    // debugger
+
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],

@@ -4,7 +4,7 @@ json.users do
       json.partial! 'api/users/user', user: user
     end
     # json.likes do 
-    #   # debugger
+    #   # 
     #   json.extract! likes
     # end
   end

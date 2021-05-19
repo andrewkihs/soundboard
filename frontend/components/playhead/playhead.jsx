@@ -1,46 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import AudioPlayer from '../playhead/audio_player'
+import Waveform from "./waveform";
+import PlayList from "./playList";
+// import {playSong, pauseSong} from '../../actions/playhead_actions'
+export const Playhead = props => {
 
-class Playhead extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      // play: true,
-      // pause: false,
-    }
+  let tracks;
+  if (props.currentSong){
+    tracks = [
+      {
+      id: 0,
+      title: props.currentSong.title,
+      songUrl: props.currentSong.songUrl,
+      imageUrl: props.currentSong.imageUrl
+      }
+    ]
+  } else {
+    tracks = [
+      {
+        id: 0,
+        title: "",
+        url: "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3"
+      }
+    ];
+
   }
-  render(){
-    // debugger
-    const { currentSong } = this.props
-    if (!currentSong) {
-      return (
-        <>
-          {/* No current song */}
-        </>
-      )
-    }
-    else{
-      // audioPlayer = new Audio(currentSong.songUrl)
-      // audioPlayer.play();
-      debugger
-      return (
-        <>
-        <div className="playhead-container">
-          <div className="playhead-outer">
+  const tracksString = JSON.stringify(tracks)
 
-            <AudioPlayer currentSong={currentSong} ownProps={this.props}/>
-            <br/>
+  const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
 
-            <br/>
-            <div className="playhead-song-info">
-              <img className="playhead-photo" src={currentSong.imageUrl}/>
-              <div className="playhead-title">{currentSong.title}</div>
-            </div>
-          </div>
-        </div>
-        </>
-      )
-    }
-  }
+  useEffect(()=>{
+    let tracksParsed = JSON.parse(tracksString)
+    setSelectedTrack(tracksParsed[0])
+  },[tracksString])
+  // debugger
+  return (
+    <div className="playhead">
+      {selectedTrack?.songUrl && <Waveform 
+      url={selectedTrack.songUrl}
+      paused={props.paused} 
+      pauseSong={props.pauseSong}
+      playSong={props.playSong}
+      />}
+  
+
+      {selectedTrack.title}
+      <img className="playhead-photo" src={selectedTrack.imageUrl}/>
+      <br />
+    </div>
+  );
 }
 export default Playhead

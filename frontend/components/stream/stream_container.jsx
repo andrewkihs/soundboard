@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { fetchSongs } from '../../actions/song_actions'
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     currentUser: state.entities.users[state.session.id],
     songs: state.entities.songs
@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = dispatch => {
-  // debugger
+  // 
   // song play actions go here !!
   return {
     // fetchUser: (userId) => dispatch(fetchUser(userId))

@@ -29,7 +29,7 @@ class Song < ApplicationRecord
             .select("songs.*, COUNT(*) AS num_likes")
             .joins(:likes)
             .group(:id)
-        # debugger
+        # 
         songs_with_likes.each do |song|
             puts song.num_likes
         end

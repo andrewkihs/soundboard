@@ -12,12 +12,12 @@ const _nullSong = {
 export default (state = _nullSong, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  // debugger;
+  // ;
   switch (action.type) {
     case PLAY_SONG:
       return { paused: false, currentSong: state.currentSong };
     case PAUSE_SONG:
-      return (newState["paused"] = true);
+      return { paused: true, currentSong: state.currentSong };
     case RECEIVE_CURRENT_SONG:
       return Object.assign(newState, { currentSong: action.song });
     default:

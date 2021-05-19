@@ -13,7 +13,7 @@ class Header extends React.Component {
       userDrop: false,
       // currPath: this.props.currPath
     }
-    // debugger
+    // 
     // console.log(this.props.currPath)
     this.handleSettingsClick = this.handleSettingsClick.bind(this)
     this.leave = this.leave.bind(this)
@@ -73,7 +73,7 @@ class Header extends React.Component {
     }
   }
   render() {
-    // debugger
+    // 
     const { openModal } = this.props;
 
     const sessionLinks = () => (

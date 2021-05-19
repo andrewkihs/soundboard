@@ -3,45 +3,44 @@ import {PlayButton, PauseButton } from '../icons/'
 class AudioPlayer extends React.Component{
   constructor(props) {
     super(props)
-    // debugger
+
     this.state = {
-      paused: props.ownProps.paused,
+      play: false,
+      pause: true,
       songDuration: 0,
       dummyTime: 0,
     }
-    
-  
-  this.play = this.play.bind(this)
-  this.pause = this.pause.bind(this)
-  this.setTime = this.setTime.bind(this)
-}
-
-
-  componentDidMount(){
     this.audio = new Audio(props.currentSong.songUrl)
+
     this.audio.onloadedmetadata = () => {
       console.log(this.audio.duration)
       this.setState({
         songDuration: this.audio.duration,
         // currentTime: this.audio.currentTime
       })
-    this.play()
+    }
+    this.play = this.play.bind(this)
+    this.pause = this.pause.bind(this)
+    this.setTime = this.setTime.bind(this)
   }
-}
+
+
+  componentDidMount(){
+    // debugger
+    this.state.dummyTime = this.audio.currentTime
+  }
+
   play(){
-    this.props.ownProps.playSong()
-    this.setState({paused: false})
-    //   pause: false
-    // });
-    // this.countTime();
-    
+    this.setState({
+      play: true,
+      pause: false
+    });
+    this.countTime();
     this.audio.play();
   }
   
   pause(){
-  // this.setState({ play: false, pause: true })
-    // this.props.ownProps.pauseSong();
-    this.setState({paused: true})
+  this.setState({ play: false, pause: true });
     this.audio.pause();
   }
 
@@ -73,28 +72,37 @@ class AudioPlayer extends React.Component{
   }
 
   playheadSlider() {
-
     return (
       <>
-        <div className="playhead-slider">
-          <input type="range" 
-          min="0"
-          max={this.state.songDuration}
-          step="0.001"
-          value={this.audio.currentTime}
-          onChange={this.setTime(this.value)}
-          />
-        </div>
+      <div className="playhead-slider">
+        <input type="range" 
+        min="0"
+        max={this.state.songDuration}
+        step="0.001"
+        value={this.audio.currentTime}
+        onChange={this.setTime(this.value)}
+
+        // value={20}
+        />
+      </div>
       </>
     )
   }
   
   render() {
-
-    debugger
+    console.log(this.audio.currentTime);
+    console.log(this.state.dummyTime)
+    console.log(this.state.songDuration)
+    // debugger
     return (
       <>
-        {this.state.paused ? <button onClick={this.play}><PlayButton/></button> : <button onClick={this.pause}><PauseButton/></button> }
+        {/* {this.state.play ? <button 
+        onClick={audioProps.togglePlaybackStatus}>
+          <PauseButton/></button> : 
+        <button onClick={audioProps.togglePlaybackStatus}><PlayButton/></button>} */}
+        <div onClick={onClick} className="playback-button">
+        {playbackStatus === "play" ? <PauseButton/> : <PlayButton />}
+        </div>
         {/* <button onClick={this.play}><PlayButton/></button>
         <button onClick={this.pause}><PauseButton/></button> */}
         {this.playheadSlider()}

@@ -11,23 +11,23 @@ class Stream extends React.Component{
   
 
   componentDidMount() {
-    // debugger
+    // 
     // let songs = this.props.fetchSongs()
     // let oldState = this.state.songs
     this.props.fetchSongs()
   }
 
   render() {
-    // debugger
+    // 
     const { songs } = this.props
-    // debugger
+    // 
     if (Object.keys(songs).length===0){
       return( 
         <>
         </>
       )
     } else {
-      // debugger
+      // 
       return(
         <>
           <ul className="stream-ul">

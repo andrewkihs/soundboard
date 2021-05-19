@@ -1,6 +1,6 @@
 class Api::LikesController < ApplicationController 
   def create
-    # debugger
+    # 
     @like = Like.new(like_params)
     if @like.save!
       @song = Song.find(@like.song_id)

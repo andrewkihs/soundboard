@@ -5,7 +5,7 @@ import CommentShow from './comment_show'
 
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
+  // 
 
   return {
     comments: state.entities.songs[ownProps.song.id].comments

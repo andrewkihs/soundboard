@@ -1,5 +1,5 @@
 export const createLike = (like) => {
-  // debugger
+  // 
   return $.ajax({
     method: 'POST',
     url: `/api/songs/${like.song_id}/likes`,

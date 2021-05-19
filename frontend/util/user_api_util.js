@@ -19,7 +19,7 @@ export const logout = () =>
 
 export const signup = (userData) => {
   let user = convert.convertToSnakeCase(userData);
-  // debugger;
+  // ;
 
   const req = $.ajax({
     method: "POST",

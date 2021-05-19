@@ -11,7 +11,7 @@ class CommentBubble extends React.Component {
   }
 
   componentDidMount(){
-    // debugger
+    // 
     this.props.fetchUser(this.props.commenterId)
   }
 
@@ -26,13 +26,13 @@ class CommentBubble extends React.Component {
   }
 
   render() {
-    // debugger
+    // 
     const {comment, commenter} = this.props
     if (commenter === undefined){
-      // debugger
+      // 
       return null
     } else{
-      // debugger
+      // 
       return (
       <div className="comment-bubble">
         <Link to={`users/${commenter.id}`}>

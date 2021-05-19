@@ -37,7 +37,7 @@ class SongUpload extends React.Component {
     this.setState({fileName: file.name})
     jsmediatags.read(file, {
       onSuccess: tag => {
-        debugger
+        
         Object.assign(audioID3, tag)
         this.setState({title: tag.tags.title})  
       },
@@ -48,13 +48,13 @@ class SongUpload extends React.Component {
 
    
     // console.log('after id3')
-    debugger;
+    ;
 
     reader.onloadend = () => {
       this.setState({ audioUrl: reader.result, audioFile: file });
-      // debugger
+      // 
     }
-    debugger
+    
     if (file) {
       reader.readAsDataURL(file);
     } else {
@@ -65,7 +65,7 @@ class SongUpload extends React.Component {
 
   updateimage(e, file){
     const reader = new FileReader();
-    // debugger
+    // 
     if (file === undefined){
       file = e.currentTarget.files[0];
     }
@@ -84,7 +84,7 @@ class SongUpload extends React.Component {
     e.stopPropagation();
     console.log('File dropped')
     const file = e.dataTransfer.files[0]
-    // debugger
+    // 
     if (file.type.includes('audio')){
       this.updateAudio(e, file)
     } else {
@@ -100,7 +100,7 @@ class SongUpload extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
-    // debugger
+    // 
     formData.append('song[title]', this.state.title);
     formData.append('song[description]', this.state.description);
     formData.append('song[artistId]', this.state.artistId);
@@ -111,9 +111,9 @@ class SongUpload extends React.Component {
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
     }
-    // debugger
+    // 
     this.props.createSong(formData)
-    // debugger
+    // 
   }
 
   firstPage() {
@@ -141,7 +141,7 @@ class SongUpload extends React.Component {
   }
 
   secondPage() {
-    // debugger
+    // 
     let dispImg 
     if (this.state.imageFile){
       dispImg = <img className="song-form-album-art" src={this.state.imageUrl} />
@@ -267,7 +267,7 @@ class SongUpload extends React.Component {
   
   
   render(){
-    // debugger
+    // 
     if (this.state.formNum === 0){
       return(
       <div className="outer-song-form-container">

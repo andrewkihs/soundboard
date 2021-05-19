@@ -7,8 +7,16 @@ json.likes do
     end
   end
 end
-# json.extract! user.likes, :ids
-# debugger
+
+
+
+# likes.each do |like|
+#   json.set! like.id do 
+#     json.extract like, :id, 
+#   end
+# end
+# # json.extract! user.likes, :ids
+# 
 # user.likes do
-#   debugger
+#   
 # end

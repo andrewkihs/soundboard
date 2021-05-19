@@ -8,7 +8,7 @@ class CommentShow extends React.Component {
 
   render(){
     const {comments} = this.props
-    // debugger
+    // 
     return (
       <div>
         {comments.map((ele, i) => {

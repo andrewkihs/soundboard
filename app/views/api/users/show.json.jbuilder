@@ -1,6 +1,6 @@
 json.partial! "api/users/user", user: @user
 # json.likes @user.likes
-# debugger
+# 
 # @user.likes.each do |like|
 #   json.set! like.song_id do
 #     json.extract! like, :id, :song_id
@@ -8,4 +8,4 @@ json.partial! "api/users/user", user: @user
 #   end
 
 # end
-# debugger
+# 

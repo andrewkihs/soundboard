@@ -7,7 +7,7 @@ import SongShow from './song_show'
 
 const mSTP = (state, ownProps) => {
 
-  // debugger
+  // 
   const songLoaded = () => {
     if (state.entities.songs[ownProps.match.params.songId]){
       return true;

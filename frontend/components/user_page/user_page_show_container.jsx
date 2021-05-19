@@ -4,7 +4,7 @@ import { fetchUser } from '../../actions/user_actions'
 import UserPage from './user_page'
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   // let user;
   return {
     currentUser: state.entities.users[state.session.id],

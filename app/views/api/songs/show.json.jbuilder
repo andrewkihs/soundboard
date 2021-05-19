@@ -1,5 +1,5 @@
 json.song do
-  # debugger
+  # 
   json.id @song.id
   json.title @song.title
   json.uploader @song.uploader.username

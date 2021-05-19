@@ -10,7 +10,7 @@ class SongShow extends React.Component{
       // songUrl: props.songUrl,
       // audioPlayer: new Audio(this.state.songUrl)
     }
-    // debugger
+    // 
     // this.url = props.song.audioUrl;
     // this.audio = new Audio(this.state.songUrl);
     this.play = this.play.bind(this)
@@ -19,7 +19,7 @@ class SongShow extends React.Component{
   play = () => {
   // this.setState({ play: true, pause: false })
   //   this.state.audioPlayer.play();
-    // debugger
+    // 
     this.props.setCurrentSong(this.props.song)
   }
   
@@ -35,12 +35,12 @@ class SongShow extends React.Component{
 
  render() {
     const { song } = this.props
-    // debugger
+    // 
     if (song === undefined){
       return (<></>)
     } 
     else {
-      // debugger
+      // 
       return (
         <>
           <SongIndexItemContainer songId={this.props.song.id}/>

@@ -1,6 +1,6 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js';
-import { PauseIndexButton, PlayIndexButton} from '../icons/index'
+import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton} from '../icons/index'
 import  CommentShowContainer from '../comment_show/comment_show_container'
 import {
   Route,
@@ -10,9 +10,27 @@ import {
   HashRouter
 } from 'react-router-dom';
 
+const formWaveSurferOptions = ref => ({
+  container: `#waveform_${this.props.song.id}`,
+    progressColor: '#f50',
+    backend: 'WebAudio',
+    height: 120,
+    barHeight: 120,
+    barWidth: 1.5,
+    barMinHeight: 40,
+    cursorWidth: 0,
+    normalize: true,
+    waveColor: linGrad,
+    forceDecode: true,
+    normalize: true,
+    cursorColor: '#fff',
+    barWidth: 2,
+    backend: 'MediaElement',
+});
+
 class SongIndexItem extends React.Component {
   constructor(props){
-    // debugger
+
     super(props)
     this.state = {
       currentlyPlaying: this.props.currentlyPlaying,
@@ -20,13 +38,23 @@ class SongIndexItem extends React.Component {
       userLikesSong: this.props.userLikesSong
     }
     this.play = this.play.bind(this)
+    this.pause = this.pause.bind(this)
     this.handleComment = this.handleComment.bind(this)
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
+
+
+    
   }
 
   play() {
+    this.wavesurfer.playPause();
+    this.props.playSong()
     this.props.setCurrentSong(this.props.song)
+  }
+  pause() {
+    this.wavesurfer.playPause();
+    this.props.pauseSong()
   }
 
   update(field) {
@@ -42,46 +70,36 @@ class SongIndexItem extends React.Component {
     linGrad.addColorStop(0.5, 'rgba(100, 100, 100, 1.000)');
     linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
 
-    let wavesurfer = WaveSurfer.create({
+    this.wavesurfer = WaveSurfer.create({
       container: `#waveform_${this.props.song.id}`,
       progressColor: '#f50',
       backend: 'WebAudio',
-      // waveStyle: 'soundWave',
       height: 120,
       barHeight: 120,
-      // barGap: .5,
-      // height: 120,
       barWidth: 1.5,
       barMinHeight: 40,
       cursorWidth: 0,
       normalize: true,
-      // fillParent: true,
       waveColor: linGrad,
       forceDecode: true,
-      // responsive: true, 
       normalize: true,
        cursorColor: '#fff',
-      // This parameter makes the waveform look like SoundCloud's player
       barWidth: 2,
       backend: 'MediaElement',
-      // preload: true,
-      // height: 128,
-      // width: 1000,
-      // credentials: true,
+  
   
 
     });
-    // debugger
-    // wavesurfer.load(this.props.song.songUrl)
-    wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3')
+    this.wavesurfer.load(this.props.song.songUrl)
+    this.wavesurfer.setMute(true)
   }
 
   handleComment(e){
-    // debugger
+    // 
     e.preventDefault()
     const comment = this.state.comment
     const songId = this.props.songId
-    // debugger
+    // 
     const currentUserId = this.props.currentUser.id
     this.props.createComment({body: comment, song_id: songId, user_id: currentUserId }, songId)
   }
@@ -94,13 +112,11 @@ class SongIndexItem extends React.Component {
     this.setState({userLikesSong: true})
   }
 
-
   deleteLike(e){
-    // debugger
     e.preventDefault()
     const song = this.props.song
     const currentLikeId=  this.props.currentLikeId
-    debugger
+    
     this.props.deleteLike(currentLikeId, song)
     this.setState({userLikesSong: false})
   }
@@ -108,12 +124,12 @@ class SongIndexItem extends React.Component {
   toggleLikeButtons(){
     if (this.state.userLikesSong) {
       return(
-        <button onClick={this.deleteLike}>Destroy like test</button>
+        <button onClick={this.deleteLike}><AfterLikeButton/></button>
       )
     }
     else {
       return (
-        <button onClick={this.createLike}>Like button</button>
+        <button onClick={this.createLike}><LikeButton/></button>
       )
     }
   }
@@ -121,8 +137,8 @@ class SongIndexItem extends React.Component {
 
   render() {
     const { song, userLikesSong } = this.props
-
     // debugger
+    // 
       return (
         <li className="song-list-item">
           <div className="song-list-item-container">
@@ -135,16 +151,16 @@ class SongIndexItem extends React.Component {
                   <div className="song-li-button-container">
 
 
-                    {this.state.currentlyPlaying ? 
+                    {this.props.currentlyPlaying ? 
                       <button 
                         className="song-li-play-button" 
-                        onClick={this.play}>
-                          <PlayIndexButton/>
+                        onClick={this.pause}>
+                          <PauseIndexButton/>
                       </button> :
                       <button 
-                        className="song-li-play-button" 
-                        onClick={this.play}>
-                          <PauseIndexButton/>
+                      className="song-li-play-button" 
+                      onClick={this.play}>
+                          <PlayIndexButton/>
                     </button>}
                   </div>
                   <div className="left-song-info">
@@ -171,13 +187,10 @@ class SongIndexItem extends React.Component {
                   value={this.state.comment}>
                   
                   </input>
-                  {/* <button onClick={this.handleComment}>Submit</button> */}
+                  <button onClick={this.handleComment}>Submit</button>
                 </div>
               </div>
                <div className="song-interact-buttons">
-                 {/* <button onClick={this.createLike}>{userLikesSong? 'Unlike button' : 'Like button'}</button> */}
-                 {/* <button onClick={this.deleteLike}>Destroy like test</button>
-                  */}
                   {this.toggleLikeButtons()}
                </div>
             </div>

@@ -2,9 +2,9 @@ import  CommentBubble from './comment_bubble'
 import { connect } from 'react-redux';
 import { fetchUser } from '../../actions/user_actions'
 const mapStateToProps = (state, ownProps) => {
-  // debugger
+  // 
 
-  // debugger
+  // 
   return {
     comment: ownProps.comment,
     commenterId: ownProps.comment.user_id,
