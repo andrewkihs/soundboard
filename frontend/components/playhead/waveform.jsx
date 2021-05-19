@@ -23,10 +23,11 @@ export default function Waveform({ url, ...props }) {
   useEffect(()=> {
     // debugger
     // setPlay(props.paused);
-    console.log('use effect')
+    // console.log('use effect')
     // debugger
+    console.log(audioProps.playbackStatus)
     audioProps.togglePlaybackStatus()
-    
+    console.log(audioProps.playbackStatus)
     // if (props.paused){
     //   audioProps.playbackStatus === "play" ? "Pause" : "Play"
     // }
