@@ -1,6 +1,6 @@
 import React from 'react'
-import SongIndexItemContainer from './song_index_item_container'
-class SongShow extends React.Component{
+
+class Discover extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -28,24 +28,32 @@ class SongShow extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchSong(this.props.songId)
+    this.props.fetchSongs()
   }
   
 
  render() {
-    const { song } = this.props
+    const { songs } = this.props
     // 
-    if (song === undefined){
-      return (<></>)
-    } 
-    else {
-      // 
-      return (
+    if (Object.keys(songs).length===0){
+      return( 
         <>
-          <SongIndexItemContainer songId={this.props.song.id}/>
         </>
-      );
-   }
+      )
+    } else {
+      // 
+      return(
+        <>
+          <ul className="discover-ul">
+            hello
+          {/* {Object.keys(this.props.songs).map((key, i) =>{
+            return <SongIndexItemContainer key={i} songId={key}/>
+          })} */}
+          </ul>
+        </>
+      )
+
+    }
   }
 }
-export default SongShow
+export default Discover

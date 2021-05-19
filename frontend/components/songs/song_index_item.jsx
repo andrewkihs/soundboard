@@ -95,11 +95,9 @@ class SongIndexItem extends React.Component {
   }
 
   handleComment(e){
-    // 
     e.preventDefault()
     const comment = this.state.comment
     const songId = this.props.songId
-    // 
     const currentUserId = this.props.currentUser.id
     this.props.createComment({body: comment, song_id: songId, user_id: currentUserId }, songId)
   }
@@ -110,15 +108,18 @@ class SongIndexItem extends React.Component {
     const currentUserId = this.props.currentUser.id
     this.props.createLike({liker_id: currentUserId, song_id: songId})
     this.setState({userLikesSong: true})
+    this.props.fetchSong(songId)
+    this.props.fetchUser(userId)
   }
 
   deleteLike(e){
     e.preventDefault()
     const song = this.props.song
     const currentLikeId=  this.props.currentLikeId
-    
     this.props.deleteLike(currentLikeId, song)
     this.setState({userLikesSong: false})
+    this.props.fetchSong(song.id)
+    this.props.fetchUser(userId)
   }
 
   toggleLikeButtons(){

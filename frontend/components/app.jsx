@@ -19,6 +19,8 @@ import SongShowContainer from './songs/song_show_container'
 import SongUploadContainer from './songs/song_upload_container'
 import PlayheadContainer from './playhead/playhead_container'
 import LoginFormContainer from './user_auth/login_form'
+import DiscoverContainer from './discover/discover_container'
+import LibraryContainer from './library/library_container'
 const App = () => (
   <div>
     
@@ -30,12 +32,13 @@ const App = () => (
         <Route path="/songs/:songId" component={SongShowContainer} />
         {/* <Route path="/songs/" component={SongUploadContainer}/> */}
         {/* <Route path="/upload" component={SongUploadContainer} /> */}
-        {/* <AuthRoute exact path="/discover" component={DiscoverFormContainer} /> */}
+        <Route exact path="/discover" component={DiscoverContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/" component={Splash} />
         {/* <ProtectedRoute exact path="/discover" component={StreamContainer}/> */}
         <ProtectedRoute exact path ="/upload" component ={SongUploadContainer} />
         <ProtectedRoute exact path ="/stream" component ={StreamContainer} />
+        <ProtectedRoute exact path ="/you/library" component ={LibraryContainer} />
     </Switch>
       </div>
     <PlayheadContainer/>
