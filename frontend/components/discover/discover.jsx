@@ -1,4 +1,6 @@
 import React from 'react'
+import Carousel from '@brainhubeu/react-carousel';
+import "@brainhubeu/react-carousel/lib/style.css";
 
 class Discover extends React.Component{
   constructor(props){
@@ -42,14 +44,22 @@ class Discover extends React.Component{
       )
     } else {
       // 
+      // debugger
       return(
         <>
-          <ul className="discover-ul">
-            hello
+         <Carousel itemWidth={100} plugins={['arrows']}>
+           {Object.keys(this.props.songs).map((song, i) =>{
+             console.log(songs[song].imageUrl)
+             return (<img key={i} width="100px" height="100px" src={songs[song].imageUrl}/>)
+            })}
+         </Carousel>
+
+        
+
           {/* {Object.keys(this.props.songs).map((key, i) =>{
             return <SongIndexItemContainer key={i} songId={key}/>
           })} */}
-          </ul>
+
         </>
       )
 
