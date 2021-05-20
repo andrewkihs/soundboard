@@ -1,5 +1,5 @@
 json.extract! user, :id, :username, :display_name, :email, :gender, :bio, :city, :country, :first_name, :last_name
-debugger
+# debugger
 json.likes do
   user.likes.each do |like|
     json.set! like.song_id do

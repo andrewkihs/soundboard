@@ -66,7 +66,7 @@ skee_mask = User.new(
   city: 'Berlin',
   country: "Germany",
   first_name: '',
-  last_name: ''
+  last_name: '',
   bio: 'ILIAN TAPE / SKEE SERIES// booking@iliantape.de'
 )
 
@@ -102,11 +102,11 @@ theo_parrish.avatar.attach(io: theo_parrish_avatar, filename: "avatar_image#{the
 
 theo_parrish.save!
 
-ak1200 = User.new(
+ak = User.new(
   username: 'ak1200',
   email: 'akihs@gmail.com',
   password: 'password',
-  age: 49,
+  age: 26,
   display_name: 'Andrew Kihs',
   gender: 'Male',
   city: 'New York',
@@ -206,8 +206,8 @@ idm_song1 = Song.new(
 idm_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover.jpg")
 idm_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/03.+Rev8617.mp3")
 
-idm_song1_image.audio.attach(io: idm_song1_audio, filename: "idm#{idm_song1.id}.mp3")
-idm_song1_audio.image.attach(io: idm_song1_image, filename: "discosoul#{idm_song1.id}.jpg")
+idm_song1.audio.attach(io: idm_song1_audio, filename: "idm#{idm_song1.id}.mp3")
+idm_song1.image.attach(io: idm_song1_image, filename: "idm#{idm_song1.id}.jpg")
 idm_song1.save!
 
 idm_song2 = Song.new(
@@ -220,8 +220,8 @@ idm_song2 = Song.new(
 idm_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover+copy+2.jpg")
 idm_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/07.+Dial+274.mp3")
 
-idm_song2_image.audio.attach(io: idm_song2_audio, filename: "idm#{idm_song2.id}.mp3")
-idm_song2_audio.image.attach(io: idm_song2_image, filename: "discosoul#{idm_song2.id}.jpg")
+idm_song2.audio.attach(io: idm_song2_audio, filename: "idm#{idm_song2.id}.mp3")
+idm_song2.image.attach(io: idm_song2_image, filename: "idm#{idm_song2.id}.jpg")
 
 idm_song2.save!
 
@@ -235,8 +235,8 @@ idm_song3 = Song.new(
 idm_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover+copy.jpg")
 idm_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/09.+Flyby+VFR.mp3")
 
-idm_song3_image.audio.attach(io: idm_song3_audio, filename: "idm#{idm_song3.id}.mp3")
-idm_song3_audio.image.attach(io: idm_song3_image, filename: "discosoul#{idm_song3.id}.jpg")
+idm_song3.audio.attach(io: idm_song3_audio, filename: "idm#{idm_song3.id}.mp3")
+idm_song3.image.attach(io: idm_song3_image, filename: "idm#{idm_song3.id}.jpg")
 
 idm_song3.save!
 
@@ -250,8 +250,8 @@ idm_song4 = Song.new(
 idm_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/forgive.jpg")
 idm_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/09-burial-forgive.mp3")
 
-idm_song4_image.audio.attach(io: idm_song4_audio, filename: "idm#{idm_song4.id}.mp3")
-idm_song4_audio.image.attach(io: idm_song4_image, filename: "discosoul#{idm_song4.id}.jpg")
+idm_song4.audio.attach(io: idm_song4_audio, filename: "idm#{idm_song4.id}.mp3")
+idm_song4.image.attach(io: idm_song4_image, filename: "idm#{idm_song4.id}.jpg")
 
 idm_song4.save!
 
@@ -264,8 +264,8 @@ idm_song5 = Song.new(
 idm_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/untrue.jpg")
 idm_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/yt1s.com+-+Burial++Archangel.mp3")
 
-idm_song5_image.audio.attach(io: idm_song5_audio, filename: "idm#{idm_song5.id}.mp3")
-idm_song5_audio.image.attach(io: idm_song5_image, filename: "discosoul#{idm_song5.id}.jpg")
+idm_song5.audio.attach(io: idm_song5_audio, filename: "idm#{idm_song5.id}.mp3")
+idm_song5.image.attach(io: idm_song5_image, filename: "idm#{idm_song5.id}.jpg")
 
 idm_song5.save!
 
@@ -303,8 +303,8 @@ house_song1 = Song.new(
 house_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/rickwadedetroithustle.jpeg")
 house_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/+Rick+Wade++Detroit+Hustle.mp3")
 
-house_song1_image.audio.attach(io: house_song1_audio, filename: "house#{house_song1.id}.mp3")
-house_song1_audio.image.attach(io: house_song1_image, filename: "discosoul#{house_song1.id}.jpg")
+house_song1.audio.attach(io: house_song1_audio, filename: "house#{house_song1.id}.mp3")
+house_song1.image.attach(io: house_song1_image, filename: "house#{house_song1.id}.jpg")
 house_song1.save!
 
 
@@ -318,8 +318,8 @@ house_song2 = Song.new(
 house_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/andras+river+red.jpg")
 house_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/Andras++River+Red.mp3")
 
-house_song2_image.audio.attach(io: house_song2_audio, filename: "house#{house_song2.id}.mp3")
-house_song2_audio.image.attach(io: house_song2_image, filename: "house#{house_song2.id}.jpg")
+house_song2.audio.attach(io: house_song2_audio, filename: "house#{house_song2.id}.mp3")
+house_song2.image.attach(io: house_song2_image, filename: "house#{house_song2.id}.jpg")
 
 house_song2.save!
 
@@ -333,8 +333,8 @@ house_song3 = Song.new(
 house_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/theo+parrish+sky+walking.jpeg")
 house_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/Theo+Parrish+-+Sky+Walking.mp3")
 
-house_song3_image.audio.attach(io: house_song3_audio, filename: "house#{house_song3.id}.mp3")
-house_song3_audio.image.attach(io: house_song3_image, filename: "house#{house_song3.id}.jpg")
+house_song3.audio.attach(io: house_song3_audio, filename: "house#{house_song3.id}.mp3")
+house_song3.image.attach(io: house_song3_image, filename: "house#{house_song3.id}.jpg")
 
 house_song3.save!
 
@@ -345,11 +345,11 @@ house_song4 = Song.new(
   description: "House with an R&B sound",
   genre: 'House',
 )
-house_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/cosberzam.jpeg")
+house_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/Andrew_Ashong_Theo_parrish_flowers.jpeg")
 house_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/Andrew+Ashong++Theo+Parrish++Flowers.mp3")
 
-house_song4_image.audio.attach(io: house_song4_audio, filename: "house#{house_song4.id}.mp3")
-house_song4_audio.image.attach(io: house_song4_image, filename: "house#{house_song4.id}.jpg")
+house_song4.audio.attach(io: house_song4_audio, filename: "house#{house_song4.id}.mp3")
+house_song4.image.attach(io: house_song4_image, filename: "house#{house_song4.id}.jpg")
 
 house_song4.save!
 
@@ -359,11 +359,11 @@ house_song5 = Song.new(
   description: "A fun tune from Daphni",
   genre: 'House',
 )
-house_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
+house_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/cosberzam.jpeg")
 house_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/COS-BER-ZAM+-+Ne+Noya+(Daphni+Mix).mp3")
 
-house_song5_image.audio.attach(io: house_song5_audio, filename: "house#{house_song5.id}.mp3")
-house_song5_audio.image.attach(io: house_song5_image, filename: "house#{house_song5.id}.jpg")
+house_song5.audio.attach(io: house_song5_audio, filename: "house#{house_song5.id}.mp3")
+house_song5.image.attach(io: house_song5_image, filename: "house#{house_song5.id}.jpg")
 
 house_song5.save!
 
@@ -391,8 +391,8 @@ indie_song1 = Song.new(
 indie_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/reusethecels.jpg")
 indie_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/Reuse+The+Cels.mp3")
 
-indie_song1_image.audio.attach(io: indie_song1_audio, filename: "indie#{indie_song1.id}.mp3")
-indie_song1_audio.image.attach(io: indie_song1_image, filename: "indie#{indie_song1.id}.jpg")
+indie_song1.audio.attach(io: indie_song1_audio, filename: "indie#{indie_song1.id}.mp3")
+indie_song1.image.attach(io: indie_song1_image, filename: "indie#{indie_song1.id}.jpg")
 indie_song1.save!
 
 
@@ -406,8 +406,8 @@ indie_song2 = Song.new(
 indie_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/maudgone.jpg")
 indie_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/yt1s.com+-+Car+Seat+Headrest++Maud+Gone.mp3")
 
-indie_song2_image.audio.attach(io: indie_song2_audio, filename: "indie#{indie_song2.id}.mp3")
-indie_song2_audio.image.attach(io: indie_song2_image, filename: "discosoul#{indie_song2.id}.jpg")
+indie_song2.audio.attach(io: indie_song2_audio, filename: "indie#{indie_song2.id}.mp3")
+indie_song2.image.attach(io: indie_song2_image, filename: "indie#{indie_song2.id}.jpg")
 
 indie_song2.save!
 
@@ -421,8 +421,8 @@ indie_song3 = Song.new(
 indie_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/alvvaysarchie.jpeg")
 indie_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/Alvvays+-+Archie%2C+Marry+Me+(Official+Video).mp3")
 
-indie_song3_image.audio.attach(io: indie_song3_audio, filename: "indie#{indie_song3.id}.mp3")
-indie_song3_audio.image.attach(io: indie_song3_image, filename: "discosoul#{indie_song3.id}.jpg")
+indie_song3.audio.attach(io: indie_song3_audio, filename: "indie#{indie_song3.id}.mp3")
+indie_song3.image.attach(io: indie_song3_image, filename: "indie#{indie_song3.id}.jpg")
 
 indie_song3.save!
 
@@ -436,8 +436,8 @@ indie_song4 = Song.new(
 indie_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/deanblunt100.jpeg")
 indie_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/Dean+Blunt+-+100.mp3")
 
-indie_song4_image.audio.attach(io: indie_song4_audio, filename: "indie#{indie_song4.id}.mp3")
-indie_song4_audio.image.attach(io: indie_song4_image, filename: "discosoul#{indie_song4.id}.jpg")
+indie_song4.audio.attach(io: indie_song4_audio, filename: "indie#{indie_song4.id}.mp3")
+indie_song4.image.attach(io: indie_song4_image, filename: "indie#{indie_song4.id}.jpg")
 
 indie_song4.save!
 
@@ -450,8 +450,8 @@ indie_song5 = Song.new(
 indie_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/bigthiefcapacity.jpeg")
 indie_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/Big+Thief+-+Shark+Smile+(Single)+%5BOfficial+Audio%5D.mp3")
 
-indie_song5_image.audio.attach(io: indie_song5_audio, filename: "indie#{indie_song5.id}.mp3")
-indie_song5_audio.image.attach(io: indie_song5_image, filename: "discosoul#{indie_song5.id}.jpg")
+indie_song5.audio.attach(io: indie_song5_audio, filename: "indie#{indie_song5.id}.mp3")
+indie_song5.image.attach(io: indie_song5_image, filename: "indie#{indie_song5.id}.jpg")
 
 indie_song5.save!
 
@@ -472,8 +472,8 @@ new_wave_song1 = Song.new(
 new_wave_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/new+order+dreams+never+die.jpeg")
 new_wave_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/New+Order++Dreams+Never+End.mp3")
 
-new_wave_song1_image.audio.attach(io: new_wave_song1_audio, filename: "new_wave#{new_wave_song1.id}.mp3")
-new_wave_song1_audio.image.attach(io: new_wave_song1_image, filename: "discosoul#{new_wave_song1.id}.jpg")
+new_wave_song1.audio.attach(io: new_wave_song1_audio, filename: "new_wave#{new_wave_song1.id}.mp3")
+new_wave_song1.image.attach(io: new_wave_song1_image, filename: "new_wave#{new_wave_song1.id}.jpg")
 new_wave_song1.save!
 
 
@@ -487,8 +487,8 @@ new_wave_song2 = Song.new(
 new_wave_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/joy+division+disorder.png")
 new_wave_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/Joy+Division++Disorder.mp3")
 
-new_wave_song2_image.audio.attach(io: new_wave_song2_audio, filename: "new_wave#{new_wave_song2.id}.mp3")
-new_wave_song2_audio.image.attach(io: new_wave_song2_image, filename: "discosoul#{new_wave_song2.id}.jpg")
+new_wave_song2.audio.attach(io: new_wave_song2_audio, filename: "new_wave#{new_wave_song2.id}.mp3")
+new_wave_song2.image.attach(io: new_wave_song2_image, filename: "new_wave#{new_wave_song2.id}.jpg")
 
 new_wave_song2.save!
 
@@ -502,8 +502,8 @@ new_wave_song3 = Song.new(
 new_wave_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/boysdontcry.jpg")
 new_wave_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/Boys+Don't+Cry+(1).mp3")
 
-new_wave_song3_image.audio.attach(io: new_wave_song3_audio, filename: "new_wave#{new_wave_song3.id}.mp3")
-new_wave_song3_audio.image.attach(io: new_wave_song3_image, filename: "discosoul#{new_wave_song3.id}.jpg")
+new_wave_song3.audio.attach(io: new_wave_song3_audio, filename: "new_wave#{new_wave_song3.id}.mp3")
+new_wave_song3.image.attach(io: new_wave_song3_image, filename: "new_wave#{new_wave_song3.id}.jpg")
 
 new_wave_song3.save!
 
@@ -517,8 +517,8 @@ new_wave_song4 = Song.new(
 new_wave_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/the_blue_nile_tinseltown_in_the_rain.jpeg")
 new_wave_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/The+Blue+Nile++Tinseltown+in+the+Rain.mp3")
 
-new_wave_song4_image.audio.attach(io: new_wave_song4_audio, filename: "new_wave#{new_wave_song4.id}.mp3")
-new_wave_song4_audio.image.attach(io: new_wave_song4_image, filename: "discosoul#{new_wave_song4.id}.jpg")
+new_wave_song4.audio.attach(io: new_wave_song4_audio, filename: "new_wave#{new_wave_song4.id}.mp3")
+new_wave_song4.image.attach(io: new_wave_song4_image, filename: "new_wave#{new_wave_song4.id}.jpg")
 
 new_wave_song4.save!
 
@@ -531,8 +531,8 @@ new_wave_song5 = Song.new(
 new_wave_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/johncalebe+spinning+away.jpeg")
 new_wave_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/John+Cale++Brian+Eno++Spinning+Away.mp3")
 
-new_wave_song5_image.audio.attach(io: new_wave_song5_audio, filename: "new_wave#{new_wave_song5.id}.mp3")
-new_wave_song5_audio.image.attach(io: new_wave_song5_image, filename: "discosoul#{new_wave_song5.id}.jpg")
+new_wave_song5.audio.attach(io: new_wave_song5_audio, filename: "new_wave#{new_wave_song5.id}.mp3")
+new_wave_song5.image.attach(io: new_wave_song5_image, filename: "new_wave#{new_wave_song5.id}.jpg")
 
 new_wave_song5.save!
 
@@ -549,11 +549,11 @@ classic_song1 = Song.new(
   genre: 'House',
 )
 
-classic_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
-classic_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/219-eddie_murphy-party_all_the_time.mp3")
+classic_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/alton_ellis_rocksteady.jpg")
+classic_song1_audio = open("https://soundboard-seeds.s3.amazonaws.com/yt1s.com+-+Alton+Ellis++Rocksteady.mp3")
 
-classic_song1_image.audio.attach(io: classic_song1_audio, filename: "classic#{classic_song1.id}.mp3")
-classic_song1_audio.image.attach(io: classic_song1_image, filename: "discosoul#{classic_song1.id}.jpg")
+classic_song1.audio.attach(io: classic_song1_audio, filename: "classic#{classic_song1.id}.mp3")
+classic_song1.image.attach(io: classic_song1_image, filename: "classic#{classic_song1.id}.jpg")
 classic_song1.save!
 
 
@@ -564,11 +564,11 @@ classic_song2 = Song.new(
   genre: 'House',
 )
 
-classic_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
-classic_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/219-eddie_murphy-party_all_the_time.mp3")
+classic_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/gal_costababy.jpg")
+classic_song2_audio = open("https://soundboard-seeds.s3.amazonaws.com/Gal+Costa+-+Baby.mp3")
 
-classic_song2_image.audio.attach(io: classic_song2_audio, filename: "classic#{classic_song2.id}.mp3")
-classic_song2_audio.image.attach(io: classic_song2_image, filename: "discosoul#{classic_song2.id}.jpg")
+classic_song2.audio.attach(io: classic_song2_audio, filename: "classic#{classic_song2.id}.mp3")
+classic_song2.image.attach(io: classic_song2_image, filename: "classic#{classic_song2.id}.jpg")
 
 classic_song2.save!
 
@@ -579,11 +579,11 @@ classic_song3 = Song.new(
   genre: 'House',
 )
 
-classic_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
-classic_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/219-eddie_murphy-party_all_the_time.mp3")
+classic_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/oogum_boogum.jpg")
+classic_song3_audio = open("https://soundboard-seeds.s3.amazonaws.com/Brenton+Wood+-+The+Oogum+Boogum+Song+1967.mp3")
 
-classic_song3_image.audio.attach(io: classic_song3_audio, filename: "classic#{classic_song3.id}.mp3")
-classic_song3_audio.image.attach(io: classic_song3_image, filename: "discosoul#{classic_song3.id}.jpg")
+classic_song3.audio.attach(io: classic_song3_audio, filename: "classic#{classic_song3.id}.mp3")
+classic_song3.image.attach(io: classic_song3_image, filename: "classic#{classic_song3.id}.jpg")
 
 classic_song3.save!
 
@@ -594,11 +594,11 @@ classic_song4 = Song.new(
   description: "Pretty please girl with sugar on top.",
   genre: 'House',
 )
-classic_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
-classic_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/219-eddie_murphy-party_all_the_time.mp3")
+classic_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/pretty_please.jpg")
+classic_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/Triplett_Twins-Pretty_Please.mp3")
 
-classic_song4_image.audio.attach(io: classic_song4_audio, filename: "classic#{classic_song4.id}.mp3")
-classic_song4_audio.image.attach(io: classic_song4_image, filename: "discosoul#{classic_song4.id}.jpg")
+classic_song4.audio.attach(io: classic_song4_audio, filename: "classic#{classic_song4.id}.mp3")
+classic_song4.image.attach(io: classic_song4_image, filename: "classic#{classic_song4.id}.jpg")
 
 classic_song4.save!
 
@@ -608,14 +608,10 @@ classic_song5 = Song.new(
   description: "The original song famously convered by Yo La Tengo",
   genre: 'House',
 )
-classic_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/220px-Party_All_the_Time.jpg")
-classic_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/219-eddie_murphy-party_all_the_time.mp3")
+classic_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/you+_canhaveitall.jpg")
+classic_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/George+McCrae....+You+Can+Have+It+All.+1974..mp3")
 
-classic_song5_image.audio.attach(io: classic_song5_audio, filename: "classic#{classic_song5.id}.mp3")
-classic_song5_audio.image.attach(io: classic_song5_image, filename: "discosoul#{classic_song5.id}.jpg")
+classic_song5.audio.attach(io: classic_song5_audio, filename: "classic#{classic_song5.id}.mp3")
+classic_song5.image.attach(io: classic_song5_image, filename: "classic#{classic_song5.id}.jpg")
 
 classic_song5.save!
-
-
-
-
