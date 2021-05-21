@@ -19,14 +19,15 @@ User's can drag in and upload songs via a form in the top bar. Upon the loading 
 
 A large portion of SoundBoard's functionality comes from the user's ability to play music and navigate acrross the site, having music persisiting across each page. This is achieved by rendering a hidden audio element and updating it's current song prop whenever a user clicks on a track anywhere within the website.
 
-```
-  this.audio = new Audio(props.currentSong.songUrl)
+```javascript
+this.audio = new Audio(props.currentSong.songUrl);
 
-      this.audio.onloadedmetadata = () => {
-        this.setState({
-          songDuration: this.audio.duration,s
-        })
-      }
+this.audio.onloadedmetadata = () => {
+  this.setState({
+    songDuration: this.audio.duration,
+    s,
+  });
+};
 ```
 
 ## Song show
