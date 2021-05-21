@@ -106,7 +106,7 @@ class GridIndexItem extends React.Component {
                 </button>}
               </div>
             </div>
-        </div>
+          </div>
          
         
           <div className="grid-artist">
