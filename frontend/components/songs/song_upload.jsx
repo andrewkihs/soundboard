@@ -42,9 +42,7 @@ class SongUpload extends React.Component {
         Object.assign(audioID3, tag)
         this.setState({title: tag.tags.title})  
       },
-      onError: function(error) {
-        console.log(':(', error.type, error.info);
-      }
+
     })
 
     reader.onloadend = () => {
@@ -79,7 +77,6 @@ class SongUpload extends React.Component {
   handleDrop(e) {
     e.preventDefault();
     e.stopPropagation();
-    console.log('File dropped')
     const file = e.dataTransfer.files[0]
     // 
     if (file.type.includes('audio')){

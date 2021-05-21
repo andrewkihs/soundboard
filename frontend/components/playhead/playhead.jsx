@@ -34,7 +34,7 @@ export const Playhead = props => {
     let tracksParsed = JSON.parse(tracksString)
     setSelectedTrack(tracksParsed[0])
   },[tracksString])
-  // debugger
+  // 
 
   const {currentSong} = props
   if (currentSong){

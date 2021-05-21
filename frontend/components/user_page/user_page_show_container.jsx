@@ -32,15 +32,7 @@ const mSTP = (state, ownProps) => {
     } else {
       likedSongs = []
     }
-  // }
-    // console.log(model.get("key") + searchStr);
-    // console.log(likedSongs)
-    // debugger
-    // songs.filter((song) => {
-    //   debugger
-    //   // if ()
-    // })
-  
+
   
   return {
     currentUser: state.entities.users[state.session.id],

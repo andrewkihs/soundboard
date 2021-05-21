@@ -14,8 +14,7 @@ class Header extends React.Component {
       userDrop: false,
       // currPath: this.props.currPath
     }
-    // 
-    // console.log(this.props.currPath)
+  
     this.handleSettingsClick = this.handleSettingsClick.bind(this)
     this.leave = this.leave.bind(this)
     this.handleTabClick = this.handleTabClick.bind(this)
@@ -39,11 +38,9 @@ class Header extends React.Component {
     
     currEle.classList.add("selected")
     if (currClass === 'user-drop-down'){
-      console.log('user-drop-down click')
       this.setState({userDrop: true})
     }
     if (currClass === 'settings-btn-container'){
-      console.log('enter')
       this.setState({settingsDrop: true})
     }
     else if (currClass === 'message-btn-container'){
@@ -60,7 +57,6 @@ class Header extends React.Component {
     const currEle = e.currentTarget;
     currEle.classList.remove("selected")
     if (currClass === 'user-drop-down selected'){
-      console.log('user-drop-down leave')
       this.setState({userDrop: false})
     }
     if (currClass === 'settings-btn-container selected'){
@@ -74,7 +70,6 @@ class Header extends React.Component {
     }
   }
   render() {
-    // 
     const { openModal } = this.props;
 
     const sessionLinks = () => (
@@ -155,7 +150,6 @@ class Header extends React.Component {
               </ul>
             </button>
           </div>
-              {/* </span> */}
         </div>
       </>
     ) : (
@@ -211,7 +205,6 @@ class Header extends React.Component {
                   to="/you/library">Library
                   <span/>
                 </Link>
-              {/* </span> */}
 
           </div>
           <div className='header__middle'>

@@ -6,7 +6,7 @@ import Discover from './discover'
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   // 
   // const songLoaded = () => {
   //   if (state.entities.songs[ownProps.match.params.songId]){

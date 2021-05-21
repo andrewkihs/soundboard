@@ -13,7 +13,7 @@ class UserPage extends React.Component{
     const { postedSongs } = this.props
 
       return postedSongs.map(song => {
-        // debugger
+        // 
         return (
         <SongIndexItemContainer
         songId={song.id}
@@ -25,12 +25,12 @@ class UserPage extends React.Component{
 
   likedSongs(){
     const { likedSongs } = this.props
-    debugger
+    
     // const numLikes = likedSongs.length()
     return (
       <ul>
         {likedSongs.map(song => {
-          // debugger
+          // 
           return (
             <li>
               {song.title}

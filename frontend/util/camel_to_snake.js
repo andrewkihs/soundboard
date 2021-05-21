@@ -12,12 +12,6 @@ export const convertToSnakeCase = (obj) => {
   return newObj;
 };
 
-// const formData = new FormData();
-// formData.append("key1", "value1");
-// formData.append("key2", "value2");
-// formData.append("displayName2", "displayNamevalue2");
-// formData.append("userName2", "displayNamevalue2");
-
 export const formDataConvert = (formData) => {
   const retFormData = new FormData();
   const camelToSnakeCase = (str) =>
@@ -28,5 +22,3 @@ export const formDataConvert = (formData) => {
   }
   return retFormData;
 };
-
-// console.log(formData);

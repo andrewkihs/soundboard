@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
   let userLikesSong = false;
   let currentLikeId
   let selectedSong = null;
-  // debugger
+  // 
   if (state.playhead.currentSong){
     selectedSong = state.playhead.currrentSong
     if (state.playhead.currentSong.id.toString() === ownProps.songId && !state.playhead.paused){

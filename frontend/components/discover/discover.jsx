@@ -44,7 +44,7 @@ class Discover extends React.Component{
       )
     } else {
       // 
-      // debugger
+      // 
       return(
         <>
           <div className="grid-header">

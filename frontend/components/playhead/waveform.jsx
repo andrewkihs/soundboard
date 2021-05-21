@@ -29,30 +29,12 @@ export default function Waveform({ url, ...props }) {
   useEffect(()=> {
 
     audioProps.togglePlaybackStatus()
-    // console.log(audioProps.playbackStatus)
-    // if (props.paused){
-    //   audioProps.playbackStatus === "play" ? "Pause" : "Play"
-    // }
-    // console.log(props.paused)
+
 
 
   }, [props.paused])
 
-  // const handlePlayPause = () => {
-  //   !playing ? props.playSong() : props.pauseSong()
-  //   setPlay(!playing);
-  //   // wavesurfer.current.playPause();
-  // };
 
-  // const onVolumeChange = e => {
-  //   const { target } = e;
-  //   const newVolume = +target.value;
-
-  //   if (newVolume) {
-  //     setVolume(newVolume);
-  //     wavesurfer.current.setVolume(newVolume || 1);
-  //   }
-  // };
 
   const {currentSong} = props
 

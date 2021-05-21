@@ -7,7 +7,7 @@ import Splash from "./splash"
 
 
 const mSTP = (state, ownProps) => {
-  // debugger
+  // 
   return {
     currentUser: state.entities.users[state.session.id],
     songs: state.entities.songs

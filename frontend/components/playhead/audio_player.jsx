@@ -14,10 +14,8 @@ class AudioPlayer extends React.Component{
     this.audio = new Audio(props.currentSong.songUrl)
 
     this.audio.onloadedmetadata = () => {
-      console.log(this.audio.duration)
       this.setState({
-        songDuration: this.audio.duration,
-        // currentTime: this.audio.currentTime
+        songDuration: this.audio.duration,s
       })
     }
     this.play = this.play.bind(this)
@@ -27,7 +25,7 @@ class AudioPlayer extends React.Component{
 
 
   componentDidMount(){
-    // debugger
+    // 
     this.state.dummyTime = this.audio.currentTime
   }
 
@@ -64,12 +62,7 @@ class AudioPlayer extends React.Component{
   }
 
   setTime(value){
-    // e.preventDefault();
-    // debugger
-    // console.log('seek time')
-    // this.setState({dummyTime: sliderVal})
-    // console.log(e.currentTarget)
-    console.log(value)
+
   }
 
   playheadSlider() {
@@ -91,10 +84,7 @@ class AudioPlayer extends React.Component{
   }
   
   render() {
-    console.log(this.audio.currentTime);
-    console.log(this.state.dummyTime)
-    console.log(this.state.songDuration)
-    // debugger
+
     return (
       <>
         {/* {this.state.play ? <button 

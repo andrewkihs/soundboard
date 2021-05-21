@@ -35,7 +35,7 @@ class LogInForm extends React.Component {
         }else{
           this.props.closeModal() 
         }
-      }, console.log('Error'))
+      }, )
     
 
   }

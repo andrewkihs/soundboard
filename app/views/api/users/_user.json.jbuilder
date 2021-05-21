@@ -1,7 +1,7 @@
 json.extract! user, :id, :username, :display_name, :email, :gender, :bio, :city, :country, :first_name, :last_name
 json.headerUrl url_for(user.header)
 json.avatarUrl url_for(user.avatar)
-# debugger
+# 
 
 json.likes do
   user.likes.each do |like|
