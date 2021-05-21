@@ -17,9 +17,6 @@ const mSTP = (state, ownProps) => {
       audioFile: null,
       audioUrl: null,
     }
-    // songId: ownProps.match.params.songId,
-    // song: state.entities.songs[ownProps.match.params.songId]
-    // user: state.entities.users[ownProps.match.params.userId]
   }
 }
 

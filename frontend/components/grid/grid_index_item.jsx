@@ -14,7 +14,6 @@ import {
 
 class GridIndexItem extends React.Component {
   constructor(props){
-
     super(props)
     this.state = {
       currentlyPlaying: this.props.currentlyPlaying,
@@ -23,13 +22,7 @@ class GridIndexItem extends React.Component {
       hover: false
     }
     this.play = this.play.bind(this)
-    this.pause = this.pause.bind(this)
-    // this.handleComment = this.handleComment.bind(this)
-    // this.createLike = this.createLike.bind(this)
-    // this.deleteLike = this.deleteLike.bind(this)
-
-
-    
+    this.pause = this.pause.bind(this)    
   }
 
   handleHoverEnter(e){
@@ -101,19 +94,19 @@ class GridIndexItem extends React.Component {
             <div className="after">
               <div className="grid-play-pause">
                 {this.state.currentlyPlaying ? 
-                        <button 
-                          className="song-li-play-button" 
-                          onClick={this.pause}>
-                            <PauseIndexButton/>
-                        </button> :
-                        <button 
-                        className="song-li-play-button" 
-                        onClick={this.play}>
-                            <PlayIndexButton/>
-                      </button>}
-                </div>
+                  <button 
+                    className="song-li-play-button" 
+                    onClick={this.pause}>
+                      <PauseIndexButton/>
+                  </button> :
+                  <button 
+                  className="song-li-play-button" 
+                  onClick={this.play}>
+                      <PlayIndexButton/>
+                </button>}
               </div>
-          </div>
+            </div>
+        </div>
          
         
           <div className="grid-artist">
