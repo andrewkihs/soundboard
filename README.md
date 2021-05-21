@@ -47,5 +47,6 @@ Note: Heroku implementation not correctly rendering peaks. Local version posted 
 - Audio seeking in stream view affects main playhead
 - Proper editing for users/songs
 - Timed comments
+- Fix stream page loading time: ave waveform peaks, infinite/lazy scroll
 - Carousel view in discover route
 - Fix dead links
