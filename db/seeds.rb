@@ -606,6 +606,10 @@ classic_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/George+McC
 classic_song5.audio.attach(io: classic_song5_audio, filename: "classic#{classic_song5.id}.mp3")
 classic_song5.image.attach(io: classic_song5_image, filename: "classic#{classic_song5.id}.jpg")
 
+
+
+
+# separated by genre for variance in stream page
 idm_song1.save!
 house_song1.save!
 classic_song1.save!

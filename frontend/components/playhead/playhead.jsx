@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AudioPlayer from '../playhead/audio_player'
 import Waveform from "./waveform";
-import PlayList from "./playList";
 // import {playSong, pauseSong} from '../../actions/playhead_actions'
 export const Playhead = props => {
 
