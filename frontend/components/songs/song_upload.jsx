@@ -11,7 +11,7 @@ class SongUpload extends React.Component {
     super(props)
     this.state = {
       ...props.song,
-      formNum: 1,
+      formNum: 0,
       fileName: '',
       submitted: false,
     }
