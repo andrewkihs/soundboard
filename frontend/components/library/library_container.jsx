@@ -1,5 +1,5 @@
 import React from 'react'
-import Library from './Library'
+import Library from './library'
 import { connect } from 'react-redux';
 import { fetchSongs } from '../../actions/song_actions'
 
