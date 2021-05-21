@@ -69,6 +69,21 @@
   // width: 100%;
 }
 
+.comments-container {
+  // background: red;
+  position: relative;
+  // height: 200px;
+  height: 16px;
+  width: 100%;
+  // display: flex;
+  // align-items: center;
+  // flex-direction: row;
+}
+.comment-bubble {
+  // background: pink;
+  position: absolute;
+}
+
 .comment-input-padding {
   // margin-left: 3px;
   // margin-right: 3px;

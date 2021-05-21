@@ -10,16 +10,21 @@ class CommentShow extends React.Component {
     const {comments} = this.props
     // 
     return (
-      <div>
+      <>
         {comments.map((ele, i) => {
-          return (<CommentBubbleContainer
-            className="stream-comment"
-            key={ele.id}
-            comment={ele}>
-              {ele.body}
-            </CommentBubbleContainer>)
+          return (
+             <div className="comment-bubble" key={ele.id}
+              style={{left: `${Math.floor(Math.random()*680)}px`}}>
+              <CommentBubbleContainer
+                className="stream-comment"
+                key={ele.id}
+                comment={ele}>
+                  {ele.body}
+                </CommentBubbleContainer>
+            </div>
+            )
         })}
-      </div>
+      </>
     // return (<div>hello</div>)
     )
   }

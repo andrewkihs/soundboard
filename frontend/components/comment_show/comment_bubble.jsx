@@ -5,9 +5,11 @@ class CommentBubble extends React.Component {
     super(props)
     this.state = {
       hover: false,
+      // randomPos: Math.floor(Math.random()*255)
     }
     this.handleHoverEnter = this.handleHoverEnter.bind(this)
     this.handleHoverExit = this.handleHoverExit.bind(this)
+
   }
 
   componentDidMount(){
@@ -16,12 +18,10 @@ class CommentBubble extends React.Component {
   }
 
   handleHoverEnter(e){
-    console.log("hover")
     this.setState({hover: true})
   }
   
   handleHoverExit(e){
-    console.log("end hover")
     this.setState({hover: false})
   }
 
@@ -34,20 +34,20 @@ class CommentBubble extends React.Component {
     } else{
       // 
       return (
-      <div className="comment-bubble">
+        <>
         <Link to={`users/${commenter.id}`}>
 
           <img className="comment-avatar-image"
             onMouseOver={this.handleHoverEnter}
             onMouseOut={this.handleHoverExit}
-            src="https://lorimcnee.com/wp-content/uploads/2010/05/avatar.jpg">
+            src={commenter.avatarUrl ? commenter.avatarUrl : "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"}>
           </img>
         </Link>
         <div className={this.state.hover ? "comment-reveal" : "comment-hidden"}>
           <div>{commenter.displayName}</div>
           <div>{comment.body}</div>
         </div>
-      </div>
+        </>
       )
     }
   }

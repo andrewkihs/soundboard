@@ -12,7 +12,7 @@ import  HeaderContainer  from './header/header_container'
 import  LogInFormContainer  from './user_auth/login_form_container'
 import  SignUpFormContainer  from './user_auth/signup_form_container'
 import Modal from './modal/modal'
-import Splash from './splash'
+import SplashContainer from './splash/splash_container'
 import StreamContainer from './stream/stream_container'
 import UserPageShowContainer from './user_page/user_page_show_container'
 import SongShowContainer from './songs/song_show_container'
@@ -34,7 +34,7 @@ const App = () => (
         {/* <Route path="/upload" component={SongUploadContainer} /> */}
         <Route exact path="/discover" component={DiscoverContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path="/" component={Splash} />
+        <AuthRoute exact path="/" component={SplashContainer} />
         {/* <ProtectedRoute exact path="/discover" component={StreamContainer}/> */}
         <ProtectedRoute exact path ="/upload" component ={SongUploadContainer} />
         <ProtectedRoute exact path ="/stream" component ={StreamContainer} />

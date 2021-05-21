@@ -165,9 +165,9 @@ class SongIndexItem extends React.Component {
                     </button>}
                   </div>
                   <div className="left-song-info">
-                    <Link to={`users/${song.artistId}`} className="profile-link">{song.uploader}</Link>
+                    <Link to={`/users/${song.artistId}`} className="profile-link">{song.uploader}</Link>
                     <br/>
-                    <Link to={`songs/${song.id}`} className="song-page-link">{song.title}</Link>
+                    <Link to={`/songs/${song.id}`} className="song-page-link">{song.title}</Link>
                     {/* <div className="title">{song.title}</div> */}
 
                   </div>
@@ -175,7 +175,7 @@ class SongIndexItem extends React.Component {
             <div className="genre">{song.genre}</div>
               </div>
               <div className="waveform" id={`waveform_${song.id}`}></div>
-              <div><CommentShowContainer song={song}/></div>
+              <div className="comments-container"><CommentShowContainer song={song}/></div>
               <br></br>
               <div className="comment-input">
                 <div className="comment-input-padding">

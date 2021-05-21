@@ -1,6 +1,6 @@
 import React from 'react'
 import Carousel from '@brainhubeu/react-carousel';
-import "@brainhubeu/react-carousel/lib/style.css";
+import GridContainer from '../grid/grid_container'
 
 class Discover extends React.Component{
   constructor(props){
@@ -47,19 +47,15 @@ class Discover extends React.Component{
       // debugger
       return(
         <>
-         <Carousel itemWidth={100} plugins={['arrows']}>
-           {Object.keys(this.props.songs).map((song, i) =>{
-             console.log(songs[song].imageUrl)
-             return (<img key={i} width="100px" height="100px" src={songs[song].imageUrl}/>)
-            })}
-         </Carousel>
+          <div className="grid-header">
+            <h1>Discover what's new on Soundboard</h1>
+          </div>
+          <div className="grid-container">
+            {Object.keys(this.props.songs).map((key, i) =>{
+                    return <GridContainer key={i} songId={key}/>
+              })}
 
-        
-
-          {/* {Object.keys(this.props.songs).map((key, i) =>{
-            return <SongIndexItemContainer key={i} songId={key}/>
-          })} */}
-
+          </div>  
         </>
       )
 

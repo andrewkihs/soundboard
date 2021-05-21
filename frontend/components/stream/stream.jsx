@@ -30,12 +30,25 @@ class Stream extends React.Component{
       // 
       return(
         <>
-          <ul className="stream-ul">
+          <div className="stream-page">
+          <div className="grid-header">
+            <h1>See what's streaming on SoundBoard</h1>
+          </div>
+            <div className="stream-show-mc">
 
-          {Object.keys(this.props.songs).map((key, i) =>{
-            return <SongIndexItemContainer key={i} songId={key}/>
-          })}
-          </ul>
+            <div className="song-container-stream-show">
+
+                {/* <ul className="stream-ul"> */}
+
+                {Object.keys(this.props.songs).map((key, i) =>{
+                  return <SongIndexItemContainer key={i} songId={key}/>
+                })}
+                {/* </ul> */}
+              </div>
+              <div className="stream-right-hand-bar">
+              </div>
+            </div>
+          </div>
         </>
       )
 

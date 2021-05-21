@@ -38,8 +38,12 @@ class Library extends React.Component{
       )
     } else {
       // this.filterLikes(songs)
+      
       return(
         <>
+          <div className="grid-header">
+            <h1>All your likes in one place.</h1>
+          </div>
           <ul className="stream-ul">
             
             {Object.keys(this.props.currentUser.likes).map((key, i) =>{

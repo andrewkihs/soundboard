@@ -13,6 +13,7 @@ export const Playhead = props => {
       title: props.currentSong.title,
       songUrl: props.currentSong.songUrl,
       imageUrl: props.currentSong.imageUrl
+        
       }
     ]
   } else {
@@ -34,20 +35,24 @@ export const Playhead = props => {
     setSelectedTrack(tracksParsed[0])
   },[tracksString])
   // debugger
-  return (
-    <div className="playhead">
-      {selectedTrack?.songUrl && <Waveform 
-      url={selectedTrack.songUrl}
-      paused={props.paused} 
-      pauseSong={props.pauseSong}
-      playSong={props.playSong}
-      />}
-  
 
-      {selectedTrack.title}
-      <img className="playhead-photo" src={selectedTrack.imageUrl}/>
-      <br />
-    </div>
-  );
+  const {currentSong} = props
+  if (currentSong){
+    return (
+      <div className="playhead-container">
+        {selectedTrack?.songUrl && <Waveform 
+        url={selectedTrack.songUrl}
+        imageUrl={selectedTrack.songUrl}
+        paused={props.paused} 
+        pauseSong={props.pauseSong}
+        playSong={props.playSong}
+        currentSong={currentSong}
+        />}
+  
+      </div>
+    );
+  } else{
+    return null
+  }
 }
 export default Playhead

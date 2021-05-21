@@ -16,17 +16,25 @@ const mSTP = (state, ownProps) => {
     if (song.artistId == ownProps.match.params.userId) return song;
   })
 
-  let likedsongs = []
+  let likedSongs
   // if (pageOwner){
     // if accessing 
-    let likedSongs = songs.filter(song => {
-      if (pageOwner.likes[song.id]){
-        return song
-      }
-    })
+    if (pageOwner){
+
+      let likedSongs = songs.filter(song => {
+          if (pageOwner.likes){
+
+              if (pageOwner.likes[song.id]){
+                  return song
+            }
+        }
+      })
+    } else {
+      likedSongs = []
+    }
   // }
     // console.log(model.get("key") + searchStr);
-    console.log(likedSongs)
+    // console.log(likedSongs)
     // debugger
     // songs.filter((song) => {
     //   debugger

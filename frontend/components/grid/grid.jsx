@@ -1,6 +1,6 @@
 import React from 'react'
-import SongIndexItemContainer from './song_index_item_container'
-class SongShow extends React.Component{
+import GridIndexItemContainer from './grid_index_item_container'
+class Grid extends React.Component{
   constructor(props){
     super(props)
     this.state = {
@@ -9,12 +9,16 @@ class SongShow extends React.Component{
       song: props.song,
 
     }
-
+    // 
+    // this.url = props.song.audioUrl;
+    // this.audio = new Audio(this.state.songUrl);
     this.play = this.play.bind(this)
   }
   
   play = () => {
- 
+  // this.setState({ play: true, pause: false })
+  //   this.state.audioPlayer.play();
+    // 
     this.props.setCurrentSong(this.props.song)
   }
   
@@ -38,10 +42,10 @@ class SongShow extends React.Component{
       // 
       return (
         <>
-          <SongIndexItemContainer songId={this.props.song.id}/>
+          <GridIndexItemContainer songId={this.props.song.id}/>
         </>
       );
    }
   }
 }
-export default SongShow
+export default Grid

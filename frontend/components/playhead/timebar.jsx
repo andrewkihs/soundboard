@@ -78,7 +78,8 @@ function TimeBar({
     <div
       className={`timebar ${className || ""}`}
       
-    >
+      >
+      <div>{isSeeking ? "buffering..." : formatTime(currentTime)}</div>
      
       <input
         type="range"
@@ -91,7 +92,6 @@ function TimeBar({
         onMouseUp={onScrubEnd}
         onKeyUp={onScrubEnd}/>
       <div className="timebar-time-info">
-        <div>{isSeeking ? "buffering..." : formatTime(currentTime)}</div>
         <div>{formatTime(duration)}</div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import {SearchIcon, NotifBell, Messages, MoreOptions } from '../icons'
 import SongUploadContainer from '../songs/song_upload_container'
+
 class Header extends React.Component {
   constructor(props){
     super(props);
@@ -98,14 +99,6 @@ class Header extends React.Component {
       <>
         <div>
 
-        {/* <Link 
-          onFocus={this.handleTabClick} 
-          onBlur={this.leaveTab} 
-          className="header-box-right"
-          to="/Github"
-          target="_blank">GitHub
-          <span />
-        </Link> */}
         <a 
         target="_blank" 
         className="header-box-right"
@@ -123,8 +116,12 @@ class Header extends React.Component {
         <div className="user-icons">
           <div className="header__user-nav">
             <div className="user-drop-down" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-              <img className="header__user-image"/>
-                <span className="header-display-name">{currentUser.displayName}</span>
+              <img className="header__user-image" src={currentUser.avatarUrl}/>
+                  <Link to={`/users/${currentUser.id}`}>
+                <h1 className="header-display-name">
+                  {currentUser.displayName}
+                </h1 >
+                  </Link>
                 <ul id="message-dropdown" className={this.state.userDrop? 'reveal' : 'hide'}>
                 <li>Message dropdown</li>
                 <li> Dropdown content 2</li>
@@ -228,7 +225,6 @@ class Header extends React.Component {
             {display}          
           </div>
       </div>
-        {/* <button onClick={logout}> lgt</button> */}
       </nav>
     )
   }

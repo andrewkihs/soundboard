@@ -8,9 +8,7 @@ class UserPage extends React.Component{
     this.props.fetchUser(this.props.userId)
     this.props.fetchSongs()
   }
-  // handlePageLoad(){
-  // }
-
+  
   postedSongs(){
     const { postedSongs } = this.props
 
@@ -19,7 +17,7 @@ class UserPage extends React.Component{
         return (
         <SongIndexItemContainer
         songId={song.id}
-        key={song}
+        key={song.id}
         />)
       }
     )
@@ -28,7 +26,7 @@ class UserPage extends React.Component{
   likedSongs(){
     const { likedSongs } = this.props
     debugger
-    const numLikes = likedSongs.length()
+    // const numLikes = likedSongs.length()
     return (
       <ul>
         {likedSongs.map(song => {
@@ -53,23 +51,49 @@ class UserPage extends React.Component{
     }else {
       return (
         
-        <>
-         <h1>Display Name: {pageOwner.displayName}</h1>
-         <h1>{pageOwner.firstName} {pageOwner.lastName}</h1>
-         <h1>Username: {pageOwner.username}</h1>
-         {/* <h2>Age: {pageOwner.age}</h2> */}
-         <h2>{pageOwner.city},{pageOwner.country}</h2>
-         <h2>{pageOwner.bio}</h2>
-        
-        <div>
-          {this.postedSongs()}
+      <div className="user-show-page">
+        <div className="user-show-top">
+          <div className="header-photo-container">
+            <img className='user-page-header'src={pageOwner.headerUrl}/>
+          </div>
+          <div className="us-header-left">
+
+            <div className="profile-pic-container">
+              <img className='user-page-avatar'src={pageOwner.avatarUrl}/>
+            </div>
+            <div className="user-show-info-container">
+
+              <div className="user-show-info">
+                <h1 className="disp-name">{pageOwner.displayName}</h1>
+                <h2 className="other-info">{pageOwner.city},{pageOwner.country}</h2>
+                <h1 className="other-info">{pageOwner.firstName} {pageOwner.lastName}</h1>
+                {/* <h1>Username: {pageOwner.username}</h1> */}
+                {/* <h2 className="other-info">{pageOwner.bio}</h2> */}
+              </div>
+            </div>
+          </div>
         </div>
 
+        <div className="grid-header">
+            <h1>All the songs you posted</h1>
+          </div>
+        <div className="user-show-mc">
 
+        <div className="song-container-user-show">
+          {this.postedSongs()}
+        </div>
+        <div className="right-hand-bar">
+          <h1 className="user-show-bio">Bio</h1>
+          <br/>
+          <p>{pageOwner.bio}</p>
+        </div>
+
+        </div>
+        
         <div>
           {this.props.likedSongs ? this.likedSongs(): <p>hello</p>}
         </div>
-      </>
+      </div>
     )
     }
   }

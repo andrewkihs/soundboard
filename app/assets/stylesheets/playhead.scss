@@ -1,19 +1,86 @@
 .playhead-container {
   width: 100%;
-  background-color: grey;
-  // display: flex;
-  // flex-direction: row;
+  height: 100%;
+  background-color: #f2f2f2;
+  display: flex;
+  border-top: 1px solid #cecece;
+  flex-direction: column;
   // align-items: center;
-  // justify-content: space-between;
-  height: 40px;
+  justify-content: space-evenly;
+  height: 48px;
   position: fixed;
+  z-index: 1000;
   bottom: 0%;
   width: 100%;
-  // background-color: #393838;
-  opacity: 1;
+  transition: transform 0.2s ease-out;
+  // opacity: 1;
+}
+.playhead-controls {
+  width: 150px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.playhead-like-follow {
+  width: 70px;
+  display: flex;
+  align-items: center;
 }
 
-.playhead-title {
+.controls {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
+}
+.timebar {
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  .progress {
+    width: 95%;
+    // -webkit-appearance: none;
+    // outline: none;
+    // background: tomato;
+    ::-webkit-slider-runnable-track {
+      background: orange;
+    }
+    ::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 15px;
+      width: 15px;
+      background: pink;
+      margin-top: -5px;
+      border-radius: 50%;
+    }
+    ::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: goldenrod;
+      margin-top: -4px;
+    }
+  }
+}
+.playhead-button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
 }
 
 .playhead-photo {
@@ -26,8 +93,26 @@
   align-items: center;
   justify-content: space-between;
 }
-
-.playhead-song-info {
+.playlist-artist-info {
+  // width: 240px;
+}
+.playhead-uploader {
+  color: #999;
+  font-size: 12px;
+}
+.playhead-title {
+  color: #666;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.playhead-artist-container {
+  // background: pink;
+  height: 100%;
+  align-items: center;
+  width: 200px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }

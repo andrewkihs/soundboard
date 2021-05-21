@@ -1,0 +1,128 @@
+.user-show-page {
+  position: relative;
+}
+
+.user-show-top {
+  display: absolute;
+  height: 260px;
+}
+
+.us-header-left {
+  // display: flex;
+  position: relative;
+  // flex-direction: column;
+}
+
+.profile-pic-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  margin: auto 30px;
+  border-radius: 50%;
+  position: relative;
+  .user-page-avatar {
+    display: block;
+    width: 200px;
+    z-index: 3;
+    height: 200px;
+    position: absolute;
+    border-radius: 50%;
+  }
+}
+
+.user-show-info-container {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: 230px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 30px;
+  .other-info {
+    font-size: 16px;
+    color: lightgray;
+    font-weight: 300;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 5px 8px;
+    margin-top: 5px;
+    width: fit-content;
+  }
+  .disp-name {
+    font-size: 25px;
+    font-weight: 300;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+    padding: 10px 9px;
+    width: fit-content;
+  }
+  // border-radius: 50%;
+}
+.song-form-description {
+  width: 100%;
+  height: 80px;
+}
+.header-photo-container {
+  position: relative;
+  display: flex;
+  // align-items: center;
+  // display: flex;
+  // align-items: center;
+}
+.user-page-header {
+  width: 100%;
+  height: 260px;
+  position: absolute;
+  left: 0px;
+  display: block;
+  z-index: 1;
+}
+
+.user-display-bar {
+  display: absolute;
+  height: 64px;
+  width: 100%;
+  // background-color: pink;
+  border-bottom: 3px solid #f2f2f2;
+}
+.user-show-mc {
+  display: flex;
+  justify-content: space-between;
+}
+.song-container-user-show {
+  // display: block;
+  position: absolute;
+  background-color: white;
+  position: static;
+  left: 0px;
+  width: 100%;
+  // width: 50%;
+  z-index: 3;
+}
+.user-show-bio {
+  font-size: 24px;
+}
+.user-display-bar {
+  font-size: 24px;
+  // text-align: center;
+  padding-top: 20px;
+  padding: 5px;
+}
+.right-hand-bar {
+  position: relative;
+  width: 400px;
+  // height: 100%;
+  border-left: 3px solid #f2f2f2;
+}
+.up-show-tab {
+  margin-left: 20px;
+  font-size: x-large;
+}

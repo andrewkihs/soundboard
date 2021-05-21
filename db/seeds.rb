@@ -214,7 +214,7 @@ idm_song2 = Song.new(
   title: 'Dial 274', 
   artist_id: skee_mask.id, 
   description: "7th track on compro",
-  genre: 'IDM',
+  genre: 'Electronic',
 )
 
 idm_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover+copy+2.jpg")
@@ -229,7 +229,7 @@ idm_song3 = Song.new(
   title: 'Flyby VFR', 
   artist_id: skee_mask.id, 
   description: "9th track on compro",
-  genre: 'IDM',
+  genre: 'Electronic',
 )
 
 idm_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover+copy.jpg")
@@ -245,7 +245,7 @@ idm_song4 = Song.new(
   title: 'Forgive', 
   artist_id: burial.id, 
   description: "Right from the Burial self titled",
-  genre: 'IDM',
+  genre: 'Electronic',
 )
 idm_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/forgive.jpg")
 idm_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/09-burial-forgive.mp3")
@@ -259,7 +259,7 @@ idm_song5 = Song.new(
   title: 'Untrue', 
   artist_id: burial.id, 
   description: "Couldn't be alone.",
-  genre: 'IDM',
+  genre: 'Electronic',
 )
 idm_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/untrue.jpg")
 idm_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/yt1s.com+-+Burial++Archangel.mp3")
@@ -431,7 +431,7 @@ indie_song4 = Song.new(
   title: 'Dean Blunt - 100', 
   artist_id: demo_user.id, 
   description: "Off the album Black Metal",
-  genre: 'House',
+  genre: 'Indie',
 )
 indie_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/deanblunt100.jpeg")
 indie_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/Dean+Blunt+-+100.mp3")
@@ -445,7 +445,7 @@ indie_song5 = Song.new(
   title: 'Big Thief - Shark Smile', 
   artist_id: ak.id, 
   description: "From the 2017 album Capacity",
-  genre: 'House',
+  genre: 'Indie',
 )
 indie_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/bigthiefcapacity.jpeg")
 indie_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/Big+Thief+-+Shark+Smile+(Single)+%5BOfficial+Audio%5D.mp3")
@@ -466,7 +466,7 @@ new_wave_song1 = Song.new(
   title: 'New Order - Dreams Never End', 
   artist_id: new_wave_man.id, 
   description: "Off the album Movement from 1980",
-  genre: 'House',
+  genre: 'Alternative Rock',
 )
 
 new_wave_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/new+order+dreams+never+die.jpeg")
@@ -481,7 +481,7 @@ new_wave_song2 = Song.new(
   title: 'Joy DIvision - Disorder', 
   artist_id: new_wave_man.id, 
   description: "As seen on the Joy Division shirt, as heard on college radio",
-  genre: 'House',
+  genre: 'Alternative Rock',
 )
 
 new_wave_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/joy+division+disorder.png")
@@ -496,7 +496,7 @@ new_wave_song3 = Song.new(
   title: "The Cure - Boys Don't Cry", 
   artist_id: new_wave_man.id, 
   description: "One of the most popular The Cure songs. Robert Smith really nailed it",
-  genre: 'House',
+  genre: 'Alternative Rock',
 )
 
 new_wave_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/boysdontcry.jpg")
@@ -512,7 +512,7 @@ new_wave_song4 = Song.new(
   title: 'The Blue Nile - Tinseltown in the Rain', 
   artist_id: new_wave_man.id, 
   description: "A lesser known 80's jam",
-  genre: 'House',
+  genre: 'Alternative Rock',
 )
 new_wave_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/the_blue_nile_tinseltown_in_the_rain.jpeg")
 new_wave_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/The+Blue+Nile++Tinseltown+in+the+Rain.mp3")
@@ -526,7 +526,7 @@ new_wave_song5 = Song.new(
   title: 'John Cale, Brian Eno - Spinning Away', 
   artist_id: new_wave_man.id, 
   description: "A beautiful track from John Cale and Brian Eno.",
-  genre: 'House',
+  genre: 'Alternative Rock',
 )
 new_wave_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/johncalebe+spinning+away.jpeg")
 new_wave_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/John+Cale++Brian+Eno++Spinning+Away.mp3")
@@ -546,7 +546,7 @@ classic_song1 = Song.new(
   title: 'Alton Ellis - RockSteady', 
   artist_id: selecter.id, 
   description: "A 1977 smash from the king of early ska and rocksteady",
-  genre: 'House',
+  genre: 'Reggae',
 )
 
 classic_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/alton_ellis_rocksteady.jpg")
@@ -561,7 +561,7 @@ classic_song2 = Song.new(
   title: 'Gal Costa - Baby', 
   artist_id: selecter.id, 
   description: "A beautiful song. Mesmerizing even..",
-  genre: 'House',
+  genre: 'Folk & Singer-Songwriter',
 )
 
 classic_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/gal_costababy.jpg")
@@ -576,7 +576,7 @@ classic_song3 = Song.new(
   title: 'The Oogum Boogum Song', 
   artist_id: selecter.id, 
   description: "A sweet R&B/Soul tune from 1967",
-  genre: 'House',
+  genre: 'R&B & Soul',
 )
 
 classic_song3_image = open("https://soundboard-seeds.s3.amazonaws.com/oogum_boogum.jpg")
@@ -592,7 +592,7 @@ classic_song4 = Song.new(
   title: 'Triplett Twins - Pretty Please', 
   artist_id: selecter.id, 
   description: "Pretty please girl with sugar on top.",
-  genre: 'House',
+  genre: 'R&B & Soul',
 )
 classic_song4_image = open("https://soundboard-seeds.s3.amazonaws.com/pretty_please.jpg")
 classic_song4_audio = open("https://soundboard-seeds.s3.amazonaws.com/Triplett_Twins-Pretty_Please.mp3")
@@ -606,7 +606,7 @@ classic_song5 = Song.new(
   title: 'George McCrae - You Can Have It All', 
   artist_id: selecter.id, 
   description: "The original song famously convered by Yo La Tengo",
-  genre: 'House',
+  genre: 'R&B & Soul',
 )
 classic_song5_image = open("https://soundboard-seeds.s3.amazonaws.com/you+_canhaveitall.jpg")
 classic_song5_audio = open("https://soundboard-seeds.s3.amazonaws.com/George+McCrae....+You+Can+Have+It+All.+1974..mp3")
