@@ -200,7 +200,7 @@ idm_song1 = Song.new(
   title: 'Rev8617', 
   artist_id: skee_mask.id, 
   description: "3rd track on compro",
-  genre: 'IDM',
+  genre: 'Electronic',
 )
 
 idm_song1_image = open("https://soundboard-seeds.s3.amazonaws.com/Cover.jpg")
@@ -352,7 +352,7 @@ house_song4.image.attach(io: house_song4_image, filename: "house#{house_song4.id
 
 house_song5 = Song.new(
   title: 'COS-BER-ZAM - Ne Noya (Daphni Mix)', 
-  artist_id: theo_parrish.id, 
+  artist_id: demo_user.id, 
   description: "A fun tune from Daphni",
   genre: 'House',
 )
@@ -397,7 +397,7 @@ indie_song2 = Song.new(
   title: 'Maud Gone', 
   artist_id: csh.id, 
   description: "Released in 2012 on the album Monomania",
-  genre: 'House',
+  genre: 'Indie',
 )
 
 indie_song2_image = open("https://soundboard-seeds.s3.amazonaws.com/maudgone.jpg")
