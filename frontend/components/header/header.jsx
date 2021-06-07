@@ -12,7 +12,6 @@ class Header extends React.Component {
       messageDrop: false,
       notifDrop: false,
       userDrop: false,
-      // currPath: this.props.currPath
     }
   
     this.handleSettingsClick = this.handleSettingsClick.bind(this)
@@ -71,7 +70,6 @@ class Header extends React.Component {
   }
   render() {
     const { openModal } = this.props;
-    debugger
     const sessionLinks = () => (
       <nav className="login-signup">
         <button 
