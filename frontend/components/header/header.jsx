@@ -71,7 +71,7 @@ class Header extends React.Component {
   }
   render() {
     const { openModal } = this.props;
-
+    debugger
     const sessionLinks = () => (
       <nav className="login-signup">
         <button 
