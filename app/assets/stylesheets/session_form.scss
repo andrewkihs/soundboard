@@ -135,21 +135,56 @@
   /* display: flex; */
   align-items: center;
 }
-
+.signup-create-text {
+  color: black;
+  // height: 300px;
+  // height: 100px;
+  padding-top: 100px;
+  padding-bottom: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 32px;
+}
 .landing-image {
   width: 100%;
   // display: block;
 }
-
+.gender-dropdown {
+  border-radius: 5px;
+  width: 405px;
+  height: 50px;
+  font-size: large;
+  padding-left: 10px;
+}
 .modal-child {
   display: flex;
+  width: 450px;
+  height: 550px;
   flex-direction: column;
 }
-
+.gender-age-text {
+  text-align: left;
+  width: 390px;
+  padding-bottom: 7px;
+  padding-right: 7px;
+}
 .login-input {
   width: 390px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
   height: 30px;
+  line-height: 30px;
   font-size: 20px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  font-size: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 7px 8px;
+  border-radius: 5px;
+  // text-align: center;
 }
 .modal-title {
   text-align: center;

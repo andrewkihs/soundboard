@@ -104,6 +104,7 @@ class LogInForm extends React.Component {
           <div className="auth-method-separator">
             <span>or</span>
           </div>
+          <br/>
           <h1 className='modal-title'>Login to your SoundBoard account</h1>
           <br/>
          
@@ -152,6 +153,7 @@ We may use information you provide us in order to show you targeted ads as descr
         </ul>
           <br/>
           <button className="continue-btn" onClick={this.handleSubmit}>{'Sign in'}</button>
+          <br/>
           <p>Don't know your password?</p>
           {/* </div> */}
         </div>

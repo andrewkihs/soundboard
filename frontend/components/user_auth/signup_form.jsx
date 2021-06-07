@@ -5,7 +5,7 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formNum: 0,
+      formNum: 2,
       username: '',
       password: '',
       age: '',
@@ -190,42 +190,46 @@ We may use information you provide us in order to show you targeted ads as descr
 
     if (this.state.formNum === 1) {
       return (
-        <>
-          <button onClick={this.nextForm(0)}>{this.state.email}</button>
+
+        <div className="password-form-container">
+          <button className="login-form-back-btn"
+          onClick={this.nextForm(0)}>{this.state.email}</button>
           <br/>
-          <label>Choose a password
+          <label>Choose a password</label>
+          <br/>
             <input type="password"
               value={this.state.password}
               onChange={this.update('password')}
               className="login-input"
               onKeyPress={this.handleEnterClick}
             />
-          </label>
           <br/>
           <p className="modal-error">{this.state.showPasswordError ? 'Password must be longer than 6 characters': ""}</p>
           <p>By signing up I accept the Terms of use. I have read and understood the Privacy Policy and Cookies Policy</p>
           <br/>
-          <button onClick={this.handlePassword}>{'Accept & continue'}</button>
-        </>
+          <button className="continue-btn" onClick={this.handlePassword}>{'Accept & continue'}</button>
+        </div>
       )
     }
 
     if (this.state.formNum === 2) {
       return (
         <>
+        <h1 className="signup-create-text">Create your SoundBoard account</h1>
           <br/>
-          <label>Tell us your age
+          <label className="gender-age-text">Tell us your age</label>
             <input type="number"
               value={this.state.age}
               onChange={this.update('age')}
               onKeyPress={this.handleEnterClick}
               className="login-input"
             />
-          </label>
+            <br/>
           <p className="modal-error">{this.state.showAgeError ? "Sorry, but you don't meet SoundBoard's age requirements": ""}</p>
           <br/>
-          <label>Gender
+          <label className="gender-age-text">Gender</label>
             <select 
+            className="gender-dropdown"
             onChange={this.update('gender')} 
             onKeyPress={this.handleEnterClick}
             defaultValue="Indicate your gender">
@@ -234,10 +238,9 @@ We may use information you provide us in order to show you targeted ads as descr
               <option value="Male">Male</option>
               <option value="Prefer not to say">Prefer not to say</option>
             </select>
-    
-          </label>
+          <br/>
           <p className="modal-error">{this.state.showGenderError ? "Please indicate your gender": ""}</p>
-          <button onClick={this.handleAgeAndGender}>{'Accept & continue'}</button>
+          <button className="continue-btn"onClick={this.handleAgeAndGender}>{'Continue'}</button>
         </>
       )
     }
