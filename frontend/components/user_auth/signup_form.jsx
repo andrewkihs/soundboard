@@ -18,6 +18,8 @@ class SignUpForm extends React.Component {
       showPasswordError: false,
       showGenderError: false,
       showAgeError: false,
+      avatarFile: null,
+      avatarURL: null,
       showDisplayNameEror: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);

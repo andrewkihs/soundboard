@@ -20,10 +20,12 @@ class Splash extends React.Component {
     
     return (
       <div className="splash-page-whole">
+        <div className="carousel-container">
+
         <CarouselProvider
         className="carousel"
         naturalSlideWidth={100}
-        naturalSlideHeight={125}
+        naturalSlideHeight={1}
         totalSlides={2}
         isPlaying={true}
         >
@@ -32,6 +34,7 @@ class Splash extends React.Component {
             <Slide index={1}><img className="landing-image" src={window.landingImageURL1}/></Slide>
           </Slider>
         </CarouselProvider>
+      </div>
       <div className="splash-under">
         <div className="splash-search">
           <input id="splash-search-bar"
