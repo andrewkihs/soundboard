@@ -104,14 +104,21 @@
 }
 .continue-btn {
   width: 400px;
+  margin: 0 auto;
+  // padding-top: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  // line-height:
   // background-color: pink;
   color: white;
   -webkit-appearance: none;
   // margin: 1em auto;
   height: 40px;
+  line-height: 40px;
   // position: relative;
-  text-align: center;
   font-size: 16px;
+  text-align: center;
   // font-weight: 900;
   border: 0;
   box-shadow: none;
@@ -171,7 +178,7 @@
   padding-right: 7px;
 }
 .login-input {
-  width: 390px;
+  width: 387px;
   border: 1px solid lightgrey;
   border-radius: 5px;
   height: 30px;
@@ -198,7 +205,7 @@
 
 .modal-error {
   color: red;
-  // padding-top: 20px;
+  padding-top: 7px;
 }
 
 .login-form-back-btn {
