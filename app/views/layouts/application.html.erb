@@ -4,6 +4,15 @@
     <title>Soundboard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+     <meta property="og:title" content="SoundBoard" />
+     <meta property='og:image' content="<%= image_url('preview_picture.png') %>"/>
+     <meta property="og:description"
+       content="A pixel perfect clone of SoundCloud."
+     />
+     <meta property="og:url"
+       content="https://soundboard-aa.herokuapp.com/#/"
+     />
+
     <script type="text/javascript">
       window.logoURL = "<%= image_url('logo.jpeg') %>";
       window.landingImageURL0 = "<%= image_url('sc_landing0.jpeg') %>";

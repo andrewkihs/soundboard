@@ -25,7 +25,7 @@ class Splash extends React.Component {
         <CarouselProvider
         className="carousel"
         naturalSlideWidth={100}
-        naturalSlideHeight={1}
+        naturalSlideHeight={100}
         totalSlides={2}
         isPlaying={true}
         >
