@@ -12,6 +12,7 @@ class Header extends React.Component {
       messageDrop: false,
       notifDrop: false,
       userDrop: false,
+      logOutFlag: false,
     }
   
     this.handleSettingsClick = this.handleSettingsClick.bind(this)
@@ -68,8 +69,19 @@ class Header extends React.Component {
       this.setState({notifDrop: false})
     }
   }
+
+  handleLogout(){
+    this.props.logout().then(
+      ()=>{
+        window.location.hash = '/';
+      }
+
+    );
+
+  }
+
   render() {
-    const { openModal } = this.props;
+    const { openModal, currentUser } = this.props;
     const sessionLinks = () => (
       <nav className="login-signup">
         <button 
@@ -86,12 +98,9 @@ class Header extends React.Component {
       </nav>
     );
 
-    let currentUser = this.props.currentUser;
-    const { logout } = this.props
     const display = currentUser ? (
       <>
         <div>
-
         <a 
         target="_blank" 
         className="header-box-right"
@@ -144,7 +153,7 @@ class Header extends React.Component {
               <MoreOptions/>   
               <ul id="settings-dropdown" className={this.state.settingsDrop ? 'reveal' : 'hide'}>
                 <li>Settings dropdown</li>
-                <li><a onClick={logout}> Logout</a></li>
+                <li><a onClick={() => this.handleLogout()}>Logout</a></li>
               </ul>
             </button>
           </div>
