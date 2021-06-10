@@ -251,24 +251,23 @@ We may use information you provide us in order to show you targeted ads as descr
     if (this.state.formNum === 3){
       return (
         <>
-          <h1>Tell us a bit about yourself</h1>
+          <h1 className='signup-tellus-text'>Tell us a bit about yourself</h1>
           <br/>
-          <label>Choose your display name
-            <input type="text"
-            value={this.state.display_name}
-            onChange={this.update('display_name')}
-            onKeyPress={this.handleEnterClick}
-            className="login-input"
-            />
-          </label>
+          <label className="gender-age-text">Choose your display name</label>
+          <input type="text"
+          value={this.state.display_name}
+          onChange={this.update('display_name')}
+          onKeyPress={this.handleEnterClick}
+          className="login-input"
+          />
           <br/>
           <p className="modal-error">{this.state.showDisplayNameEror? 'Display name cannot be blank': ""}</p>
-          <p>Your display name can be anyting you like. Your name or artist name are good choices</p>
+          <p className='gender-age-text'>Your display name can be anything you like. Your name or artist name are good choices</p>
           <br/>
          
            <br/>
           
-          <button onClick={this.handleDisplayName}>Get Started</button>
+          <button className='continue-btn' onClick={this.handleDisplayName}>Get Started</button>
         </>
       )
     }
