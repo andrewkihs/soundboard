@@ -207,7 +207,7 @@ We may use information you provide us in order to show you targeted ads as descr
             />
           <br/>
           <p className="modal-error">{this.state.showPasswordError ? 'Password must be longer than 6 characters': ""}</p>
-          <p>By signing up I accept the Terms of use. I have read and understood the Privacy Policy and Cookies Policy</p>
+          <p className="form-boilerplate">By signing up I accept the Terms of use. I have read and understood the Privacy Policy and Cookies Policy</p>
           <br/>
           <button className="continue-btn" onClick={this.handlePassword}>{'Accept & continue'}</button>
         </div>
