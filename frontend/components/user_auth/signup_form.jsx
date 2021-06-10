@@ -5,7 +5,7 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formNum: 2,
+      formNum: 0,
       username: '',
       password: '',
       age: '',
@@ -101,6 +101,7 @@ class SignUpForm extends React.Component {
 
 
   handleAgeAndGender(){
+    debugger
     if (this.state.age < 13){
       return this.setState({showAgeError: true})
     } else {
@@ -111,10 +112,11 @@ class SignUpForm extends React.Component {
     } else if (this.state.gender === ''){
       return this.setState({showGenderError: true})
     } 
-    if (this.state.showGenderError == false && this.state.showAgeError == false){
+    if (this.state.age > 13 && this.state.gender !== 'Indicate your Gender'){
       return this.setState({formNum: 3})
     }
-    return 
+    debugger
+    // return 
   }
 
   handleDisplayName(){
@@ -240,7 +242,7 @@ We may use information you provide us in order to show you targeted ads as descr
             </select>
           <br/>
           <p className="modal-error">{this.state.showGenderError ? "Please indicate your gender": ""}</p>
-          <button className="continue-btn"onClick={this.handleAgeAndGender}>{'Continue'}</button>
+          <button className="continue-btn"onClick={() => this.handleAgeAndGender()}>{'Continue'}</button>
         </>
       )
     }
