@@ -11,17 +11,28 @@ class Api::SongsController < ApplicationController
   end
 
   def create
-    # 
     @song = Song.new(song_params)
-    # 
     if @song.save
       render '/api/songs/show'
     else
       render json: @song.errors.full_messages, status: 401
     end
-    # render :show
   end
 
+  def update 
+    @song = Song.find(params[:id])
+    if @song.update(song_params)
+      render "api/songs/show"
+    else
+      render json: @song.errors.full_messages, status: 401
+    end
+  end
+
+  def destroy 
+    @song = Song.find(params[:id])
+    @song.destroy
+    render json: {}
+  end
   private
 
   def song_params
