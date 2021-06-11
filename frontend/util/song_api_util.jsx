@@ -28,18 +28,19 @@ export const createSong = (formDataObj) => {
   return req
 }
 
-// TODO
-// export const updateSong = (song) => (
-//   $.ajax({
-//     method: 'POST',
-//     url: `api/songs/${song.id}`
-//   })
-// )
+export const updateSong = (song) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/songs/${song.id}`,
+    data: song,
+    contentType: false,
+    processData: false,
+  })
+)
 
-// TODO
-// export const deleteSong = songId => (
-//   $.ajax({
-//     method: 'DELETE',
-//     url: `api/tracks/${songId}`
-//   })
-// )
+export const deleteSong = songId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `api/tracks/${songId}`
+  })
+)

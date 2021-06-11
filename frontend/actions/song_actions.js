@@ -2,6 +2,7 @@ import * as SongAPIUtil from "../util/song_api_util";
 
 export const RECEIVE_SONG = "RECEIVE_SONG";
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
+export const REMOVE_SONG = "REMOVE_SONG";
 
 export const receiveSongs = (songs) => ({
   type: RECEIVE_SONGS,
@@ -11,6 +12,11 @@ export const receiveSongs = (songs) => ({
 export const receiveSong = (song) => ({
   type: RECEIVE_SONG,
   song,
+});
+
+export const removeSong = (songId) => ({
+  type: REMOVE_SONG,
+  songId,
 });
 
 export const fetchSongs = () => (dispatch) => {
@@ -24,3 +30,12 @@ export const fetchSong = (songId) => (dispatch) => {
 export const createSong = (song) => (dispatch) => {
   SongAPIUtil.createSong(song).then((song) => dispatch(receiveSong(song)));
 };
+
+export const updateSong = (song, id) => (dispatch) => {
+  SongAPIUtil.updateSong(song, id).then((payload) =>
+    dispatch(receiveSong(payload))
+  );
+};
+
+export const deleteSong = (songId) => (dispatch) =>
+  APIUtil.deleteSong(songId).then((song) => dispatch(removeSong(songId)));
