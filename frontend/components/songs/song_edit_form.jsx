@@ -7,7 +7,9 @@ class SongEditForm extends React.Component {
     this.state = {
       ...props.song,
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
+    this.updateimage = this.updateimage.bind(this);
   }
 
    update(field) {
@@ -29,16 +31,86 @@ class SongEditForm extends React.Component {
     if (this.state.audioFile) {
       formData.append('song[audio]', this.state.audioFile);
     }
-    // 
-    debugger
     this.props.updateSong(formData, this.state.id)
     this.setState({submitted: true})
   }
+  updateAudio(e, file){
+    const reader = new FileReader();
+    const audioID3 = {}
+    if (file === undefined) {
+      file = e.currentTarget.files[0];
+    } 
+    this.setState({fileName: file.name})
+    jsmediatags.read(file, {
+      onSuccess: tag => {
+        
+        Object.assign(audioID3, tag)
+        this.setState({title: tag.tags.title})  
+      },
+
+    })
+
+    reader.onloadend = () => {
+      this.setState({ audioUrl: reader.result, audioFile: file });
+ 
+    }
+    
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ audioUrl: "", audioFile: null });
+    }
+    this.setState({formNum: 1})
+  }
+
+  updateimage(e, file){
+    const reader = new FileReader();
+    // 
+    if (file === undefined){
+      file = e.currentTarget.files[0];
+    }
+    reader.onloadend = () =>
+      this.setState({ imageUrl: reader.result, imageFile: file });
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  }
   render() {
     const { song } = this.state
-    // debugger
+
+    let dispImg 
+    debugger
+    if (this.state.imageUrl){
+      dispImg = <img className="song-form-album-art" src={this.state.imageUrl} />
+    } 
+    else {
+      dispImg = <div className="placeholder-album-art"/>
+    }
+
     return (
       <>
+        <div className="image-container">
+          {dispImg}
+          {/* <button className="change-image-btn">Upload Image</button> */}
+          <label className="change-image-btn" >Upload image
+            <input 
+            type="file"
+            id ="init-image-input"
+            accept="image/*"
+            className="init-image-input"
+            onChange={(e) => this.updateimage(e)}
+            />
+          </label>
+        </div>
+        <input 
+          type="file"
+          accept='audio/*'
+          onChange={(e) => this.updateAudio(e)}
+        />
+
         <div className="song-form-text-input-container">
                 <label className="sf-title-label">Title
                 <input 
@@ -52,9 +124,8 @@ class SongEditForm extends React.Component {
                 <label>Genre
                   <br/>
                   <select 
-                  onChange={this.update('genre')}
-                  defaultValue="None">
-                    <option value="None">None</option>
+                  onChange={this.update('genre')}>
+                    <option value={this.state.genre}>{this.state.genre}</option>
                       <optgroup label="Music">
                         <option value="Alternative Rock">Alternative Rock</option>
                         <option value="Ambient">Ambient</option>
