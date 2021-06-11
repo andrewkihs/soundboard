@@ -30,10 +30,8 @@ class SongShow extends React.Component{
 
  render() {
     const { song } = this.props
-    // 
     if (song === undefined) return null
     else {
-      // 
       return (
         <>
           <SongIndexItemContainer songId={this.props.song.id}/>
