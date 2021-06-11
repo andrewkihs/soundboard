@@ -16,6 +16,7 @@ import SplashContainer from './splash/splash_container'
 import StreamContainer from './stream/stream_container'
 import UserPageShowContainer from './user_page/user_page_show_container'
 import SongShowContainer from './songs/song_show_container'
+import SongEditContainer from './songs/song_edit_container'
 import SongUploadContainer from './songs/song_upload_container'
 import PlayheadContainer from './playhead/playhead_container'
 import LoginFormContainer from './user_auth/login_form'
@@ -29,7 +30,8 @@ const App = () => (
       <div className="main-content">
     <Switch>
         <Route path="/users/:userId" component={UserPageShowContainer} />
-        <Route path="/songs/:songId" component={SongShowContainer} />
+        <Route exact path="/songs/:songId" component={SongShowContainer} />
+        <Route exact path="/songs/:songId/edit" component={SongEditContainer} />
         {/* <Route path="/songs/" component={SongUploadContainer}/> */}
         {/* <Route path="/upload" component={SongUploadContainer} /> */}
         <Route exact path="/discover" component={DiscoverContainer} />
