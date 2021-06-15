@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchSong } from '../../actions/song_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
-import { playSong, setCurrentSong, pauseSong, fetchUser } from '../../actions/playhead_actions'
+import { playSong, setCurrentSong, pauseSong} from '../../actions/playhead_actions'
 import { createComment } from '../../actions/comment_actions'
+import { fetchUser } from '../../actions/user_actions'
 import SongIndexItem from './song_index_item'
 
 const mSTP = (state, ownProps) => {
@@ -13,7 +14,6 @@ const mSTP = (state, ownProps) => {
   let userLikesSong = false;
   let currentLikeId
   let selectedSong = null;
-  // 
   if (state.playhead.currentSong){
     selectedSong = state.playhead.currrentSong
     if (state.playhead.currentSong.id.toString() === ownProps.songId && !state.playhead.paused){
@@ -22,13 +22,16 @@ const mSTP = (state, ownProps) => {
       currentSongPlaying = false;
     }
   }
-
+  
   if(currentUser.likes){
-
+    
     if(currentUser.likes[ownProps.songId]){
-
+      
       userLikesSong = true;
       currentLikeId = currentUser.likes[ownProps.songId].id
+      // debugger
+    } else {
+      userLikesSong = false;
     }
   }
 

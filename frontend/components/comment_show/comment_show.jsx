@@ -7,14 +7,17 @@ class CommentShow extends React.Component {
   }
 
   render(){
-    const {comments} = this.props
+    const {song} = this.props
     // 
-    return (
-      <>
-        {comments.map((ele, i) => {
+    // debugger
+    if (!song.comments) return null
+    else{
+      return (
+        <>
+        {song.comments.map((ele, i) => {
           return (
-             <div className="comment-bubble" key={ele.id}
-              style={{left: `${Math.floor(Math.random()*680)}px`}}>
+            <div className="comment-bubble" key={ele.id}
+            style={{left: `${Math.floor(Math.random()*680)}px`}}>
               <CommentBubbleContainer
                 className="stream-comment"
                 key={ele.id}
@@ -23,10 +26,11 @@ class CommentShow extends React.Component {
                 </CommentBubbleContainer>
             </div>
             )
-        })}
+          })}
       </>
     // return (<div>hello</div>)
     )
+  }
   }
 }
 export default CommentShow

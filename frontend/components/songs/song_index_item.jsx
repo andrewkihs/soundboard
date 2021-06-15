@@ -33,20 +33,17 @@ class SongIndexItem extends React.Component {
 
     super(props)
     this.state = {
+      song: this.props.song,
       currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
       userLikesSong: this.props.userLikesSong,
       userOwnsSong: this.props.song.artistId === this.props.currentUser.id,
     }
-    debugger
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.handleComment = this.handleComment.bind(this)
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
-
-
-    
   }
 
   play() {
@@ -85,17 +82,25 @@ class SongIndexItem extends React.Component {
       waveColor: linGrad,
       forceDecode: true,
       normalize: true,
-       cursorColor: '#fff',
+      cursorColor: '#fff',
       barWidth: 2,
       backend: 'MediaElement',
   
   
 
     });
-    this.wavesurfer.load(this.props.song.songUrl)
+    debugger
+    this.wavesurfer.load(this.state.song.songUrl)
     this.wavesurfer.setMute(true)
   }
-
+  componentDidUpdate(prevProps){
+    if (this.props.currentUser.likes !== prevProps.currentUser.likes){
+      this.setState({currentUser: prevProps.song})
+    }
+    if (!this.props.song.songUrl){
+      this.setState({song: prevProps.song})
+    }
+  }
   handleComment(e){
     e.preventDefault()
     const comment = this.state.comment
@@ -110,18 +115,17 @@ class SongIndexItem extends React.Component {
     const currentUserId = this.props.currentUser.id
     this.props.createLike({liker_id: currentUserId, song_id: songId})
     this.setState({userLikesSong: true})
-    this.props.fetchSong(songId)
-    this.props.fetchUser(userId)
+    this.props.fetchUser(currentUserId)
   }
 
   deleteLike(e){
     e.preventDefault()
-    const song = this.props.song
-    const currentLikeId=  this.props.currentLikeId
+    const song = this.state.song
+    const currentLikeId =  this.props.currentUser.likes[song.id].id
+    debugger
     this.props.deleteLike(currentLikeId, song)
     this.setState({userLikesSong: false})
-    this.props.fetchSong(song.id)
-    this.props.fetchUser(userId)
+
   }
 
   toggleLikeButtons(){

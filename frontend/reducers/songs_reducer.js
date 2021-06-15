@@ -8,8 +8,9 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SONG:
+      debugger;
       return Object.assign({}, state, {
-        [action.song.song.id]: action.song.song,
+        [action.song.id]: action.song,
       });
     case RECEIVE_SONGS:
       return Object.assign({}, action.songs);
