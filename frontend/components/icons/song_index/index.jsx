@@ -52,3 +52,30 @@ version="1.1"
     </g>
 </svg>
 )
+
+export const EditButton = (props) => (
+    <svg 
+    width="17px" 
+    height="17px" 
+    viewBox="0 0 17 17" 
+    version="1.1" 
+    {...props}>
+    <title>edit</title>
+    <defs/>
+    <g 
+    id="Page-1" 
+    stroke="none" 
+    strokeWidth="1" 
+    fill="none" 
+    fillRule="evenodd">
+        <g 
+        id="edit-+-edit" 
+        fill="rgb(34, 34, 34)">
+            <path 
+            d="M5.71751442,1.21751442 L5.71751442,13.2175144 L7.71751442,16.2175144 L9.71751442,13.2175144 L9.71751442,1.21751442 L5.71751442,1.21751442 Z M6.71751442,2.21751442 L6.71751442,12.2175144 L7.71751442,12.2175144 L7.71751442,2.21751442 L6.71751442,2.21751442 Z" id="edit" 
+ transform="translate(7.717514, 8.717514) rotate(-315.000000) translate(-7.717514, -8.717514) "/>
+        </g>
+    </g>
+</svg>
+
+)

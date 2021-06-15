@@ -1,6 +1,6 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js';
-import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton} from '../icons/index'
+import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton, EditButton} from '../icons/index'
 import  CommentShowContainer from '../comment_show/comment_show_container'
 import {
   Route,
@@ -35,8 +35,10 @@ class SongIndexItem extends React.Component {
     this.state = {
       currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
-      userLikesSong: this.props.userLikesSong
+      userLikesSong: this.props.userLikesSong,
+      userOwnsSong: this.props.song.artistId === this.props.currentUser.id,
     }
+    debugger
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.handleComment = this.handleComment.bind(this)
@@ -138,9 +140,8 @@ class SongIndexItem extends React.Component {
 
   render() {
     const { song, userLikesSong } = this.props
-    // 
-    // 
-      return (
+    const { userOwnsSong } = this.state
+      return ( 
         <li className="song-list-item">
           <div className="song-list-item-container">
             <div>
@@ -193,6 +194,7 @@ class SongIndexItem extends React.Component {
               </div>
                <div className="song-interact-buttons">
                   {this.toggleLikeButtons()}
+                  {userOwnsSong ? <button><Link to={`/songs/${song.id}/edit`}><EditButton/></Link></button>: null}
                </div>
             </div>
             
