@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom';
 
 class SongEditForm extends React.Component {
   constructor(props){
@@ -79,7 +80,7 @@ class SongEditForm extends React.Component {
     }
   }
   render() {
-    const { song } = this.state
+    // const { song } = this.props
 
     let dispImg 
     debugger
@@ -184,7 +185,7 @@ class SongEditForm extends React.Component {
                   </label>
                 <br/>
                 
-              
+                {this.state.submitted ? <Redirect to={`/songs/${this.state.id}`}/> : null}
                 <button className="song-submit-btn"
                 type="submit" 
                 onClick={this.handleSubmit}>  

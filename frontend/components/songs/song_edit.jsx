@@ -4,10 +4,9 @@ import SongEditForm from './song_edit_form'
 
 class SongEdit extends React.Component{
   constructor(props){
-    debugger
     super(props)
     this.state = {
-      
+      userOwnsSong: props.userOwnsSong
     }
   }
 
@@ -23,6 +22,7 @@ class SongEdit extends React.Component{
   
 
  render() {
+    debugger
     const { song, updateSong } = this.props
     const { userOwnsSong } = this.state
     if (song === undefined) return null

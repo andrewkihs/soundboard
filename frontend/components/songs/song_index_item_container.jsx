@@ -26,10 +26,8 @@ const mSTP = (state, ownProps) => {
   if(currentUser.likes){
     
     if(currentUser.likes[ownProps.songId]){
-      
       userLikesSong = true;
       currentLikeId = currentUser.likes[ownProps.songId].id
-      // debugger
     } else {
       userLikesSong = false;
     }

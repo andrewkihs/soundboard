@@ -13,9 +13,14 @@ const mSTP = (state, ownProps) => {
       return false
     }
   }
+  let userOwnsSong = false;
+  if (songLoaded){
+    userOwnsSong = state.entities.users[state.session.id].id === state.entities.songs[ownProps.match.params.songId].artistId
+  }
   // debugger
   return {
     currentUser: state.entities.users[state.session.id],
+    userOwnsSong: userOwnsSong,
     songId: ownProps.match.params.songId,
     song: state.entities.songs[ownProps.match.params.songId],
     songUrl: (songLoaded() ? state.entities.songs[ownProps.match.params.songId].songUrl : '')
