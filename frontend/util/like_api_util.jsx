@@ -7,10 +7,10 @@ export const createLike = (like) => {
   })
 }
 
-export const deleteLike = (likeId, songId) => {
+export const deleteLike = (likeId, song) => {
   // debugger
   return $.ajax({
     method: 'DELETE',
-    url: `/api/songs/${songId}/likes/${likeId}`
+    url: `/api/songs/${song.id}/likes/${likeId}`
   })
 }

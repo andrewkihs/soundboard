@@ -89,18 +89,16 @@ class SongIndexItem extends React.Component {
   
 
     });
-    debugger
+
     this.wavesurfer.load(this.state.song.songUrl)
     this.wavesurfer.setMute(true)
   }
   componentDidUpdate(prevProps){
-    if (this.props.currentUser.likes !== prevProps.currentUser.likes){
-      this.setState({currentUser: prevProps.song})
-    }
     if (!this.props.song.songUrl){
       this.setState({song: prevProps.song})
     }
   }
+  
   handleComment(e){
     e.preventDefault()
     const comment = this.state.comment
@@ -113,19 +111,24 @@ class SongIndexItem extends React.Component {
     e.preventDefault()
     const songId = this.props.songId
     const currentUserId = this.props.currentUser.id
-    this.props.createLike({liker_id: currentUserId, song_id: songId})
+    this.props.createLike({liker_id: currentUserId, song_id: songId}).then(()=> {
+      // update appropriate tables
+      this.props.fetchUser(currentUserId)
+      this.props.fetchSong(songId)
+    })
     this.setState({userLikesSong: true})
-    this.props.fetchUser(currentUserId)
   }
 
   deleteLike(e){
     e.preventDefault()
     const song = this.state.song
     const currentLikeId =  this.props.currentUser.likes[song.id].id
-    debugger
-    this.props.deleteLike(currentLikeId, song)
+    this.props.deleteLike(currentLikeId, song).then(()=> {
+      // update appropriate tables
+      this.props.fetchUser(this.props.currentUser.id)
+      this.props.fetchSong(song.id)
+    })
     this.setState({userLikesSong: false})
-
   }
 
   toggleLikeButtons(){
