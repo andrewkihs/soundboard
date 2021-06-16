@@ -15,6 +15,5 @@ export const pauseSong = () => ({
   type: PAUSE_SONG,
 });
 
-export const setCurrentSong = (song) => (dispatch) => {
+export const setCurrentSong = (song) => (dispatch) =>
   dispatch(receiveCurrentSong(song));
-};

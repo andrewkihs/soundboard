@@ -5,18 +5,19 @@ function useAudio(url) {
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [playbackStatus, setPlaybackStatus] = useState("play");
+  const [playbackStatus, setPlaybackStatus] = useState("pause");
   const [isLoading, setLoading] = useState(true);
   const [isSeeking, setSeeking] = useState(false);
 
   React.useEffect(() => {
+    // debugger
     setLoading(true);
   }, [url]);
-
+  // console.log('first load')
   return [
     <audio
       onLoadedData={() => {
-        setPlaybackStatus("play");
+        setPlaybackStatus("pause");
         setLoading(false);
         setDuration(audioRef.current.duration);
       }}
@@ -42,6 +43,7 @@ function useAudio(url) {
       },
       togglePlaybackStatus: () => {
         if (playbackStatus === "play") {
+          console.log('play')
           audioRef.current.pause();
           setPlaybackStatus("pause");
         }
