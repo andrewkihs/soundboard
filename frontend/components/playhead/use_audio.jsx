@@ -10,10 +10,10 @@ function useAudio(url) {
   const [isSeeking, setSeeking] = useState(false);
 
   React.useEffect(() => {
-    // debugger
+
     setLoading(true);
   }, [url]);
-  // console.log('first load')
+
   return [
     <audio
       onLoadedData={() => {
@@ -42,10 +42,9 @@ function useAudio(url) {
         audioRef.current.currentTime = seconds;
       },
       togglePlaybackStatus: () => {
-        debugger
-        console.log(playbackStatus)
+
         if (playbackStatus === "play") {
-          console.log('play')
+          // console.log('play')
           audioRef.current.pause();
           setPlaybackStatus("pause");
         }
