@@ -17,7 +17,7 @@ function useAudio(url) {
   return [
     <audio
       onLoadedData={() => {
-        setPlaybackStatus("pause");
+        setPlaybackStatus("play");
         setLoading(false);
         setDuration(audioRef.current.duration);
       }}
@@ -42,6 +42,8 @@ function useAudio(url) {
         audioRef.current.currentTime = seconds;
       },
       togglePlaybackStatus: () => {
+        debugger
+        console.log(playbackStatus)
         if (playbackStatus === "play") {
           console.log('play')
           audioRef.current.pause();

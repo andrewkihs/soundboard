@@ -37,7 +37,7 @@ export default function Waveform({ url, ...props }) {
 
 
   const {currentSong} = props
-
+  debugger
   return (
     <div>
 
@@ -56,7 +56,7 @@ export default function Waveform({ url, ...props }) {
           <button className="playhead-button"><BackButton/></button>
           {/* <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button> */}
           <button onClick={audioProps.togglePlaybackStatus} className="playhead-button">
-            {audioProps.playbackStatus === "play" ? <PauseButton/> : <PlayButton/>}
+            {audioProps.playbackStatus === "pause" ? <PlayButton/>: <PauseButton/>}
           </button>
           <button className="playhead-button"><NextButton/></button>
         </div>
