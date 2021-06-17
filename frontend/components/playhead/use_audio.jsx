@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect }  from "react";
-
+import { playSong, setCurrentSong, pauseSong} from '../../actions/playhead_actions'
 function useAudio(url) {
   const audioRef = useRef(null);
 
@@ -44,11 +44,12 @@ function useAudio(url) {
       togglePlaybackStatus: () => {
 
         if (playbackStatus === "play") {
-          // console.log('play')
+          // dispatch(pauseSong());
           audioRef.current.pause();
           setPlaybackStatus("pause");
         }
         if (playbackStatus === "pause") {
+          // dispatch(playSong());
           audioRef.current.play();
           setPlaybackStatus("play");
         }

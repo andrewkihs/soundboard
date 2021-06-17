@@ -16,7 +16,7 @@ class GridIndexItem extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      currentlyPlaying: this.props.currentlyPlaying,
+      // currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
       userLikesSong: this.props.userLikesSong,
       hover: false
@@ -34,12 +34,13 @@ class GridIndexItem extends React.Component {
   }
 
   play() {
-
+    debugger
     this.props.playSong()
     this.props.setCurrentSong(this.props.song)
     this.setState({currentlyPlaying: true})
   }
   pause() {
+    // debugger
     this.props.pauseSong()
     this.setState({currentlyPlaying: false})
   }
@@ -93,7 +94,7 @@ class GridIndexItem extends React.Component {
             />
             <div className="after">
               <div className="grid-play-pause">
-                {this.state.currentlyPlaying ? 
+                {this.props.currentlyPlaying ? 
                   <button 
                     className="song-li-play-button" 
                     onClick={this.pause}>

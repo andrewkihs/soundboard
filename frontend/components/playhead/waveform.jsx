@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import TimeBar from './timebar'
 import useAudio from "./use_audio";
+import { playSong, setCurrentSong, pauseSong} from '../../actions/playhead_actions'
 import {VolumeButton, PlayButton, 
   BackButton,
    NextButton, 
@@ -37,7 +38,7 @@ export default function Waveform({ url, ...props }) {
 
 
   const {currentSong} = props
-  debugger
+
   return (
     <div>
 
@@ -55,8 +56,8 @@ export default function Waveform({ url, ...props }) {
         <div className="playhead-controls">
           <button className="playhead-button"><BackButton/></button>
           {/* <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button> */}
-          <button onClick={audioProps.togglePlaybackStatus} className="playhead-button">
-            {audioProps.playbackStatus === "pause" ? <PlayButton/>: <PauseButton/>}
+          <button onClick={audioProps.playbackStatus === "pause" ? ()=> dispatch(playSong()): ()=> dispatch(pauseSong())} className="playhead-button">
+            {audioProps.playbackStatus === "pause" ?<PlayButton/>: <PauseButton/>}
           </button>
           <button className="playhead-button"><NextButton/></button>
         </div>

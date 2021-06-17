@@ -9,23 +9,19 @@ class Discover extends React.Component{
       play: false,
       pause: true,
       song: props.song,
-
     }
-    // 
-    // this.url = props.song.audioUrl;
-    // this.audio = new Audio(this.state.songUrl);
+
     this.play = this.play.bind(this)
   }
   
   play = () => {
-  // this.setState({ play: true, pause: false })
-  //   this.state.audioPlayer.play();
-    // 
+    this.props.playSong()
     this.props.setCurrentSong(this.props.song)
   }
   
   pause = () => {
-  this.setState({ play: false, pause: true })
+    this.props.pauseSong();
+    this.setState({ play: false, pause: true })
     this.state.audioPlayer.pause();
   }
 

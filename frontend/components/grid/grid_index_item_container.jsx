@@ -7,21 +7,20 @@ import { createComment } from '../../actions/comment_actions'
 import GridIndexItem from './grid_index_item'
 
 const mSTP = (state, ownProps) => {
-
   let currentUser = state.entities.users[state.session.id];
   let currentSongPlaying = false;
   let userLikesSong = false;
   let currentLikeId
   let selectedSong = null;
-  // 
   if (state.playhead.currentSong){
     selectedSong = state.playhead.currrentSong
-    if (state.playhead.currentSong.id.toString() === ownProps.songId && !state.playhead.paused){
+    if (state.playhead.currentSong.id === ownProps.songId && !state.playhead.paused){
       currentSongPlaying = true;
     } else {
       currentSongPlaying = false;
     }
   }
+  debugger
 
   // if(currentUser.likes){
 
