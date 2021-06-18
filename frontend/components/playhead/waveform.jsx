@@ -38,7 +38,7 @@ export default function Waveform({ url, ...props }) {
     document.getElementById('volume-slider-div').style.display = 'block';
   }
   const {currentSong} = props
-  debugger
+
   return (
     <div>
 
