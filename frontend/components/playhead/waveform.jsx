@@ -36,7 +36,9 @@ export default function Waveform({ url, ...props }) {
   }, [props.paused])
 
 
-
+  const showDiv = () => {
+    document.getElementById('volume-slider-div').style.display = 'block';
+  }
   const {currentSong} = props
 
   return (
@@ -71,14 +73,27 @@ export default function Waveform({ url, ...props }) {
         {/* <label htmlFor="volume">Volume</label> */}
         {/* <span>{duration}</span> */}
         <div className="playhead-artist-container">
-        <VolumeButton/>
+          <div className='volume-container'>
+              <div id='volume-slider-div'>
+                <div className='vslider-background'>
+                  <input id='volume-range' type="range" orient="vertical" />
+                </div>
+              </div>
+            <button 
+              // onFocus= {() => document.getElementById('volume-slider-div').style.display = 'inline-block'}
+              // onBlur= {() => document.getElementById('volume-slider-div').style.display = 'none'}
+              className='playhead-volume-button'>
+              <VolumeButton/>
+
+            </button>
+          </div>
           <img width="100px" height="100px" 
           className="playhead-photo" 
           src={currentSong.imageUrl}/>
-          <div className="playhead-artist-info">
+          {/* <div className="playhead-artist-info">
             <h1 className="playhead-uploader">{currentSong.uploader}</h1>
             <h1 className="playhead-title">{currentSong.title}</h1>
-          </div>
+          </div> */}
           <div className="playhead-like-follow">
             <button className="playhead-button">
               <LikeButton/>
@@ -100,6 +115,7 @@ export default function Waveform({ url, ...props }) {
           // defaultValue={audioProps}
           /> */}
       </div>
+
     </div>
     )
   }
