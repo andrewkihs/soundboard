@@ -28,19 +28,17 @@ export default function Waveform({ url, ...props }) {
   
 
   useEffect(()=> {
-
     audioProps.togglePlaybackStatus()
-
-
-
   }, [props.paused])
 
+  // useEffect(() => {
 
+  // },)
   const showDiv = () => {
     document.getElementById('volume-slider-div').style.display = 'block';
   }
   const {currentSong} = props
-
+  debugger
   return (
     <div>
 
@@ -76,7 +74,13 @@ export default function Waveform({ url, ...props }) {
           <div className='volume-container'>
               <div id='volume-slider-div'>
                 <div className='vslider-background'>
-                  <input id='volume-range' type="range" orient="vertical" />
+                  <input id='volume-range' 
+                  value={audioElement.ref.current.volume}
+                  onChange={(e) => audioElement.ref.current.volume = e.currentTarget.value}
+                  max="1"
+                  step="0.00001"
+                  min="0"
+                  type="range" orient="vertical" />
                 </div>
               </div>
             <button 

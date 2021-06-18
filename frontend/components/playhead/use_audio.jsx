@@ -8,6 +8,7 @@ function useAudio(url) {
   const [playbackStatus, setPlaybackStatus] = useState("pause");
   const [isLoading, setLoading] = useState(true);
   const [isSeeking, setSeeking] = useState(false);
+  const [volume, setVolume] = useState(0.1);
 
   React.useEffect(() => {
 
@@ -21,8 +22,10 @@ function useAudio(url) {
         setLoading(false);
         setDuration(audioRef.current.duration);
       }}
+      volume = '.1'
       onSeeking={() => setSeeking(true)}
       onSeeked={() => setSeeking(false)}
+      // volume={() => setVolume('0.5')}
       src={url}
       ref={audioRef}
       onTimeUpdate={() => {
@@ -36,6 +39,7 @@ function useAudio(url) {
       duration,
       playbackStatus,
       isSeeking,
+      volume,
       isLoading,
       progress: (currentTime / duration) * 100,
       setTime: seconds => {
