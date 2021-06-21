@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 import {SearchIcon, NotifBell, Messages, MoreOptions } from '../icons'
 import SongUploadContainer from '../songs/song_upload_container'
+import SearchContainer from '../search/search_container'
 
 class Header extends React.Component {
   constructor(props){
@@ -216,9 +217,10 @@ class Header extends React.Component {
           </div>
           <div className='header__middle'>
             <form className="headerSearch">
-              <input className="headerSearch__input" 
+              {/* <input className="headerSearch__input" 
               placeholder="Search" 
-              type="search"/>
+              type="search"/> */}
+              <SearchContainer/>
             </form>
           </div>
           <div className='header__right'>

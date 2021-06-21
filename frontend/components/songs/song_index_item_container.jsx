@@ -8,12 +8,12 @@ import { fetchUser } from '../../actions/user_actions'
 import SongIndexItem from './song_index_item'
 
 const mSTP = (state, ownProps) => {
-  let currentUser = state.entities.users[state.session.id];
   let currentSongPlaying = false;
   let userLikesSong = false;
-  debugger
   let currentLikeId
   let selectedSong = null;
+  let currentUser
+  
   if (state.playhead.currentSong){
     selectedSong = state.playhead.currrentSong
     if (state.playhead.currentSong.id === ownProps.songId && !state.playhead.paused){
@@ -22,14 +22,18 @@ const mSTP = (state, ownProps) => {
       currentSongPlaying = false;
     }
   }
-  
-  if(currentUser.likes){
+  debugger
+  if (state.session.id){  // if there is a current session
     
-    if(currentUser.likes[ownProps.songId]){
-      userLikesSong = true;
-      currentLikeId = currentUser.likes[ownProps.songId].id
-    } else {
-      userLikesSong = false;
+    let currentUser = state.entities.users[state.session.id];
+    if(currentUser.likes){
+      
+      if(currentUser.likes[ownProps.songId]){
+        userLikesSong = true;
+        currentLikeId = currentUser.likes[ownProps.songId].id
+      } else {
+        userLikesSong = false;
+      }
     }
   }
 

@@ -37,8 +37,12 @@ class SongIndexItem extends React.Component {
       currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
       userLikesSong: this.props.userLikesSong,
-      userOwnsSong: this.props.song.artistId === this.props.currentUser.id,
+
     }
+    if (this.props.currentUser){
+      this.setState({userOwnsSong: this.props.song.artistId === this.props.currentUser.id})
+    }
+    
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.handleComment = this.handleComment.bind(this)
