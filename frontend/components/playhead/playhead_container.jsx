@@ -21,13 +21,12 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     currentUserLikes: currentUserLikes,
     paused: state.playhead.paused
-    // pageOwner: state.entities.users[ownProps.match.params.userId],
   }
 }
 
 const mDTP = dispatch => {
 
-  // song play actions go here !!
+
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     playSong:  () => dispatch(playSong()),
