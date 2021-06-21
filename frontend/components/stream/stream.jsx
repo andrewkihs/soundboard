@@ -41,7 +41,6 @@ class Stream extends React.Component{
                 {/* <ul className="stream-ul"> */}
 
                 {Object.keys(this.props.songs).map((key, i) =>{
-                  debugger
                   return <SongIndexItemContainer key={i} songId={parseInt(key)}/>
                 })}
                 {/* </ul> */}

@@ -101,7 +101,6 @@ class SignUpForm extends React.Component {
 
 
   handleAgeAndGender(){
-    debugger
     if (this.state.age < 13){
       return this.setState({showAgeError: true})
     } else {
@@ -115,7 +114,6 @@ class SignUpForm extends React.Component {
     if (this.state.age > 13 && this.state.gender !== 'Indicate your Gender'){
       return this.setState({formNum: 3})
     }
-    debugger
     // return 
   }
 

@@ -8,7 +8,6 @@ import { fetchUser } from '../../actions/user_actions'
 import SongIndexItem from './song_index_item'
 
 const mSTP = (state, ownProps) => {
-  debugger
   let currentUser = state.entities.users[state.session.id];
   let currentSongPlaying = false;
   let userLikesSong = false;

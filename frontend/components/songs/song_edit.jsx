@@ -22,7 +22,6 @@ class SongEdit extends React.Component{
   
 
  render() {
-    debugger
     const { song, updateSong } = this.props
     const { userOwnsSong } = this.state
     if (song === undefined) return null

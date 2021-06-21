@@ -35,13 +35,16 @@ export const Playhead = props => {
   },[tracksString])
   // 
 
-  const {currentSong} = props
+  const {currentSong, currentUser} = props
+
   if (currentSong){
     return (
       <div className="playhead-container">
         {selectedTrack?.songUrl && <Waveform 
+        currentUserLikes = {props.currentUserLikes}
         url={selectedTrack.songUrl}
         imageUrl={selectedTrack.songUrl}
+        currentUser={currentUser}
         paused={props.paused} 
         pauseSong={props.pauseSong}
         playSong={props.playSong}

@@ -83,7 +83,7 @@ class SongEditForm extends React.Component {
     // const { song } = this.props
 
     let dispImg 
-    debugger
+    // debugger
     if (this.state.imageUrl){
       dispImg = <img className="song-form-album-art" src={this.state.imageUrl} />
     } 

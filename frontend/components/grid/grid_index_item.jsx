@@ -34,7 +34,7 @@ class GridIndexItem extends React.Component {
   }
 
   play() {
-    debugger
+    // debugger
     this.props.playSong()
     this.props.setCurrentSong(this.props.song)
     this.setState({currentlyPlaying: true})

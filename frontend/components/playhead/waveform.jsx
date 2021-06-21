@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import TimeBar from './timebar'
 import useAudio from "./use_audio";
 import { playSong, setCurrentSong, pauseSong} from '../../actions/playhead_actions'
+import { fetchSong } from "../../actions/song_actions"
+import {fetchUser} from '../../actions/user_actions';
+import { createLike, deleteLike } from "../../actions/like_actions";
 import {VolumeButton, PlayButton, 
   BackButton,
    NextButton, 
@@ -17,6 +20,7 @@ const refContainer = ref => ({
 });
 
 export default function Waveform({ url, ...props }) {
+  const {currentSong, currentUser} = props
   const audioRef = useRef(useAudio(url));
   const wavesurfer = useRef(null);
   const [audioElement, audioProps] = useAudio(url);
@@ -24,20 +28,51 @@ export default function Waveform({ url, ...props }) {
   const [volume, setVolume] = useState(0.5);
   const [duration, setDuration] = useState("0:00")
   const [isSeeking, setSeeking] = useState(false);
+  const [userLikesSong, setUserLikesSong] = useState(props.currentUserLikes);
+  debugger
   
   
 
   useEffect(()=> {
     audioProps.togglePlaybackStatus()
+    console.log(userLikesSong)
   }, [props.paused])
 
-  // useEffect(() => {
+  useEffect(()=> {
+    console.log('change like status')
+  }, [userLikesSong])
 
-  // },)
+ 
   const showDiv = () => {
     document.getElementById('volume-slider-div').style.display = 'block';
   }
-  const {currentSong} = props
+
+
+  const addLike = (e) => {
+    e.preventDefault()
+    const songId = currentSong.id
+    const currentUserId = currentUser.id
+    dispatch(createLike({liker_id: currentUserId, song_id: songId})).then(()=> {
+      // update appropriate tables
+      dispatch(fetchUser(currentUserId))
+      dispatch(fetchSong(songId))
+    })
+    setUserLikesSong(true);
+    debugger
+  }
+
+  const removeLike = (e)=> {
+    e.preventDefault()
+    const song = props.currentSong
+    const currentLikeId =  currentUser.likes[song.id].id
+    dispatch(deleteLike(currentLikeId, song)).then(()=> {
+      // update appropriate tables
+      dispatch(fetchUser(currentUser.id))
+      dispatch(fetchSong(song.id))
+    })
+    setUserLikesSong(false);
+  }
+
 
   return (
     <div>
@@ -99,9 +134,7 @@ export default function Waveform({ url, ...props }) {
             <h1 className="playhead-title">{currentSong.title}</h1>
           </div> */}
           <div className="playhead-like-follow">
-            <button className="playhead-button">
-              <LikeButton/>
-            </button>
+              {props.currentUserLikes ? <button className='playhead-button' onClick={removeLike}><AfterLikeButton/></button> : <button className='playhead-button' onClick={addLike}><LikeButton/></button>}
             <button className="playhead-button">
               <FollowButton/>
             </button>

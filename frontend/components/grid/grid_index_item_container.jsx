@@ -20,16 +20,6 @@ const mSTP = (state, ownProps) => {
       currentSongPlaying = false;
     }
   }
-  debugger
-
-  // if(currentUser.likes){
-
-  //   if(currentUser.likes[ownProps.songId]){
-
-  //     userLikesSong = true;
-  //     currentLikeId = currentUser.likes[ownProps.songId].id
-  //   }
-  // }
 
   return {
     currentUser: currentUser,
