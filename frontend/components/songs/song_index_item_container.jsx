@@ -11,6 +11,7 @@ const mSTP = (state, ownProps) => {
   let currentUser = state.entities.users[state.session.id];
   let currentSongPlaying = false;
   let userLikesSong = false;
+  debugger
   let currentLikeId
   let selectedSong = null;
   if (state.playhead.currentSong){

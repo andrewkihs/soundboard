@@ -132,7 +132,7 @@ class SongIndexItem extends React.Component {
   }
 
   toggleLikeButtons(){
-    if (this.state.userLikesSong) {
+    if (this.props.userLikesSong) {
       return(
         <button onClick={this.deleteLike}><AfterLikeButton/></button>
       )
