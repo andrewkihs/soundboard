@@ -84,17 +84,15 @@ class Search extends React.Component {
   };
 
   render() {
+    debugger
     const { filtered, enterClickRedirect } = this.state;
     let keyIdx = 0;
     debugger
     return (
-      <div className="silent-click">
-        <div
-          onBlur={this.unDispDrop}
-          className="silent-click"
-          className="search-bar-container"
-        >
-          <div>
+
+          <
+          // className={this.props.location == 'header' ? '' : 'splash-search'}
+          >
             {(() => {
               if (enterClickRedirect) {
                 // debugger;
@@ -103,7 +101,6 @@ class Search extends React.Component {
                     <Redirect
                       to={{
                         pathname: `/songs/${filtered[0].id}`,
-                        state: { selectedPlace: filtered[0] },
                       }}
                     />
                   )
@@ -119,9 +116,10 @@ class Search extends React.Component {
               }}
               type="text"
               className="headerSearch__input"
+              className={this.props.location == 'header' ? 'headerSearch__input' : 'splash-search-bar'}
               onChange={this.handleChange}
               onFocus={this.showMenu}
-              placeholder="Search"
+              placeholder={this.props.location == 'header' ? 'Search' : 'Search for tracks, podcasts, songs'}
               onKeyPress={this.handleEnterClick}
             />
             {this.state.showMenu ? (
@@ -136,6 +134,9 @@ class Search extends React.Component {
                             pathname: `/songs/${item.id}`,
                           }}
                         >
+                          <img className="search-img-thumb"
+                          src={item.imageUrl}
+                          />
                           {item.title}
                         </Link>
                       
@@ -144,9 +145,8 @@ class Search extends React.Component {
                 })}
               </ul>
             ) : null}
-          </div>
-        </div>
-      </div>
+          </>
+      
     );
   }
 }

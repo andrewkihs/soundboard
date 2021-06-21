@@ -22,7 +22,6 @@ const mSTP = (state, ownProps) => {
       currentSongPlaying = false;
     }
   }
-  debugger
   if (state.session.id){  // if there is a current session
     
     let currentUser = state.entities.users[state.session.id];

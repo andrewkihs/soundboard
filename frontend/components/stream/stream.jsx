@@ -11,21 +11,14 @@ class Stream extends React.Component{
   
 
   componentDidMount() {
-    // 
-    // let songs = this.props.fetchSongs()
-    // let oldState = this.state.songs
     this.props.fetchSongs()
   }
 
   render() {
-    // 
     const { songs } = this.props
-    // 
+    
     if (Object.keys(songs).length===0){
-      return( 
-        <>
-        </>
-      )
+      return null
     } else {
       // 
       return(

@@ -220,7 +220,7 @@ class Header extends React.Component {
               {/* <input className="headerSearch__input" 
               placeholder="Search" 
               type="search"/> */}
-              <SearchContainer/>
+              <SearchContainer location='header'/>
             </form>
           </div>
           <div className='header__right'>

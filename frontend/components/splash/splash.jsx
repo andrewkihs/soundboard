@@ -2,6 +2,7 @@ import React from 'react'
 // import Carousel from '@brainhubeu/react-carousel';
 // import "@brainhubeu/react-carousel/lib/style.css";
 import GridContainer from '../grid/grid_container';
+import SearchContainer from '../search/search_container'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -26,6 +27,7 @@ class Splash extends React.Component {
         className="carousel"
         naturalSlideWidth={100}
         naturalSlideHeight={100}
+        height="inherit"
         totalSlides={2}
         isPlaying={true}
         >
@@ -37,9 +39,12 @@ class Splash extends React.Component {
       </div>
       <div className="splash-under">
         <div className="splash-search">
-          <input id="splash-search-bar"
+          {/* <input id="splash-search-bar"
           type="search" 
-          placeholder="Search for artists, bands, tracks, podcasts"/>
+          placeholder="Search for artists, bands, tracks, podcasts"/> */}
+          <form className='splash-search-container'>
+            <SearchContainer location='splash'/>
+          </form>
           <span className="splash-or">or</span>
           <button 
           className="splash-btn" id="splash-upload" onClick={() => openModal('login')}>Upload your own</button>
