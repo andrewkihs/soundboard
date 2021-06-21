@@ -8,16 +8,12 @@ class Library extends React.Component{
   
 
   componentDidMount() {
-    // 
-    // let songs = this.props.fetchSongs()
-    // let oldState = this.state.songs
     this.props.fetchSongs()
   }
 
   filterLikes(obj){
     let res = {}  
     const toArr = Object.entries(obj)
-    //   
 
   }
 
@@ -47,7 +43,7 @@ class Library extends React.Component{
           <ul className="stream-ul">
             
             {Object.keys(this.props.currentUser.likes).map((key, i) =>{
-              return <SongIndexItemContainer key={i} songId={key}/>
+              return <SongIndexItemContainer key={i} songId={parseInt(key)}/>
             })}
           </ul>
         </>
