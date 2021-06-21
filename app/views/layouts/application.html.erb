@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Soundboard</title>
+    <title>SoundBoard</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
      <meta property="og:title" content="SoundBoard" />
@@ -14,6 +14,7 @@
      />
 
     <script type="text/javascript">
+      window.soundboard_favicon = "<%= image_url('soundboard_favicon.ico')%>";
       window.logoURL = "<%= image_url('logo.jpeg') %>";
       window.landingImageURL0 = "<%= image_url('sc_landing0.jpeg') %>";
       window.landingImageURL1 = "<%= image_url('sc_landing1.jpeg') %>";
