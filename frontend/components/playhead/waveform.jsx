@@ -35,12 +35,8 @@ export default function Waveform({ url, ...props }) {
 
   useEffect(()=> {
     audioProps.togglePlaybackStatus()
-    console.log(userLikesSong)
-  }, [props.paused])
 
-  useEffect(()=> {
-    console.log('change like status')
-  }, [userLikesSong])
+  }, [props.paused])
 
  
   const showDiv = () => {

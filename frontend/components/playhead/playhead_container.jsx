@@ -7,9 +7,12 @@ import Playhead from './playhead'
 const mSTP = (state, ownProps) => {
   // 
   let currentUserLikes = false;
-  if (state.entities.users[state.session.id].likes && state.playhead.currentSong){
-    if (state.entities.users[state.session.id].likes[state.playhead.currentSong.id]){
-      currentUserLikes = true;
+  if (state.session.id){
+
+    if (state.entities.users[state.session.id].likes && state.playhead.currentSong){
+      if (state.entities.users[state.session.id].likes[state.playhead.currentSong.id]){
+        currentUserLikes = true;
+      }
     }
   }
   // debugger
