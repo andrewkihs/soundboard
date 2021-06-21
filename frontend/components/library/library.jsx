@@ -18,23 +18,19 @@ class Library extends React.Component{
   }
 
   render() {
-    // 
-    // return null
+   
     const { songs } = this.props
     // 
     if (!this.props.currentUser.likes){
       return(
-        <>no likes</>
+        <>You have no likes! Start liking some songs to populate this page.</>
       )
     }
-    if (Object.keys(this.props.currentUser.likes).length===0){
-      return( 
-        <>
-        </>
-      )
+    if (Object.keys(this.props.songs).length===0){
+      return null
     } else {
       // this.filterLikes(songs)
-      
+      debugger
       return(
         <>
           <div className="grid-header">
