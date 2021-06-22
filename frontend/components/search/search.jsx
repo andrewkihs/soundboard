@@ -4,7 +4,7 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      filtered: [],
+      filtered: props.songs,
       showMenu: false,
       enterClickRedirect: false
     };
@@ -21,11 +21,6 @@ class Search extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      filtered: nextProps.songs,
-    });
-  }
 
   handleChange(e) {
     let currentList = [];
