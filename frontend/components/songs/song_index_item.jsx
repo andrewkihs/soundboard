@@ -89,12 +89,21 @@ class SongIndexItem extends React.Component {
       cursorColor: '#fff',
       barWidth: 2,
       backend: 'MediaElement',
-
-
-
     });
 
     this.wavesurfer.load(this.state.song.songUrl)
+    this.wavesurfer.on('ready', () => {
+
+      this.wavesurfer.on('seek', position => {
+        const songDuration = this.wavesurfer.getDuration()
+        // console.log(position);
+        // console.log(songDuration)
+        let newTime = position * songDuration
+        console.log(newTime)
+        this.props.setCurrentProgress(newTime)
+      })
+
+    })
     this.wavesurfer.setMute(true)
   }
   componentDidUpdate(prevProps) {
@@ -109,6 +118,7 @@ class SongIndexItem extends React.Component {
     const songId = this.props.songId
     const currentUserId = this.props.currentUser.id
     this.props.createComment({ body: comment, song_id: songId, user_id: currentUserId }, songId)
+    this.setState({ comment: '' });
   }
 
   createLike(e) {
@@ -135,6 +145,10 @@ class SongIndexItem extends React.Component {
     this.setState({ userLikesSong: false })
   }
 
+  handleSeek(wavesurferObj) {
+    console.log('seek')
+    debugger
+  }
   toggleLikeButtons() {
     if (!this.state.loggedIn) {
       debugger
@@ -209,7 +223,7 @@ class SongIndexItem extends React.Component {
                   value={this.state.comment}>
 
                 </input>
-                {this.state.loggedIn ? <button onClick={this.handleComment}>Submit</button> : <button onClick={() => this.props.openModal('login')}>Submit</button>}
+                {this.state.loggedIn ? <button onClick={() => this.handleComment}>Submit</button> : <button onClick={() => this.props.openModal('login')}>Submit</button>}
 
               </div>
             </div>

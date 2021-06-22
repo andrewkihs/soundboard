@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect }  from "react";
-import { playSong, setCurrentSong, pauseSong} from '../../actions/playhead_actions'
+import React, { useState, useRef, useEffect } from "react";
+import { playSong, setCurrentSong, pauseSong } from '../../actions/playhead_actions'
 function useAudio(url) {
   const audioRef = useRef(null);
 
@@ -9,7 +9,7 @@ function useAudio(url) {
   const [isLoading, setLoading] = useState(true);
   const [isSeeking, setSeeking] = useState(false);
   const [volume, setVolume] = useState(0.1);
-
+  // debugger
   React.useEffect(() => {
 
     setLoading(true);
@@ -22,7 +22,7 @@ function useAudio(url) {
         setLoading(false);
         setDuration(audioRef.current.duration);
       }}
-      volume = '.1'
+      volume='.1'
       onSeeking={() => setSeeking(true)}
       onSeeked={() => setSeeking(false)}
       // volume={() => setVolume('0.5')}

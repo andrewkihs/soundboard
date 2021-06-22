@@ -2,11 +2,13 @@ import {
   RECEIVE_CURRENT_SONG,
   PLAY_SONG,
   PAUSE_SONG,
+  SEEK_SONG,
 } from "../actions/playhead_actions";
 
 const _nullSong = {
   currentSong: null,
   paused: true,
+  currentTime: 0,
 };
 
 export default (state = _nullSong, action) => {
@@ -20,6 +22,8 @@ export default (state = _nullSong, action) => {
       return { paused: true, currentSong: state.currentSong };
     case RECEIVE_CURRENT_SONG:
       return Object.assign(newState, { currentSong: action.song });
+    case SEEK_SONG:
+      return Object.assign(newState, { currentTime: action.progress})
     default:
       return state;
   }

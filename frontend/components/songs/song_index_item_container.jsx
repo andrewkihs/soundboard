@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSong } from '../../actions/song_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
 import { openModal } from '../../actions/modal_actions'
-import { playSong, setCurrentSong, pauseSong } from '../../actions/playhead_actions'
+import { playSong, setCurrentSong, pauseSong, setCurrentProgress } from '../../actions/playhead_actions'
 import { createComment } from '../../actions/comment_actions'
 import { fetchUser } from '../../actions/user_actions'
 import SongIndexItem from './song_index_item'
@@ -36,7 +36,7 @@ const mSTP = (state, ownProps) => {
       }
     }
   }
-  debugger
+  // debugger
 
   return {
     currentUser: currentUser,
@@ -53,6 +53,7 @@ const mDTP = dispatch => {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
     openModal: (modal) => dispatch(openModal(modal)),
     setCurrentSong: (song) => dispatch(setCurrentSong(song)),
+    setCurrentProgress: (progress) => dispatch(setCurrentProgress(progress)),
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
     createComment: (comment, songId) => dispatch(createComment(comment, songId)),

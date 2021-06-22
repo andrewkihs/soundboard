@@ -8,9 +8,9 @@ import {
 } from 'react-router-dom';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import  HeaderContainer  from './header/header_container'
-import  LogInFormContainer  from './user_auth/login_form_container'
-import  SignUpFormContainer  from './user_auth/signup_form_container'
+import HeaderContainer from './header/header_container'
+import LogInFormContainer from './user_auth/login_form_container'
+import SignUpFormContainer from './user_auth/signup_form_container'
 import Modal from './modal/modal'
 import SplashContainer from './splash/splash_container'
 import StreamContainer from './stream/stream_container'
@@ -24,12 +24,12 @@ import DiscoverContainer from './discover/discover_container'
 import LibraryContainer from './library/library_container'
 const App = () => (
   <div>
-    
-    <Modal/>
-    <HeaderContainer/>
-      <div className="main-content">
-    <Switch>
-        <Route path="/users/:userId" component={UserPageShowContainer} />
+
+    <Modal />
+    <HeaderContainer />
+    <div className="main-content">
+      <Switch>
+        <Route exact path="/users/:userId" component={UserPageShowContainer} />
         <Route exact path="/songs/:songId" component={SongShowContainer} />
         <Route exact path="/songs/:songId/edit" component={SongEditContainer} />
         {/* <Route path="/songs/" component={SongUploadContainer}/> */}
@@ -38,12 +38,12 @@ const App = () => (
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
         {/* <ProtectedRoute exact path="/discover" component={StreamContainer}/> */}
-        <ProtectedRoute exact path ="/upload" component ={SongUploadContainer} />
-        <ProtectedRoute exact path ="/stream" component ={StreamContainer} />
-        <ProtectedRoute exact path ="/you/library" component ={LibraryContainer} />
-    </Switch>
-      </div>
-    <PlayheadContainer/>
+        <ProtectedRoute exact path="/upload" component={SongUploadContainer} />
+        <ProtectedRoute exact path="/stream" component={StreamContainer} />
+        <ProtectedRoute exact path="/you/library" component={LibraryContainer} />
+      </Switch>
+    </div>
+    <PlayheadContainer />
   </div>
 )
 

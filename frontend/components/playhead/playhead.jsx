@@ -5,14 +5,14 @@ import Waveform from "./waveform";
 export const Playhead = props => {
 
   let tracks;
-  if (props.currentSong){
+  if (props.currentSong) {
     tracks = [
       {
-      id: 0,
-      title: props.currentSong.title,
-      songUrl: props.currentSong.songUrl,
-      imageUrl: props.currentSong.imageUrl
-        
+        id: 0,
+        title: props.currentSong.title,
+        songUrl: props.currentSong.songUrl,
+        imageUrl: props.currentSong.imageUrl
+
       }
     ]
   } else {
@@ -29,31 +29,32 @@ export const Playhead = props => {
 
   const [selectedTrack, setSelectedTrack] = useState(tracks[0]);
 
-  useEffect(()=>{
+  useEffect(() => {
     let tracksParsed = JSON.parse(tracksString)
     setSelectedTrack(tracksParsed[0])
-  },[tracksString])
+  }, [tracksString])
   // 
 
-  const {currentSong, currentUser} = props
+  const { currentSong, currentUser } = props
 
-  if (currentSong){
+  if (currentSong) {
     return (
       <div className="playhead-container">
-        {selectedTrack?.songUrl && <Waveform 
-        currentUserLikes = {props.currentUserLikes}
-        url={selectedTrack.songUrl}
-        imageUrl={selectedTrack.songUrl}
-        currentUser={currentUser}
-        paused={props.paused} 
-        pauseSong={props.pauseSong}
-        playSong={props.playSong}
-        currentSong={currentSong}
+        {selectedTrack?.songUrl && <Waveform
+          currentUserLikes={props.currentUserLikes}
+          url={selectedTrack.songUrl}
+          imageUrl={selectedTrack.songUrl}
+          currentUser={currentUser}
+          paused={props.paused}
+          pauseSong={props.pauseSong}
+          currentTime={props.currentTime}
+          playSong={props.playSong}
+          currentSong={currentSong}
         />}
-  
+
       </div>
     );
-  } else{
+  } else {
     return null
   }
 }

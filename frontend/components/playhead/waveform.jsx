@@ -32,14 +32,24 @@ export default function Waveform({ url, ...props }) {
   const [duration, setDuration] = useState("0:00")
   const [isSeeking, setSeeking] = useState(false);
   const [userLikesSong, setUserLikesSong] = useState(props.currentUserLikes);
-  debugger
 
 
+  // debugger
 
   useEffect(() => {
     audioProps.togglePlaybackStatus()
 
   }, [props.paused])
+
+
+  useEffect(() => {
+    let newSeek = 0
+    if (props.currentTime) {
+      newSeek = props.currentTime;
+    }
+    audioElement.ref.current.currentTime = newSeek
+  }, [props.currentTime])
+
 
 
   const showDiv = () => {
@@ -57,7 +67,7 @@ export default function Waveform({ url, ...props }) {
       dispatch(fetchSong(songId))
     })
     setUserLikesSong(true);
-    debugger
+
   }
 
   const removeLike = (e) => {
