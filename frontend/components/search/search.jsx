@@ -6,7 +6,7 @@ class Search extends React.Component {
     this.state = {
       filtered: [],
       showMenu: false,
-      enterClickRedirect: false,
+      enterClickRedirect: false
     };
 
     this.showMenu = this.showMenu.bind(this);
@@ -84,69 +84,67 @@ class Search extends React.Component {
   };
 
   render() {
-    debugger
     const { filtered, enterClickRedirect } = this.state;
     let keyIdx = 0;
-    debugger
     return (
 
-          <
-          // className={this.props.location == 'header' ? '' : 'splash-search'}
-          >
-            {(() => {
-              if (enterClickRedirect) {
-                // debugger;
-                if (typeof filtered[0] == "object") {
-                  return (
-                    <Redirect
-                      to={{
-                        pathname: `/songs/${filtered[0].id}`,
-                      }}
-                    />
-                  )
-                    }
-              } else {
-                return null;
-              }
-            })()}
+      <
+        // className={this.props.location == 'header' ? '' : 'splash-search'}
+        >
+        {(() => {
+          if (enterClickRedirect) {
+            // debugger;
+            if (typeof filtered[0] == "object") {
+              return (
+                <Redirect
+                  to={{
+                    pathname: `/songs/${filtered[0].id}`,
+                  }}
+                />
+              )
+            }
+          } else {
+            return null;
+          }
+        })()}
 
-            <input
-              ref={(element) => {
-                this.dropdownMenu = element;
-              }}
-              type="text"
-              className="headerSearch__input"
-              className={this.props.location == 'header' ? 'headerSearch__input' : 'splash-search-bar'}
-              onChange={this.handleChange}
-              onFocus={this.showMenu}
-              placeholder={this.props.location == 'header' ? 'Search' : 'Search for tracks, podcasts, songs'}
-              onKeyPress={this.handleEnterClick}
-            />
-            {this.state.showMenu ? (
-              <ul id="search-res" className="search-results-ul">
-                {this.state.filtered.map((item) => {
-                  keyIdx += 1;
-                  return (
-                    <li key={keyIdx} className="search-results-li">
-                        <Link
-                          className="search-res-link"
-                          to={{
-                            pathname: `/songs/${item.id}`,
-                          }}
-                        >
-                          <img className="search-img-thumb"
-                          src={item.imageUrl}
-                          />
-                          {item.title}
-                        </Link>
-                      
-                    </li>
-                  )
-                })}
-              </ul>
-            ) : null}
-          </>
-      
+        <input
+          ref={(element) => {
+            this.dropdownMenu = element;
+          }}
+          type="text"
+          className="headerSearch__input"
+          className={this.props.location == 'header' ? 'headerSearch__input' : 'splash-search-bar'}
+          onChange={this.handleChange}
+          onFocus={this.showMenu}
+          placeholder={this.props.location == 'header' ? 'Search' : 'Search for tracks, podcasts, songs'}
+          onKeyPress={this.handleEnterClick}
+        />
+        {this.state.showMenu ? (
+          <ul id="search-res" className="search-results-ul">
+            {this.state.filtered.map((item) => {
+              keyIdx += 1;
+              return (
+                <li key={keyIdx} className="search-results-li">
+                  <Link
+                    className="search-res-link"
+                    to={{
+                      pathname: `/songs/${item.id}`,
+                    }}
+                  >
+                    <img className="search-img-thumb"
+                      src={item.imageUrl}
+                    />
+                    {item.title}
+                  </Link>
+
+                </li>
+              )
+            })}
+          </ul>
+        ) : null}
+      </>
+
     );
   }
 }
