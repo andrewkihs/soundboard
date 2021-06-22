@@ -15,7 +15,7 @@ export default (state = _nullSong, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
   // ;
-  debugger
+
   switch (action.type) {
     case PLAY_SONG:
       return { paused: false, currentSong: state.currentSong, currentTime: state.currentTime };

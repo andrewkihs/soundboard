@@ -32,17 +32,21 @@ class SongIndexItem extends React.Component {
   constructor(props) {
 
     super(props)
+    let owner = false;
+    if (props.currentUser) {
+      owner = props.song.artistId === props.currentUser.id
+    }
     this.state = {
       song: this.props.song,
       currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
       userLikesSong: this.props.userLikesSong,
-      loggedIn: !!props.currentUser
+      loggedIn: !!props.currentUser,
+      userOwnsSong: owner,
     }
-    if (this.props.currentUser) {
-      this.setState({ userOwnsSong: this.props.song.artistId === this.props.currentUser.id })
-    }
-    // debugger
+
+    debugger
+
 
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
@@ -51,6 +55,7 @@ class SongIndexItem extends React.Component {
     this.deleteLike = this.deleteLike.bind(this)
   }
 
+  owner
   play() {
     // debugger
     const { currentPlayhead, song } = this.props
@@ -104,12 +109,17 @@ class SongIndexItem extends React.Component {
     });
 
     this.wavesurfer.load(this.state.song.songUrl)
-    this.wavesurfer.on('ready', () => {
 
+    this.wavesurfer.on('ready', () => {
       this.wavesurfer.on('seek', position => {
-        const songDuration = this.wavesurfer.getDuration()
-        let newTime = position * songDuration
-        this.props.setCurrentProgress(newTime)
+        if (!this.props.currentPlayhead.currentSong) {
+          return
+        }
+        if (this.state.song.id === this.props.currentPlayhead.currentSong.id) {
+          const songDuration = this.wavesurfer.getDuration()
+          let newTime = position * songDuration
+          this.props.setCurrentProgress(newTime)
+        }
       })
 
     })
@@ -121,7 +131,7 @@ class SongIndexItem extends React.Component {
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
         if (prevProps.currentTime !== this.props.currentTime) {
-
+          console.log(currentPlayhead.currentSong)
           const progress = this.props.currentTime / this.wavesurfer.getDuration()
           console.log(progress)
           if (progress !== 0) {
@@ -129,7 +139,6 @@ class SongIndexItem extends React.Component {
 
           }
         }
-        // console.log(this.props.currentTime)
       }
     }
     if (!this.props.song.songUrl) {
@@ -170,13 +179,9 @@ class SongIndexItem extends React.Component {
     this.setState({ userLikesSong: false })
   }
 
-  handleSeek(wavesurferObj) {
-    console.log('seek')
-    debugger
-  }
+
   toggleLikeButtons() {
     if (!this.state.loggedIn) {
-      debugger
       return (
         <button onClick={() => this.props.openModal('login')}><LikeButton /></button>
       )
@@ -196,15 +201,26 @@ class SongIndexItem extends React.Component {
     }
   }
 
+  handlePlayhead() {
+    const { song, currentPlayhead } = this.props
+    if (currentPlayhead.currentSong) { // if there is a song on playhead
+      if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
+        return this.setState({ currentlyPlaying: true })
+      }
+      else {
+        return this.setState({ currentlyPlaying: false })
+      }
+    }
+    debugger
+  }
+
 
   render() {
     const { song, userLikesSong, currentPlayhead } = this.props
     const { userOwnsSong } = this.state
-    // if (currentPlayhead.currentSong) { // if there is a song on playhead
-    //   if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
-    //     console.log(this.props.currentTime)
-    //   }
-    // }
+    // this.handlePlayhead()
+    debugger
+
     return (
       <li className="song-list-item">
         <div className="song-list-item-container">
