@@ -1,13 +1,13 @@
 .full_header {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: row;
+  // display: flex;
+  // flex-direction: row;
   // align-items: center;
   // justify-content: space-between;
   background: #333;
   font-weight: 100;
-  width: 100%;
+  // width: 100%;
   font-size: 14px;
   height: 46px;
   color: #fff;
@@ -25,10 +25,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  // justify-content: space-between;
+
+  justify-content: space-between;
   background: #333;
   font-weight: 100;
-  width: 1240px;
+  width: 1180px;
   font-size: 14px;
   height: 46px;
   color: #fff;
@@ -46,14 +47,18 @@
 }
 
 .header__middle {
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
   // align-items: center;
+  .headerSearch {
+    width: 100%;
+  }
 }
 .header__right {
+  width: 100%;
   justify-content: space-between;
 }
 .headerSearch__input {
@@ -63,7 +68,7 @@
   background: #e5e5e5;
   border-radius: 4px;
   font-weight: 100;
-  width: 400px;
+  width: 100%;
   height: 28px;
   box-shadow: none;
   outline: none;
@@ -74,7 +79,7 @@
 
 .header__left,
 .header__right {
-  width: 420px;
+  // width: 420px;
   > div {
     display: flex;
     flex-direction: row;
@@ -128,7 +133,7 @@
 }
 
 .user-icons {
-  width: 250px;
+  // width: 250px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -191,7 +196,9 @@
   outline: none;
   border: none;
 }
-
+.user-icons {
+  padding-left: 10px;
+}
 .password-form-container {
   height: 100%;
   display: flex;
@@ -201,11 +208,12 @@
 }
 
 .header__user-nav {
-  width: 500px;
+  // width: 500px;
   > .user-drop-down {
-    width: 100px;
+    // width: 100px;
     display: flex;
-    // flex-direction: row;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-evenly;
   }
 }
@@ -216,7 +224,7 @@
   // background: none;
   height: 100%;
   display: flex;
-  width: 200px;
+  width: 40px;
   flex-direction: row;
   align-items: center;
   // justify-content: space-between;
@@ -267,7 +275,9 @@
 
 .header-display-name {
   padding-left: 10px;
-  padding-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  // padding-bottom: 5px;
 }
 .header__user-image {
   width: 24px;

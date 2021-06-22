@@ -31,7 +31,8 @@ export const NotifBell = (props) => (
   height="15px" 
   viewBox="0 0 14 15" 
   version="1.1" 
-  {...props}>
+  {...props}
+  >
     <title>Notifications</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
@@ -53,7 +54,8 @@ export const Messages = (props) => (
   height="13px" 
   viewBox="0 0 18 13" 
   version="1.1" 
-  {...props}>
+//   {...props}
+  >
     <title>Fill 1</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
@@ -81,7 +83,8 @@ export const MoreOptions = (props) => (
   height="6px" 
   viewBox="0 0 22 6" 
   version="1.1" 
-  {...props}>
+//   {...props}
+  >
     <defs></defs>
     <g 
     id="Page-1" 

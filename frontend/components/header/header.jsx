@@ -74,6 +74,7 @@ class Header extends React.Component {
   handleLogout(){
     this.props.logout().then(
       ()=>{
+        this.setState({settingsDrop: false})
         window.location.hash = '/';
       }
 
@@ -142,7 +143,7 @@ class Header extends React.Component {
           </div>
           <div className="notif-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
             <button className="notif-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-              <NotifBell/>
+              <NotifBell fill='pink'/>
               <ul id="notif-dropdown" className={this.state.notifDrop ? 'reveal' : 'hide'}>
                 <li>Notif dropdown</li>
                 <li> Dropdown content 2</li>
