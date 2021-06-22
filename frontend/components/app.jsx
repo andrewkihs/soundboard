@@ -19,7 +19,7 @@ import SongShowContainer from './songs/song_show_container'
 import SongEditContainer from './songs/song_edit_container'
 import SongUploadContainer from './songs/song_upload_container'
 import PlayheadContainer from './playhead/playhead_container'
-import LoginFormContainer from './user_auth/login_form'
+import LoginFormContainer from './user_auth/login_form_container'
 import DiscoverContainer from './discover/discover_container'
 import LibraryContainer from './library/library_container'
 const App = () => (
