@@ -14,8 +14,10 @@ const mSTP = (state, ownProps) => {
   let currentLikeId
   let selectedSong = null;
   let currentUser
+  let currentTime = 0;
 
   if (state.playhead.currentSong) {
+    currentTime = state.playhead.currentTime;
     selectedSong = state.playhead.currrentSong
     if (state.playhead.currentSong.id === ownProps.songId && !state.playhead.paused) {
       currentSongPlaying = true;
@@ -41,8 +43,10 @@ const mSTP = (state, ownProps) => {
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],
+    currentPlayhead: state.playhead,
     currentlyPlaying: currentSongPlaying,
     userLikesSong: userLikesSong,
+    currentTime: currentTime,
     currentLikeId: currentLikeId
   }
 }

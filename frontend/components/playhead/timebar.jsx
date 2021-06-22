@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useDrag } from "react-use-gesture";
 import { directstyled, useDirectStyle } from "direct-styled";
-
+import { setCurrentProgress } from '../../actions/playhead_actions'
 function formatTime(seconds) {
   return [Math.floor(seconds / 60), Math.floor(seconds % 60)]
     .map(x => x.toString())
@@ -55,15 +55,17 @@ function TimeBar({
     });
   }
   const onScrub = (seconds) => {
-	// Clear any timers already running
-  // clearInterval(intervalRef.current);
-  setTime(seconds)
+    // Clear any timers already running
+    // clearInterval(intervalRef.current);
+    // console.log(seconds)
+    dispatch(setCurrentProgress(seconds))
+    setTime(seconds)
 
   }
   const onScrubEnd = () => {
-  
-}
-  
+
+  }
+
 
   React.useEffect(() => {
     if (ignoreTimeUpdates) {
@@ -77,10 +79,10 @@ function TimeBar({
   return (
     <div
       className={`timebar ${className || ""}`}
-      
-      >
+
+    >
       <div>{isSeeking ? "buffering..." : formatTime(currentTime)}</div>
-     
+
       <input
         type="range"
         value={currentTime}
@@ -90,7 +92,7 @@ function TimeBar({
         className="progress"
         onChange={(e) => onScrub(e.target.value)}
         onMouseUp={onScrubEnd}
-        onKeyUp={onScrubEnd}/>
+        onKeyUp={onScrubEnd} />
       <div className="timebar-time-info">
         <div>{formatTime(duration)}</div>
       </div>

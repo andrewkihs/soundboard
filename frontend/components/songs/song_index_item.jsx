@@ -42,7 +42,8 @@ class SongIndexItem extends React.Component {
     if (this.props.currentUser) {
       this.setState({ userOwnsSong: this.props.song.artistId === this.props.currentUser.id })
     }
-    debugger
+    // debugger
+
     this.play = this.play.bind(this)
     this.pause = this.pause.bind(this)
     this.handleComment = this.handleComment.bind(this)
@@ -51,9 +52,20 @@ class SongIndexItem extends React.Component {
   }
 
   play() {
+    // debugger
+    const { currentPlayhead, song } = this.props
+    if (currentPlayhead.currentSong) { // if there is a song on playhead
+      if (currentPlayhead.currentSong.id === song.id) { // if resuming play for currently paused song
+        this.wavesurfer.playPause();
+        this.props.playSong()
+        return
+      }
+    }
     this.wavesurfer.playPause();
+    this.wavesurfer.seekTo(0); // restart the song
     this.props.playSong()
     this.props.setCurrentSong(this.props.song)
+
   }
   pause() {
     this.wavesurfer.playPause();
@@ -96,17 +108,30 @@ class SongIndexItem extends React.Component {
 
       this.wavesurfer.on('seek', position => {
         const songDuration = this.wavesurfer.getDuration()
-        // console.log(position);
-        // console.log(songDuration)
         let newTime = position * songDuration
-        console.log(newTime)
         this.props.setCurrentProgress(newTime)
       })
 
     })
     this.wavesurfer.setMute(true)
   }
+
   componentDidUpdate(prevProps) {
+    const { currentPlayhead, song } = this.props
+    if (currentPlayhead.currentSong) { // if there is a song on playhead
+      if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
+        if (prevProps.currentTime !== this.props.currentTime) {
+
+          const progress = this.props.currentTime / this.wavesurfer.getDuration()
+          console.log(progress)
+          if (progress !== 0) {
+            this.wavesurfer.seekTo(progress)
+
+          }
+        }
+        // console.log(this.props.currentTime)
+      }
+    }
     if (!this.props.song.songUrl) {
       this.setState({ song: prevProps.song })
     }
@@ -173,8 +198,13 @@ class SongIndexItem extends React.Component {
 
 
   render() {
-    const { song, userLikesSong } = this.props
+    const { song, userLikesSong, currentPlayhead } = this.props
     const { userOwnsSong } = this.state
+    // if (currentPlayhead.currentSong) { // if there is a song on playhead
+    //   if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
+    //     console.log(this.props.currentTime)
+    //   }
+    // }
     return (
       <li className="song-list-item">
         <div className="song-list-item-container">
