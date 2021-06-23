@@ -11,7 +11,7 @@ class SongEdit extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchSong(this.props.songId)
+    // this.props.fetchSong(this.props.songId)
   }
   componentDidUpdate(prevProps){
     if (this.props.song!==prevProps.song){
@@ -22,19 +22,16 @@ class SongEdit extends React.Component{
   
 
  render() {
-    const { song, updateSong } = this.props
+    const { song, updateSong, closeModal } = this.props
     const { userOwnsSong } = this.state
     if (song === undefined) return null
-    if (userOwnsSong){
-       return (
-        <>
-          <SongEditForm song={song} updateSong={updateSong}/>
-        </>
-      );
+      return (
+      <>
+        <SongEditForm song={song} updateSong={updateSong} closeModal={closeModal} />
+      </>
+    );
     } 
-    else {
-      return <Redirect to={`/songs/${song.id}/`}/>
-   }
-  }
+
+  
 }
 export default SongEdit

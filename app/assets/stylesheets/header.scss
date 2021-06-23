@@ -12,6 +12,10 @@
   height: 46px;
   color: #fff;
 }
+.header-icon-logo {
+  width: 15px;
+  // height: 16px;
+}
 
 .header__innerContainer {
   margin: 0 auto;
@@ -275,8 +279,10 @@
 
 .header-display-name {
   padding-left: 10px;
+  padding-right: 10px;
   overflow: hidden;
   white-space: nowrap;
+  color: rgb(216, 211, 211);
   // padding-bottom: 5px;
 }
 .header__user-image {

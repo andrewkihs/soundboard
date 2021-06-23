@@ -34,7 +34,9 @@ class SongEditForm extends React.Component {
     }
     this.props.updateSong(formData, this.state.id)
     this.setState({submitted: true})
+    this.props.closeModal();
   }
+
   updateAudio(e, file){
     const reader = new FileReader();
     const audioID3 = {}

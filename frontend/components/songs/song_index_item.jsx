@@ -9,6 +9,7 @@ import {
   Link,
   HashRouter
 } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
 const formWaveSurferOptions = ref => ({
   container: `#waveform_${this.props.song.id}`,
@@ -45,7 +46,7 @@ class SongIndexItem extends React.Component {
       userOwnsSong: owner,
     }
 
-    debugger
+    // debugger
 
 
     this.play = this.play.bind(this)
@@ -57,7 +58,7 @@ class SongIndexItem extends React.Component {
 
   owner
   play() {
-    // debugger
+
     const { currentPlayhead, song } = this.props
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if resuming play for currently paused song
@@ -216,10 +217,8 @@ class SongIndexItem extends React.Component {
 
 
   render() {
-    const { song, userLikesSong, currentPlayhead } = this.props
+    const { song, userLikesSong, currentPlayhead, openModal } = this.props
     const { userOwnsSong } = this.state
-    // this.handlePlayhead()
-    debugger
 
     return (
       <li className="song-list-item">
@@ -275,7 +274,7 @@ class SongIndexItem extends React.Component {
             </div>
             <div className="song-interact-buttons">
               {this.toggleLikeButtons()}
-              {userOwnsSong ? <button><Link to={`/songs/${song.id}/edit`}><EditButton /></Link></button> : null}
+              {userOwnsSong ? <button onClick={() => openModal('edit-song', song)}><EditButton /></button> : null}
             </div>
           </div>
 

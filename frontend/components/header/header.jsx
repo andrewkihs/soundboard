@@ -121,33 +121,33 @@ class Header extends React.Component {
           <div className="header__user-nav">
             <div className="user-drop-down" onFocus={this.handleSettingsClick} onBlur={this.leave}>
               <img className="header__user-image" src={currentUser.avatarUrl}/>
+        
                   <Link to={`/users/${currentUser.id}`}>
                 <h1 className="header-display-name">
                   {currentUser.displayName}
                 </h1 >
                   </Link>
-                <ul id="message-dropdown" className={this.state.userDrop? 'reveal' : 'hide'}>
-                <li>Message dropdown</li>
-                <li> Dropdown content 2</li>
-              </ul>
+                
             </div>
           </div>
-          <div className="message-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-            <button className="message-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-              <Messages/>
-              <ul id="message-dropdown" className={this.state.messageDrop? 'reveal' : 'hide'}>
-                <li>Message dropdown</li>
-                <li> Dropdown content 2</li>
-              </ul>
+          <div className="message-btn-container">
+            <button className="message-btn" onClick="">
+              <a 
+                target="_blank" 
+                className="header-box-right"
+                href="https://www.linkedin.com/in/andrew-kihs/">
+                  <img className='header-icon-logo' src={window.linkedInLogo}/>
+              </a>
             </button>
           </div>
-          <div className="notif-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-            <button className="notif-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-              <NotifBell fill='pink'/>
-              <ul id="notif-dropdown" className={this.state.notifDrop ? 'reveal' : 'hide'}>
-                <li>Notif dropdown</li>
-                <li> Dropdown content 2</li>
-              </ul>
+          <div className="notif-btn-container" >
+            <button className="notif-btn">
+              <a 
+                target="_blank" 
+                className="header-box-right"
+                href="https://angel.co/u/andrew-kihs">
+                  <img className='header-icon-logo' src={window.angelListLogo}/>
+                </a>
             </button>
           </div>
           <div className="settings-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>

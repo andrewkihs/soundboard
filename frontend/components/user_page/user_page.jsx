@@ -65,10 +65,8 @@ class UserPage extends React.Component{
 
               <div className="user-show-info">
                 <h1 className="disp-name">{pageOwner.displayName}</h1>
-                <h2 className="other-info">{pageOwner.city},{pageOwner.country}</h2>
+                <h2 className="other-info">{pageOwner.city}, {pageOwner.country}</h2>
                 <h1 className="other-info">{pageOwner.firstName} {pageOwner.lastName}</h1>
-                {/* <h1>Username: {pageOwner.username}</h1> */}
-                {/* <h2 className="other-info">{pageOwner.bio}</h2> */}
               </div>
             </div>
           </div>

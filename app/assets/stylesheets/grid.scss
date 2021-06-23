@@ -8,6 +8,9 @@
   width: 180px;
   height: 180px;
 }
+.grid-index-item {
+  width: 180px;
+}
 .grid-image-overlay .after {
   position: absolute;
   top: 0;
@@ -29,6 +32,7 @@
 .grid-container {
   padding-top: 25px;
   padding-left: 50px;
+  padding-right: 50px;
   display: grid;
   grid-column-gap: 50px;
   grid-row-gap: 50px;

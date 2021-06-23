@@ -55,12 +55,12 @@ const mDTP = dispatch => {
   return {
     fetchSong: (songId) => dispatch(fetchSong(songId)),
     fetchUser: (userId) => dispatch(fetchUser(userId)),
-    openModal: (modal) => dispatch(openModal(modal)),
+    openModal: (modal, song) => dispatch(openModal(modal, song)),
     setCurrentSong: (song) => dispatch(setCurrentSong(song)),
     setCurrentProgress: (progress) => dispatch(setCurrentProgress(progress)),
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
-    createComment: (comment, songId) => dispatch(createComment(comment, songId)),
+    createComment: (comment, song) => dispatch(createComment(comment, song)),
     createLike: (like, songId) => dispatch(createLike(like)),
     deleteLike: (likeId, song) => dispatch(deleteLike(likeId, song))
   }
