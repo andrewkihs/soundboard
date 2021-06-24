@@ -2,11 +2,32 @@
   width: 260px;
   height: 260px;
 }
+.your-tracks-redirect {
+  cursor: pointer;
+}
 
 .placeholder-album-art {
   background-image: linear-gradient(135deg, #846170, #70929c);
   width: 260px;
   height: 260px;
+}
+.audio-file-input {
+  display: none;
+}
+.drag-drop-text {
+  width: 100%;
+  text-align: center;
+}
+.audio-file-custom-input {
+  // border: 1px solid #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  color: white;
+  padding: 12px 80px;
+  cursor: pointer;
+  background-color: #f50;
+  // height: 26px;
+  text-align: center;
 }
 .replace-file-btn {
   background-color: #f50;
@@ -176,7 +197,9 @@
 }
 .song-form-center-ele {
   position: absolute;
+
   top: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;

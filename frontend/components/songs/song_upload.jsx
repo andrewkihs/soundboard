@@ -14,12 +14,14 @@ class SongUpload extends React.Component {
       formNum: 0,
       fileName: '',
       submitted: false,
+      redirectToLibrary: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.updateAudio = this.updateAudio.bind(this)
     this.updateimage = this.updateimage.bind(this)
     this.handleDrop = this.handleDrop.bind(this)
     this.handleDragOver = this.handleDragOver.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
   }
 
   
@@ -90,6 +92,9 @@ class SongUpload extends React.Component {
     e.preventDefault();
     e.stopPropagation();
   }
+  handleRedirect(){
+    this.setState({redirectToLibrary: true})
+  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -116,7 +121,12 @@ class SongUpload extends React.Component {
 
       <div className="first-form-container">
         <h1 className="upload-title">Upload</h1>
-        <h1 className="upload-title 2">Your tracks</h1>
+         {/* <Link to="/you/library"> */}
+         <span>
+
+            <h1 className="upload-title your-tracks-redirect" onClick={this.handleRedirect}>Your tracks</h1>
+         </span>
+          {/* </Link> */}
         {/* <div className="above-drag-drop"></div> */}
         <div className="drag-drop-song-form" 
         onDropCapture={this.handleDrop}
@@ -124,12 +134,16 @@ class SongUpload extends React.Component {
         >
           
           <div className='song-form-center-ele'>
-            <h1> Drag and drop your tracks and albums here</h1>
-            <input 
-              type="file"
-              accept='audio/*'
-              onChange={(e) => this.updateAudio(e)}
-              />
+            <h1 className='drag-drop-text'> {`Drag and drop your tracks & albums here`}</h1>
+              <label className='audio-file-custom-input'>
+
+                <input 
+                  className='audio-file-input'
+                  type="file"
+                  accept='audio/*'
+                  onChange={(e) => this.updateAudio(e)}
+                  /> or choose files to upload
+                </label>
             <br/>
           </div>
         </div>
@@ -279,11 +293,14 @@ class SongUpload extends React.Component {
     // 
     if (this.state.formNum === 0){
       return(
-      <div className="outer-song-form-container">
-        <div className="song-form-container">
-          {this.firstPage()}
+        <>
+        {this.state.redirectToLibrary ? <Redirect to='/you/library'/> : null}
+        <div className="outer-song-form-container">
+          <div className="song-form-container">
+            {this.firstPage()}
+          </div>
         </div>
-      </div>
+      </>
       )
     }
     else if (this.state.formNum === 1){

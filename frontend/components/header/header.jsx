@@ -131,7 +131,7 @@ class Header extends React.Component {
             </div>
           </div>
           <div className="message-btn-container">
-            <button className="message-btn" onClick="">
+            <button className="message-btn">
               <a 
                 target="_blank" 
                 className="header-box-right"
@@ -145,8 +145,9 @@ class Header extends React.Component {
               <a 
                 target="_blank" 
                 className="header-box-right"
-                href="https://angel.co/u/andrew-kihs">
+                href="https://www.linkedin.com/in/andrew-kihs/">
                   <img className='header-icon-logo' src={window.angelListLogo}/>
+
                 </a>
             </button>
           </div>
