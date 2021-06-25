@@ -38,7 +38,6 @@ const mSTP = (state, ownProps) => {
     }
   }
 
-
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],

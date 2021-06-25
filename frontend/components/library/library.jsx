@@ -29,8 +29,6 @@ class Library extends React.Component{
     if (Object.keys(this.props.songs).length===0){
       return null
     } else {
-      // this.filterLikes(songs)
-      debugger
       return(
         <>
           <div className="grid-header">

@@ -9,6 +9,14 @@
     json.uploader song.uploader.username
     json.comments song.comments.as_json(only: [:id, :body, :user_id])
     json.timePosted song.created_at
+    json.set! :likes do
+    song.likes.each do |like|
+      json.set! like.id do
+        json.extract! like, :id, :song_id, :liker_id
+        json.id like.id
+      end
+    end
+    end
     if song.audio.attached? 
       json.songUrl url_for(song.audio)
     end

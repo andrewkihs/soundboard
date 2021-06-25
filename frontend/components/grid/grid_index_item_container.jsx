@@ -22,7 +22,7 @@ const mSTP = (state, ownProps) => {
     }
   }
 
-  debugger
+
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],

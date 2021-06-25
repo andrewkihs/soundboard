@@ -10,6 +10,7 @@ import {
   HashRouter
 } from 'react-router-dom';
 import { openModal } from '../../actions/modal_actions';
+import SongShow from './song_show';
 
 const formWaveSurferOptions = ref => ({
   container: `#waveform_${this.props.song.id}`,
@@ -57,6 +58,7 @@ class SongIndexItem extends React.Component {
     this.handleComment = this.handleComment.bind(this)
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
+    this.dispNumLikes = this.dispNumLikes.bind(this)
   }
 
   play() {
@@ -88,6 +90,7 @@ class SongIndexItem extends React.Component {
 
 
   componentDidMount() {
+    
     let ctx = document.createElement('canvas').getContext('2d');
     let linGrad = ctx.createLinearGradient(0, 40, 0, 200);
     linGrad.addColorStop(0.5, 'rgba(100, 100, 100, 1.000)');
@@ -126,9 +129,12 @@ class SongIndexItem extends React.Component {
       })
 
     })
-    debugger
-    this.props.fetchUser(this.state.song.artistId)
+
+    if (!this.props.song.imageUrl){
+      this.props.fetchUser(this.state.song.artistId)
+    }
     this.wavesurfer.setMute(true)
+    this.setState({loaded: true})
   }
 
   componentDidUpdate(prevProps) {
@@ -186,21 +192,22 @@ class SongIndexItem extends React.Component {
 
 
   toggleLikeButtons() {
+
     if (!this.state.loggedIn) {
       return (
-        <button onClick={() => this.props.openModal('login')}><LikeButton /></button>
+        <button onClick={() => this.props.openModal('login')}><LikeButton /> {this.dispNumLikes()}</button>
       )
     }
     else {
 
       if (this.props.userLikesSong) {
         return (
-          <button onClick={this.deleteLike}><AfterLikeButton /></button>
+          <button onClick={this.deleteLike}><AfterLikeButton />{this.dispNumLikes()}</button>
         )
       }
       else {
         return (
-          <button onClick={this.createLike}><LikeButton /></button>
+          <button onClick={this.createLike}><LikeButton />{this.dispNumLikes()}</button>
         )
       }
     }
@@ -274,14 +281,20 @@ class SongIndexItem extends React.Component {
     return time;
   }
 
-
+  dispNumLikes(){
+    const { song } = this.props
+    debugger
+    if (!song) return
+    if (!song.likes) return ' '
+    else return (Object.keys(song.likes).length)
+  }
 
   render() {
     const { song, userLikesSong, currentPlayhead, openModal, uploader } = this.props
-    const { userOwnsSong, onStreamPage } = this.state
-    
-      debugger
+    const { userOwnsSong, onStreamPage, loaded } = this.state
 
+      
+      
       return (
         <li className="song-list-item">
         {onStreamPage ? (
@@ -299,7 +312,7 @@ class SongIndexItem extends React.Component {
         ) : null}
         <div className="song-list-item-container">
           <div>
-            <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : uploader.avatarUrl} />
+            <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? uploader.avatarUrl : null)} />
           </div>
           <div className="song-list-righthand">
             <div className="song-list-header">
@@ -358,6 +371,7 @@ class SongIndexItem extends React.Component {
     );
     
 
+    
   }
 }
 export default SongIndexItem

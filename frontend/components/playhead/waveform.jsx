@@ -169,10 +169,10 @@ export default function Waveform({ url, ...props }) {
               <img width="100px" height="100px"
                 className="playhead-photo"
                 src={currentSong.imageUrl} />
-              {/* <div className="playhead-artist-info">
-            <h1 className="playhead-uploader">{currentSong.uploader}</h1>
-            <h1 className="playhead-title">{currentSong.title}</h1>
-          </div> */}
+              <div className="playhead-artist-info">
+                <h1 className="playhead-uploader">{currentSong.uploader}</h1>
+                <h1 className="playhead-title">{currentSong.title}</h1>
+              </div>
               <div className="playhead-like-follow">
                 {toggleLikeButtons()}
                 {/* {props.currentUserLikes ? (
