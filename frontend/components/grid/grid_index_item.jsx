@@ -34,13 +34,11 @@ class GridIndexItem extends React.Component {
   }
 
   play() {
-    // debugger
     this.props.playSong()
     this.props.setCurrentSong(this.props.song)
     this.setState({currentlyPlaying: true})
   }
   pause() {
-    // debugger
     this.props.pauseSong()
     this.setState({currentlyPlaying: false})
   }

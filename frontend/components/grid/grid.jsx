@@ -9,16 +9,10 @@ class Grid extends React.Component{
       song: props.song,
 
     }
-    // 
-    // this.url = props.song.audioUrl;
-    // this.audio = new Audio(this.state.songUrl);
     this.play = this.play.bind(this)
   }
   
   play = () => {
-  // this.setState({ play: true, pause: false })
-  //   this.state.audioPlayer.play();
-    // 
     this.props.setCurrentSong(this.props.song)
   }
   
