@@ -1,6 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom';
-
+import { ReplaceFile } from '../icons/index'
 class SongEditForm extends React.Component {
   constructor(props){
     super(props)
@@ -95,10 +95,23 @@ class SongEditForm extends React.Component {
     debugger
     return (
       <>
+      <label className='edit-audio-file-custom-input'> 
+            <input 
+              type="file"
+              accept='audio/*'
+              className='edit-form-audio-input'
+              onChange={(e) => this.updateAudio(e)}
+              />
+              <ReplaceFile/> <p>Replace file</p>
+          </label>
+        <h1 className='edit-basic-info-tab'>Basic Info</h1>
+        <div className='edit-main-content-container'>
+
+        
         <div className="image-container">
           {dispImg}
           {/* <button className="change-image-btn">Upload Image</button> */}
-          <label className="change-image-btn" >Upload image
+          <label className="change-image-btn" >Replace image
             <input 
             type="file"
             id ="init-image-input"
@@ -108,25 +121,22 @@ class SongEditForm extends React.Component {
             />
           </label>
         </div>
-        <input 
-          type="file"
-          accept='audio/*'
-          onChange={(e) => this.updateAudio(e)}
-        />
 
-        <div className="song-form-text-input-container">
+        <div className="edit-song-form-text-input-container">
+          
                 <label className="sf-title-label">Title
                 <input 
                   type="text"
                   value={this.state.title}
                   onChange={this.update('title')}
-                  className="songform-title"
+                  className="edit-songform-title"
                   />
                 </label>
       
                 <label>Genre
                   <br/>
                   <select 
+                    className='edit-songform-genre'
                   onChange={this.update('genre')}>
                     <option value={this.state.genre}>{this.state.genre}</option>
                       <optgroup label="Music">
@@ -176,23 +186,30 @@ class SongEditForm extends React.Component {
                       </optgroup>
                     </select>
                   </label>
-                  <br/>
                   <label>Description
                     <br/>
                     <textarea
                       value={this.state.description}
                       onChange={this.update('description')}
-                      className="song-form-description"
+                      className="edit-song-form-description"
                       />
                   </label>
                 <br/>
                 
                 {this.state.submitted ? <Redirect to={`/songs/${this.state.id}`}/> : null}
-                <button className="song-submit-btn"
-                type="submit" 
-                onClick={this.handleSubmit}>  
-                Submit
-                </button>
+                <div className="edit-song-continue-btn">
+
+                  <p className="edit-song-cancel-btn"
+                    onClick={() => this.props.closeModal()}>  
+                    Cancel
+                  </p>
+                  <button className="edit-song-submit-btn"
+                  type="submit" 
+                  onClick={this.handleSubmit}>  
+                  Submit
+                  </button>
+                </div>
+                </div>
           </div>
       </>
     )

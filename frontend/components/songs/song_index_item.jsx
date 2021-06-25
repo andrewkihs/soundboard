@@ -195,19 +195,22 @@ class SongIndexItem extends React.Component {
 
     if (!this.state.loggedIn) {
       return (
-        <button onClick={() => this.props.openModal('login')}><LikeButton /> {this.dispNumLikes()}</button>
+        <button 
+        onClick={() => this.props.openModal('login')}><LikeButton /> <p>{this.dispNumLikes()}</p></button>
       )
     }
     else {
 
       if (this.props.userLikesSong) {
         return (
-          <button onClick={this.deleteLike}><AfterLikeButton />{this.dispNumLikes()}</button>
+          <button 
+          className='liked' 
+          onClick={this.deleteLike}><AfterLikeButton /><p>{this.dispNumLikes()}</p></button>
         )
       }
       else {
         return (
-          <button onClick={this.createLike}><LikeButton />{this.dispNumLikes()}</button>
+          <button onClick={this.createLike}><LikeButton /><p>{this.dispNumLikes()}</p></button>
         )
       }
     }
@@ -285,7 +288,7 @@ class SongIndexItem extends React.Component {
     const { song } = this.props
     debugger
     if (!song) return
-    if (!song.likes) return ' '
+    if (!song.likes) return 'Like'
     else return (Object.keys(song.likes).length)
   }
 
@@ -362,7 +365,7 @@ class SongIndexItem extends React.Component {
             </div>
             <div className="song-interact-buttons">
               {this.toggleLikeButtons()}
-              {userOwnsSong ? <button onClick={() => openModal('edit-song', song)}><EditButton /></button> : null}
+              {userOwnsSong ? <button onClick={() => openModal('edit-song', song)}><EditButton /><p>Edit</p></button> : null}
             </div>
           </div>
 

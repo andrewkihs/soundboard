@@ -24,7 +24,31 @@ version="1.1" >
     </g>
 </svg>
 )
+export const ReplaceFile = props => (
 
+<svg width="16px" 
+height="16px" 
+viewBox="0 0 16 16" 
+version="1.1"
+xmlns="http://www.w3.org/2000/svg" >
+    <title>ic_replace_file_16</title>
+    <desc>Created with Sketch.</desc>
+    <defs/>
+    <g id="Page-1" stroke="none" 
+    strokeWidth="1" 
+    fill="none" 
+    fillRule="evenodd">
+        <g 
+        id="ic_replace_file" 
+        transform="translate(3.000000, 2.000000)" 
+        fill="rgb(34, 34, 34)">
+            <path 
+            d="M0,9 L0,11 L10,11 L10,9 L0,9 Z M10,6 L0,6 L5,0 L10,6 Z M3,6 L3,8 L7,8 L7,6 L3,6 Z" 
+            id="Shape"/>
+        </g>
+    </g>
+</svg>
+)
 export const PlayIndexButton = props => (
 <svg 
 width="8px" 
@@ -49,6 +73,7 @@ version="1.1"
             d="M1653,904 L1654.84615,897 L1653,890 L1661,897 L1653,904 Z" 
             id="Play-28"></path>
         </g>
+
     </g>
 </svg>
 )

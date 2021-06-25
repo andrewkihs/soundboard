@@ -42,14 +42,26 @@ function Modal({modal, closeModal}) {
         return null;
     }
   } 
-  // debugger
-  return (
-    <div className="modal-background" onClick={closeModal}>
-      <div className="modal-child" onClick={e => e.stopPropagation()}>
-        { component }
+  if (modal.modal == 'edit-song'){
+    return (
+
+      <div className="edit-song-modal-background" onClick={closeModal}>
+        <div className="edit-song-modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
       </div>
-    </div>
+    )
+  }
+  else {
+
+    return (
+      <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
   );
+}
 }
 
 const mapStateToProps = state => {

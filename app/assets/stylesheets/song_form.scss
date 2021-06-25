@@ -327,3 +327,146 @@
 .init-image-input {
   display: none;
 }
+
+.edit-song-modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.edit-song-modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* flex-direction: row; */
+  /* justify-content: space-around; */
+  width: 850px;
+  height: 550px;
+  /* display: flex; */
+  background-color: white;
+  align-items: center;
+}
+.edit-form-audio-input {
+  display: none;
+}
+.edit-song-form-text-input-container {
+  width: 470px;
+  height: 340px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.edit-audio-file-custom-input {
+  appearance: auto;
+  margin: 30px;
+  text-indent: 5px;
+  padding: 2px 11px 2px 10px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  background-color: #fff;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans,
+    Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  align-items: flex-start;
+  cursor: default;
+  background-color: -internal-light-dark(#efefef, #3b3b3b);
+  box-sizing: border-box;
+  font: 400 13.3333px Arial;
+  padding: 2px 9px 2px 8px;
+  height: 22px;
+
+  vertical-align: center;
+
+  width: 110px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-main-content-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 5px;
+  padding-right: 40px;
+  justify-content: space-between;
+}
+
+.edit-basic-info-tab {
+  margin-left: 30px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  color: #333;
+  margin-right: 35px;
+  font-size: 28px;
+}
+.edit-basic-info-tab:hover {
+  color: #f50;
+}
+
+.edit-songform-title {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.edit-songform-genre {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.edit-song-form-description {
+  margin-top: 10px;
+  padding: 5px;
+  width: 100%;
+  height: 80px;
+}
+
+.edit-song-continue-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.edit-song-cancel-btn {
+  cursor: pointer;
+}
+.edit-song-submit-btn {
+  background-color: #f50;
+  /* height: 26px; */
+  margin: 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  margin-left: 25px;
+  padding: 5px 14px;
+  font-size: 16px;
+}

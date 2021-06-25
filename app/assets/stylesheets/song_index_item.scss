@@ -25,8 +25,32 @@
   padding-right: 20px;
 }
 .song-interact-buttons {
+  display: flex;
+  margin-top: 5px;
+  flex-direction: row;
+  .liked:hover {
+    border: 1px solid #f50;
+  }
+  button:hover {
+    border: 1px solid #d6d5d5;
+  }
   button {
+    border-radius: 3px;
+    background-color: white;
+    display: flex;
+    padding: 2px 7px;
+    padding-right: 10px;
+    border: 1px solid #e5e5e5;
+    margin-right: 10px;
+    flex-direction: row;
     cursor: pointer;
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+    p {
+      padding-left: 4px;
+    }
   }
 }
 .song-li-play-button {
