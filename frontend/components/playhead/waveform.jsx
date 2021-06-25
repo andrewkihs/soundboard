@@ -123,7 +123,7 @@ export default function Waveform({ url, ...props }) {
         null
       ) : (
 
-        <div>
+        <div className='outer-playhead'>
           {/* <div id="waveform" ref={audioRef} /> */}
 
 

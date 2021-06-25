@@ -130,9 +130,9 @@ class SongIndexItem extends React.Component {
 
     })
 
-    if (!this.props.song.imageUrl){
+    // if (!this.props.song.imageUrl){
       this.props.fetchUser(this.state.song.artistId)
-    }
+    // }
     this.wavesurfer.setMute(true)
     this.setState({loaded: true})
   }
