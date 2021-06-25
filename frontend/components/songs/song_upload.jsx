@@ -22,6 +22,7 @@ class SongUpload extends React.Component {
     this.handleDrop = this.handleDrop.bind(this)
     this.handleDragOver = this.handleDragOver.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
+    this.handleBack = this.handleBack.bind(this)
   }
 
   
@@ -42,7 +43,10 @@ class SongUpload extends React.Component {
       onSuccess: tag => {
         
         Object.assign(audioID3, tag)
-        this.setState({title: tag.tags.title})  
+        if (tag.tags.title){
+          this.setState({title: tag.tags.title})  
+
+        }
       },
 
     })
@@ -72,7 +76,7 @@ class SongUpload extends React.Component {
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+      this.setState({ imageUrl: currentUser.avatarUrl, imageFile: null });
     }
   }
 

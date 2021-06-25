@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 class SongEditForm extends React.Component {
   constructor(props){
     super(props)
-    // debugger
+    debugger
     this.state = {
       ...props.song,
     }
@@ -78,7 +78,7 @@ class SongEditForm extends React.Component {
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ imageUrl: "", imageFile: null });
+      this.setState({ imageUrl: currentUser.avatarUrl, imageFile: null });
     }
   }
   render() {
@@ -87,12 +87,12 @@ class SongEditForm extends React.Component {
     let dispImg 
     // debugger
     if (this.state.imageUrl){
-      dispImg = <img className="song-form-album-art" src={this.state.imageUrl} />
+      dispImg = <img className="song-form-album-art" src={this.state.imageUrl ? this.state.imageUrl : uploader.avatarUrl} />
     } 
     else {
       dispImg = <div className="placeholder-album-art"/>
     }
-
+    debugger
     return (
       <>
         <div className="image-container">

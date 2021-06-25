@@ -15,7 +15,6 @@ const mSTP = (state, ownProps) => {
   let selectedSong = null;
   let currentUser
   let currentTime = 0;
-
   if (state.playhead.currentSong) {
     currentTime = state.playhead.currentTime;
     selectedSong = state.playhead.currrentSong
@@ -38,7 +37,7 @@ const mSTP = (state, ownProps) => {
       }
     }
   }
-  // debugger
+
 
   return {
     currentUser: currentUser,
@@ -47,7 +46,8 @@ const mSTP = (state, ownProps) => {
     currentlyPlaying: currentSongPlaying,
     userLikesSong: userLikesSong,
     currentTime: currentTime,
-    currentLikeId: currentLikeId
+    currentLikeId: currentLikeId,
+    uploader: state.entities.users[state.entities.songs[ownProps.songId].artistId]
   }
 }
 

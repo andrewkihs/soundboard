@@ -7,7 +7,12 @@
   json.genre @song.genre
   json.artistId @song.artist_id
   json.songUrl url_for(@song.audio)
-  json.imageUrl url_for(@song.image)
+  if @song.image.attached? 
+    json.imageUrl url_for(@song.image)
+  else
+    json.imageUrl ''
+  end
+  json.timePosted @song.created_at
 
   json.set! :likes do
     @song.likes.each do |like|

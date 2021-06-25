@@ -6,6 +6,7 @@
 .song-list-item-container {
   display: flex;
   flex-direction: row;
+  padding: 20px 0px;
   // background: pink;
   // align-items: center;
 }
@@ -23,10 +24,15 @@
   height: 160px;
   padding-right: 20px;
 }
-
+.song-interact-buttons {
+  button {
+    cursor: pointer;
+  }
+}
 .song-li-play-button {
   height: 36px;
   width: 36px;
+  cursor: pointer;
   background-color: #f50;
   border-radius: 50%;
   border: 0;
@@ -35,6 +41,26 @@
 .song-li-button-container {
   height: 36px;
   width: 36px;
+}
+.song-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .genre {
+    height: 16px;
+    padding: 0 6px;
+    line-height: 16px;
+    margin-right: 2px;
+    border: 1px solid #999;
+    border-left-width: 0;
+    color: white;
+    font-size: 12px;
+    white-space: nowrap;
+    background: #999;
+    font-weight: 100;
+    border-radius: 20px;
+  }
 }
 .song-list-header-left {
   display: flex;
@@ -50,8 +76,20 @@
 
 .profile-link {
   font-size: 15px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 100;
+}
+.profile-link:hover {
+  color: #333;
 }
 .song-page-link {
+  color: #333;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 100;
+}
+.song-page-link:hover {
   color: black;
 }
 .song-list-header {
@@ -101,4 +139,28 @@
   border-radius: 3px;
   margin: 4px;
   width: 100%;
+}
+
+.stream-ts-container {
+  display: flex;
+  padding: 20px 0px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+  .stream-uploader-pfp {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  .stream-ts-uploader {
+    a {
+      padding-left: 0.5em;
+      color: #333;
+    }
+  }
+  .stream-ts-stamp {
+    color: #ccc;
+    text-indent: 0.5em;
+  }
 }

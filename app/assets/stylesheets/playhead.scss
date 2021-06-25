@@ -108,11 +108,13 @@
   text-overflow: ellipsis;
 }
 .volume-container {
-  // position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
 }
 .playhead-artist-container {
   // background: pink;
-  height: 100%;
+  height: 48px;
   align-items: center;
   width: 200px;
   display: flex;
@@ -120,13 +122,14 @@
   justify-content: space-between;
 }
 #volume-slider-div {
-  // display: none;
-  position: relative;
+  display: none;
+  background: pink;
+  position: absolute;
   /* top: 30%; */
-  right: 11px;
-  bottom: 35px;
-  /* width: 120px; */
-  transform: rotate(270deg);
+  /* right: 40px; */
+  bottom: 48px;
+  height: 155px;
+  width: 40px;
 }
 
 #volume-range {
@@ -136,5 +139,12 @@
   // transform: rotate(270deg);
 }
 .vslider-background {
-  background-color: pink;
+  top: 95%;
+  left: 25%;
+  position: absolute;
+  transform: rotate(270deg);
+}
+
+.volume-container:hover #volume-slider-div {
+  display: block;
 }

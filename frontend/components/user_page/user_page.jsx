@@ -88,9 +88,6 @@ class UserPage extends React.Component{
 
         </div>
         
-        <div>
-          {this.props.likedSongs ? this.likedSongs(): <p>hello</p>}
-        </div>
       </div>
     )
     }

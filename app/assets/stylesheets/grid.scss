@@ -32,7 +32,7 @@
 .grid-container {
   padding-top: 25px;
   padding-left: 50px;
-  padding-right: 50px;
+  // padding-right: 50px;
   display: grid;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
@@ -62,6 +62,7 @@
   align-items: center;
   button {
     width: 50px;
+    cursor: pointer;
     height: 50px;
     .song-li-play-button {
       width: 30px;
