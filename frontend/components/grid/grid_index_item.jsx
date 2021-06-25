@@ -16,7 +16,6 @@ class GridIndexItem extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      // currentlyPlaying: this.props.currentlyPlaying,
       comment: '',
       userLikesSong: this.props.userLikesSong,
       hover: false
@@ -51,7 +50,12 @@ class GridIndexItem extends React.Component {
 
 
   componentDidMount(){
-   
+    const { song, fetchUser } = this.props
+    debugger
+    if (!song.imageUrl){
+      fetchUser(song.artistId)
+    }
+    return this.setState({loaded: true})
   }
 
   handleComment(e){
@@ -80,22 +84,25 @@ class GridIndexItem extends React.Component {
 
 
   render() {
-    const { song, userLikesSong } = this.props
-    // 
-    // 
+    
+    const { song, userLikesSong, uploader } = this.props
+    const { loaded } = this.state
+    if (!loaded) return null
+    else {
+      debugger
       return (
         <div className='grid-index-item'>
 
           <div className="grid-image-overlay">
             <img className="grid-song-item-image"
-            src={song.imageUrl}
+            src={song.imageUrl === '' ?  uploader.avatarUrl : song.imageUrl}
             />
             <div className="after">
               <div className="grid-play-pause">
                 {this.props.currentlyPlaying ? 
                   <button 
-                    className="song-li-play-button" 
-                    onClick={this.pause}>
+                  className="song-li-play-button" 
+                  onClick={this.pause}>
                       <PauseIndexButton/>
                   </button> :
                   <button 
@@ -124,7 +131,8 @@ class GridIndexItem extends React.Component {
           </div>
         </div>
       );
-   
+      
+    }
   }
-}
-export default GridIndexItem
+  }
+  export default GridIndexItem

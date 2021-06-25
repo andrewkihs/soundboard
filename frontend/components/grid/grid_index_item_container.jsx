@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { fetchSong } from '../../actions/song_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
-import { playSong, setCurrentSong, pauseSong, fetchUser } from '../../actions/playhead_actions'
+import { playSong, setCurrentSong, pauseSong } from '../../actions/playhead_actions'
+import { fetchUser } from '../../actions/user_actions'
 import { createComment } from '../../actions/comment_actions'
 import GridIndexItem from './grid_index_item'
 
@@ -21,11 +22,12 @@ const mSTP = (state, ownProps) => {
     }
   }
 
+  debugger
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],
     currentlyPlaying: currentSongPlaying,
-    // userLikesSong: userLikesSong,
+    uploader: state.entities.users[state.entities.songs[ownProps.songId].artistId],
     currentLikeId: currentLikeId
   }
 }
