@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from 'react-router-dom'
 import TimeBar from './timebar'
 import useAudio from "./use_audio";
 import { playSong, setCurrentSong, pauseSong } from '../../actions/playhead_actions'
@@ -169,8 +170,8 @@ export default function Waveform({ url, ...props }) {
                 className="playhead-photo"
                 src={currentSong.imageUrl} />
               <div className="playhead-artist-info">
-                <h1 className="playhead-uploader">{currentSong.uploader}</h1>
-                <h1 className="playhead-title">{currentSong.title}</h1>
+                <h1 className="playhead-uploader"><Link to={`/users/${currentSong.artistId}`}>{currentSong.uploader}</Link></h1>
+                <h1 className="playhead-title"><Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link></h1>
               </div>
               <div className="playhead-like-follow">
                 {toggleLikeButtons()}

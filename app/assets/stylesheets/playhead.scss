@@ -103,12 +103,15 @@
   font-size: 12px;
 }
 .playhead-title {
-  color: #666;
   font-size: 12px;
   width: 150px;
+  padding-top: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  a {
+    color: #333;
+  }
 }
 .volume-container {
   display: flex;
@@ -129,7 +132,8 @@
 }
 #volume-slider-div {
   display: none;
-  background: pink;
+  background: #f2f2f2;
+  border: 1px solid #cecece;
   position: absolute;
   /* top: 30%; */
   /* right: 40px; */
