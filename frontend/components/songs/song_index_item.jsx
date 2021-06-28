@@ -110,6 +110,16 @@ class SongIndexItem extends React.Component {
       normalize: true,
       cursorColor: '#fff',
       barWidth: 2,
+      xhr: {
+        cache: "default",
+        mode: "cors",
+        method: "GET",
+        credentials: "include",
+        headers: [
+          { key: "cache-control", value: "no-cache" },
+          { key: "pragma", value: "no-cache" }
+        ]
+      },
       backend: 'MediaElement',
     });
 
