@@ -302,8 +302,7 @@ class SongIndexItem extends React.Component {
       
       
       return (
-        <li className="song-list-item"
-        onFocus={this.handleCommentFocus}>
+        <li className="song-list-item">
         {onStreamPage ? (
           <div className='stream-ts-container'>
             {!!uploader ? <img className='stream-uploader-pfp' src={uploader.avatarUrl}/> : null }
@@ -322,7 +321,9 @@ class SongIndexItem extends React.Component {
             <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? uploader.avatarUrl : null)} />
           </div>
           <div className="song-list-righthand">
-            <div className="song-list-header">
+            <div 
+            onFocus={this.handleCommentFocus}
+            className="song-list-header">
               <div className="song-list-header-left">
                 <div className="song-li-button-container">
 
@@ -349,7 +350,9 @@ class SongIndexItem extends React.Component {
               </div>
               <div className="genre"># {song.genre}</div>
             </div>
-            <div className="waveform" id={`waveform_${song.id}`}></div>
+            <div 
+            onFocus={this.handleCommentFocus}
+            className="waveform" id={`waveform_${song.id}`}></div>
             <div className="comments-container"><CommentShowContainer song={song} /></div>
             <br></br>
             <div className="comment-input"
