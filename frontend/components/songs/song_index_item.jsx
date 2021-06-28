@@ -1,6 +1,6 @@
 import React from 'react'
 import WaveSurfer from 'wavesurfer.js';
-import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton, EditButton } from '../icons/index'
+import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton, EditButton, DeleteSongButton } from '../icons/index'
 import CommentShowContainer from '../comment_show/comment_show_container'
 import {
   Route,
@@ -59,6 +59,7 @@ class SongIndexItem extends React.Component {
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
     this.dispNumLikes = this.dispNumLikes.bind(this)
+    this.handleCommentFocus = this.handleCommentFocus.bind(this)
   }
 
   play() {
@@ -291,7 +292,9 @@ class SongIndexItem extends React.Component {
     if (!song.likes) return 'Like'
     else return (Object.keys(song.likes).length)
   }
-
+  handleCommentFocus(){
+    return this.setState({commentFocus: true});
+  }
   render() {
     const { song, userLikesSong, currentPlayhead, openModal, uploader } = this.props
     const { userOwnsSong, onStreamPage, loaded } = this.state
@@ -299,7 +302,8 @@ class SongIndexItem extends React.Component {
       
       
       return (
-        <li className="song-list-item">
+        <li className="song-list-item"
+        onFocus={this.handleCommentFocus}>
         {onStreamPage ? (
           <div className='stream-ts-container'>
             {!!uploader ? <img className='stream-uploader-pfp' src={uploader.avatarUrl}/> : null }
@@ -348,7 +352,8 @@ class SongIndexItem extends React.Component {
             <div className="waveform" id={`waveform_${song.id}`}></div>
             <div className="comments-container"><CommentShowContainer song={song} /></div>
             <br></br>
-            <div className="comment-input">
+            <div className="comment-input"
+              style= {{display: this.state.commentFocus ? 'flex' : 'none'}}>
               <div className="comment-input-padding">
 
                 <input
@@ -366,6 +371,7 @@ class SongIndexItem extends React.Component {
             <div className="song-interact-buttons">
               {this.toggleLikeButtons()}
               {userOwnsSong ? <button onClick={() => openModal('edit-song', song)}><EditButton /><p>Edit</p></button> : null}
+              {userOwnsSong ? <button onClick={() => openModal('delete-song', song)}><DeleteSongButton /><p>Delete</p></button> : null}
             </div>
           </div>
 

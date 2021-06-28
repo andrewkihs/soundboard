@@ -5,6 +5,7 @@ import LoginFormContainer from '../user_auth/login_form_container';
 import SignupFormContainer from '../user_auth/signup_form_container';
 import EditProfileContainer from '../user_page/edit_profile_container';
 import EditSongContainer from '../songs/song_edit_container'
+import DeleteSong from '../songs/delete_song'
 
 function Modal({modal, closeModal}) {
 
@@ -17,6 +18,9 @@ function Modal({modal, closeModal}) {
     switch(modal.modal){
       case 'edit-song':
         component = <EditSongContainer song={modal.props}/>;
+        break;
+      case 'delete-song':
+        component = <DeleteSong song={modal.props}/>;
         break;
       default:
         return null;
@@ -43,6 +47,16 @@ function Modal({modal, closeModal}) {
     }
   } 
   if (modal.modal == 'edit-song'){
+    return (
+
+      <div className="edit-song-modal-background" onClick={closeModal}>
+        <div className="edit-song-modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
+    )
+  }
+  if (modal.modal == 'delete-song'){
     return (
 
       <div className="edit-song-modal-background" onClick={closeModal}>
