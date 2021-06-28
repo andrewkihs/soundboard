@@ -287,7 +287,6 @@ class SongIndexItem extends React.Component {
 
   dispNumLikes(){
     const { song } = this.props
-    debugger
     if (!song) return
     if (!song.likes) return 'Like'
     else return (Object.keys(song.likes).length)

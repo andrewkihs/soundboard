@@ -43,6 +43,6 @@ export const updateSong = (song, songId) => {
 export const deleteSong = songId => (
   $.ajax({
     method: 'DELETE',
-    url: `api/tracks/${songId}`
+    url: `api/songs/${songId}`
   })
 )

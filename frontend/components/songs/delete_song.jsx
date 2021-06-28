@@ -1,18 +1,22 @@
 import React from 'react'
 import SongIndexItemContainer from './song_index_item_container'
-
+import { closeModal } from '../../actions/modal_actions'
+import { deleteSong } from '../../actions/song_actions'
 class DeleteSong extends React.Component {
   constructor(props){
     super(props)
-
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
 
+  handleDelete(){
+    const { song } = this.props
+    dispatch(deleteSong(song.id))
+    dispatch(closeModal())
+  }
   render(){
-    debugger
     return (
       <div className='delete-track-container'>
-        {/* <SongIndexItemContainer/> */}
         <div className='bottom-delete-track'>
           <h1>Permanently delete this track?</h1>
           <div className='delete-bottom-mc'>
@@ -22,12 +26,12 @@ class DeleteSong extends React.Component {
             <div className="delete-song-continue-btn">
 
                   <p className="edit-song-cancel-btn"
-                    onClick={() => this.props.closeModal()}>  
+                    onClick={() => dispatch(closeModal())}>  
                     Cancel
                   </p>
                   <button className="edit-song-submit-btn"
                   type="submit" 
-                  onClick={this.handleSubmit}>  
+                  onClick={this.handleDelete}>  
                   Delete Forever
                   </button>
                 </div>

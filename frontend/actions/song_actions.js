@@ -38,4 +38,4 @@ export const updateSong = (song, id) => (dispatch) => {
 };
 
 export const deleteSong = (songId) => (dispatch) =>
-  APIUtil.deleteSong(songId).then((song) => dispatch(removeSong(songId)));
+  SongAPIUtil.deleteSong(songId).then((song) => dispatch(removeSong(songId)));
