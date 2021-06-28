@@ -56,8 +56,6 @@ function TimeBar({
   }
   const onScrub = (seconds) => {
     // Clear any timers already running
-    // clearInterval(intervalRef.current);
-    // console.log(seconds)
     dispatch(setCurrentProgress(seconds))
     setTime(seconds)
 

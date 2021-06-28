@@ -15,7 +15,6 @@ const mSTP = (state, ownProps) => {
       }
     }
   }
-  // debugger
   return {
     currentSong: state.playhead.currentSong,
     currentTime: state.playhead.currentTime,

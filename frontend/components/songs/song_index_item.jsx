@@ -39,7 +39,6 @@ class SongIndexItem extends React.Component {
       owner = props.song.artistId === props.currentUser.id
     }
     let onStreamPage = window.location.hash.includes('stream')
-    // debugger
     this.state = {
       song: this.props.song,
       currentlyPlaying: this.props.currentlyPlaying,
@@ -50,7 +49,6 @@ class SongIndexItem extends React.Component {
       onStreamPage: onStreamPage,
     }
 
-    // debugger
 
 
     this.play = this.play.bind(this)
@@ -143,9 +141,7 @@ class SongIndexItem extends React.Component {
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
         if (prevProps.currentTime !== this.props.currentTime) {
-          console.log(currentPlayhead.currentSong)
           const progress = this.props.currentTime / this.wavesurfer.getDuration()
-          console.log(progress)
           if (progress !== 0) {
             this.wavesurfer.seekTo(progress)
 
@@ -227,7 +223,6 @@ class SongIndexItem extends React.Component {
         return this.setState({ currentlyPlaying: false })
       }
     }
-    debugger
   }
 
   timeSince(time) {

@@ -8,8 +8,6 @@ class CommentShow extends React.Component {
 
   render(){
     const {song} = this.props
-    // 
-    // debugger
     if (!song.comments) return null
     else{
       return (

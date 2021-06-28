@@ -9,7 +9,6 @@ function useAudio(url) {
   const [isLoading, setLoading] = useState(true);
   const [isSeeking, setSeeking] = useState(false);
   const [volume, setVolume] = useState(0.1);
-  // debugger
   React.useEffect(() => {
 
     setLoading(true);

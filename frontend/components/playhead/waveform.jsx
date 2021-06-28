@@ -34,7 +34,6 @@ export default function Waveform({ url, ...props }) {
   const [userLikesSong, setUserLikesSong] = useState(props.currentUserLikes);
 
 
-  // debugger
 
   useEffect(() => {
     audioProps.togglePlaybackStatus()

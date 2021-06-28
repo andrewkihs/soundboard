@@ -88,7 +88,6 @@ class Search extends React.Component {
         >
         {(() => {
           if (enterClickRedirect) {
-            // debugger;
             if (typeof filtered[0] == "object") {
               return (
                 <Redirect

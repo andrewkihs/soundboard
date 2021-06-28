@@ -51,7 +51,6 @@ class GridIndexItem extends React.Component {
 
   componentDidMount(){
     const { song, fetchUser } = this.props
-    debugger
     if (!song.imageUrl){
       fetchUser(song.artistId)
     }
@@ -89,7 +88,6 @@ class GridIndexItem extends React.Component {
     const { loaded } = this.state
     if (!loaded) return null
     else {
-      debugger
       return (
         <div className='grid-index-item'>
 

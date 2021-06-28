@@ -6,8 +6,6 @@ import SongEdit from './song_edit'
 
 
 const mSTP = (state, ownProps) => {
-  debugger
-  // debugger
   return {
     currentUser: state.entities.users[state.session.id],
     song: ownProps.song

@@ -29,13 +29,6 @@ function Modal({modal, closeModal}) {
   else{
 
     switch (modal) {
-      // case 'edit-profile':
-      //   component = <EditProfileContainer />;
-      //   break;
-      // case 'edit-song':
-      //   debugger
-      //   component = <EditSongContainer />;
-      //   break;
       case 'login':
         component = <LoginFormContainer />;
         break;
