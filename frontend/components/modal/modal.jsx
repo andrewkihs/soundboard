@@ -59,8 +59,8 @@ function Modal({modal, closeModal}) {
   if (modal.modal == 'delete-song'){
     return (
 
-      <div className="edit-song-modal-background" onClick={closeModal}>
-        <div className="edit-song-modal-child" onClick={e => e.stopPropagation()}>
+      <div className="delete-song-modal-background" onClick={closeModal}>
+        <div className="delete-song-modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>
       </div>

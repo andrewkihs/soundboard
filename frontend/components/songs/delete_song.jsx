@@ -18,9 +18,9 @@ class DeleteSong extends React.Component {
     return (
       <div className='delete-track-container'>
         <div className='bottom-delete-track'>
-          <h1>Permanently delete this track?</h1>
+          <h1 className='delete-h1'>Permanently delete this track?</h1>
           <div className='delete-bottom-mc'>
-            <p>
+            <p className='delete-track-p'>
               Removing this track is irreversible. You will lose all the plays, likes and comments for this track with no way to get them back.
             </p>
             <div className="delete-song-continue-btn">
