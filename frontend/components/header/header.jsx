@@ -155,8 +155,14 @@ class Header extends React.Component {
             <button className="settings-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}> 
               <MoreOptions/>   
               <ul id="settings-dropdown" className={this.state.settingsDrop ? 'reveal' : 'hide'}>
-                <li>Settings dropdown</li>
-                <li><a onClick={() => this.handleLogout()}>Logout</a></li>
+                <li>
+                  <a 
+                    target="_blank" 
+                    className="setting-link"
+                    href="https://www.andrewkihs.com">Andrew's personal site</a>
+              </li>
+                <li>
+                  <a onClick={() => this.handleLogout()}>Logout</a></li>
               </ul>
             </button>
           </div>

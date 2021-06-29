@@ -14,8 +14,10 @@ class UserPage extends React.Component{
           .filter( key => predicate(obj[key]) )
           .reduce( (res, key) => (res[key] = obj[key], res), {} );
     this.state = {
-      pageOwner: Object.filter(props.pageOwner, value => value!='null' && value!='undefined')
+      pageOwner: this.props.pageOwner,
     }
+    //   pageOwner: Object.filter(props.pageOwner, value => value!='null' && value!='undefined')
+    // }
   }
   componentDidMount(){
     this.props.fetchUser(this.props.userId)
@@ -67,10 +69,12 @@ class UserPage extends React.Component{
     const { currentUser, openModal } = this.props
     const { pageOwner } = this.state
     debugger
-    const currentUserOwnsPage = pageOwner.id === currentUser.id 
-    if (pageOwner === undefined){
+    if (!!!pageOwner){
       return (<></>)
     }else {
+      let currentUserOwnsPage 
+      if (currentUser) { currentUserOwnsPage = pageOwner.id === currentUser.id }
+      debugger
       return (
         
       <div className="user-show-page">
@@ -95,16 +99,17 @@ class UserPage extends React.Component{
           </div>
         </div>
 
-        <div className="grid-header">
-            <h1>All the songs you posted</h1>
+        <div className="grid-header-profile">
+            <h1>Your tracks</h1>
+            {currentUserOwnsPage ? <button  className='edit-profile-btn'onClick={()=>openModal('edit-profile', currentUser)}><EditButton /></button> : null}
           </div>
         <div className="user-show-mc">
 
         <div className="song-container-user-show">
           {this.postedSongs()}
         </div>
+          
         <div className="right-hand-bar">
-          {currentUserOwnsPage ? <button onClick={()=>openModal('edit-profile', currentUser)}><EditButton /> Edit page</button> : null}
           {pageOwner.bio? (
             <h1 className="user-show-bio">Bio</h1>
 

@@ -244,14 +244,41 @@
   padding: 0px;
   width: 100%;
   height: 100%;
-  display: block;
-  overflow: hidden;
+  // position: relative;
+  // overflow: hidden;
   // selected {
   // }
 }
 
+.settings-btn {
+  position: relative;
+}
+
 #settings-dropdown {
-  // right: 90px;
+  position: absolute;
+  // display: block;
+  // margin-inline-start: 0px;
+  // margin-inline-end: 0px;
+  // padding-inline-start: 40px;
+
+  border-color: #f2f2f2;
+  :first-child > a {
+    // border-bottom: 1px solid #333;
+  }
+  li {
+    padding: 8px 10px;
+    font-size: 6px;
+    font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda,
+      Verdana, Tahoma, sans-serif;
+    font-weight: 400;
+    a {
+      font-size: 13px;
+      color: #333;
+    }
+  }
+  li:hover {
+    background: #ccc;
+  }
 }
 
 #message-dropdown {
@@ -263,17 +290,19 @@
 
 .reveal {
   font-size: 24px;
+  font: 12px/1.4 Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda,
+    Verdana, Tahoma, sans-serif;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   top: 46px;
-  // // width: 200px;
-  // // min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  padding: 12px 16px;
+  width: 184px;
+  text-align: left;
+  // box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
   z-index: 100001;
-  // // right: 10px;
-  // right: 0;
-  // top: 46pright:0;x;
+  right: 0px;
 }
 
 .hide {
