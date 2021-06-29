@@ -1,10 +1,14 @@
 import React from 'react'
 import SongIndexItemContainer from './song_index_item_container'
+import { Redirect } from 'react-router-dom'
 import { closeModal } from '../../actions/modal_actions'
 import { deleteSong } from '../../actions/song_actions'
 class DeleteSong extends React.Component {
   constructor(props){
     super(props)
+    this.state = {
+      deleteRedirect: null,
+    }
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -12,9 +16,12 @@ class DeleteSong extends React.Component {
   handleDelete(){
     const { song } = this.props
     dispatch(deleteSong(song.id))
-    dispatch(closeModal())
+    this.setState({deleteRedirect: true})
   }
+
   render(){
+    const { song } = this.props
+    debugger
     return (
       <div className='delete-track-container'>
         <div className='bottom-delete-track'>
@@ -37,6 +44,7 @@ class DeleteSong extends React.Component {
                 </div>
                 </div>
           </div>
+          {this.state.deleteRedirect ? <Redirect to={`/users/${song.artistId}`}/> : null}
         </div>
     )
   }

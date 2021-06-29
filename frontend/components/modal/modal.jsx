@@ -22,6 +22,9 @@ function Modal({modal, closeModal}) {
       case 'delete-song':
         component = <DeleteSong song={modal.props}/>;
         break;
+      case 'edit-profile':
+        component = <EditProfileContainer user={modal.props}/>;
+        break;
       default:
         return null;
     }
@@ -54,6 +57,16 @@ function Modal({modal, closeModal}) {
 
       <div className="delete-song-modal-background" onClick={closeModal}>
         <div className="delete-song-modal-child" onClick={e => e.stopPropagation()}>
+          { component }
+        </div>
+      </div>
+    )
+  }
+  if (modal.modal == 'edit-user-profile'){
+    return (
+
+      <div className="edit-profile-modal-background" onClick={closeModal}>
+        <div className="edit-profile-modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>
       </div>

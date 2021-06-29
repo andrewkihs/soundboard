@@ -4,6 +4,7 @@ import { ReplaceFile } from '../icons/index'
 class SongEditForm extends React.Component {
   constructor(props){
     super(props)
+    
     this.state = {
       ...props.song,
     }
@@ -84,12 +85,14 @@ class SongEditForm extends React.Component {
     // const { song } = this.props
 
     let dispImg 
+    // 
     if (this.state.imageUrl){
       dispImg = <img className="song-form-album-art" src={this.state.imageUrl ? this.state.imageUrl : uploader.avatarUrl} />
     } 
     else {
       dispImg = <div className="placeholder-album-art"/>
     }
+    
     return (
       <>
       <label className='edit-audio-file-custom-input'> 

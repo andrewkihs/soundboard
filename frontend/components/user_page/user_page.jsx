@@ -1,4 +1,6 @@
 import React from 'react'
+import { openModal } from '../../actions/modal_actions'
+import { EditButton } from '../icons'
 import SongIndexItemContainer from '../songs/song_index_item_container'
 class UserPage extends React.Component{
   constructor(props){
@@ -45,7 +47,8 @@ class UserPage extends React.Component{
     
   
   render(){
-    const { pageOwner } = this.props
+    const { pageOwner, currentUser, openModal } = this.props
+    const currentUserOwnsPage = pageOwner.id === currentUser.id 
     if (pageOwner === undefined){
       return (<></>)
     }else {
@@ -81,6 +84,7 @@ class UserPage extends React.Component{
           {this.postedSongs()}
         </div>
         <div className="right-hand-bar">
+          {currentUserOwnsPage ? <button onClick={()=>openModal('edit-profile', currentUser)}><EditButton /> Edit page</button> : null}
           <h1 className="user-show-bio">Bio</h1>
           <br/>
           <p>{pageOwner.bio}</p>
