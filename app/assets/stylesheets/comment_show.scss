@@ -6,9 +6,28 @@
 .comment-hidden {
   display: none;
 }
+.commenter {
+  font-size: 12px;
+  /* width: 149%; */
+  font-weight: 400;
+  color: #f50;
+  padding-right: 5px;
 
+  white-space: nowrap;
+}
+.hover-zone {
+  padding: 20px;
+}
+.comment-body {
+  font-size: 12px;
+  /* width: 149%; */
+  font-weight: 400;
+  color: #ccc;
+  white-space: nowrap;
+}
 .comment-reveal {
-  background: white;
+  display: flex;
+  padding-top: 3px;
   position: absolute;
-  top: 20px;
+  z-index: 5;
 }

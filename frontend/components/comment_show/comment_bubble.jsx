@@ -35,17 +35,19 @@ class CommentBubble extends React.Component {
       // 
       return (
         <>
-          <Link to={`/users/${commenter.id}`}>
+          <Link 
+            onMouseOver={this.handleHoverEnter}
+            onMouseOut={this.handleHoverExit}
+          to={`/users/${commenter.id}`}
+          className='hover-zone'>
 
             <img className="comment-avatar-image"
-              onMouseOver={this.handleHoverEnter}
-              onMouseOut={this.handleHoverExit}
               src={commenter.avatarUrl ? commenter.avatarUrl : "https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"}>
             </img>
           </Link>
           <div className={this.state.hover ? "comment-reveal" : "comment-hidden"}>
-            <div>{commenter.displayName}</div>
-            <div>{comment.body}</div>
+            <div className='commenter'><Link className="commenter" to={`/users/${commenter.id}`}>{commenter.displayName}</Link></div>
+            <div className='comment-body'>{comment.body}</div>
           </div>
         </>
       )
