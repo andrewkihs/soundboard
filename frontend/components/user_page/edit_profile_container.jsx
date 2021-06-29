@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateUser } from '../../actions/user_actions'
+import { closeModal } from '../../actions/modal_actions'
 import EditProfile from './edit_profile'
 
 const mSTP = (state, ownProps) => {
@@ -13,6 +14,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
   return {
     updateUser: (user, userId) => dispatch(updateUser(user, userId)),
+    closeModal: () => dispatch(closeModal())
   }
 }
 

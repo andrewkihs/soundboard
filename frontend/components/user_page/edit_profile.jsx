@@ -76,23 +76,15 @@ class EditProfile extends React.Component{
     }
     this.props.updateUser(formData, this.state.id)
     this.setState({submitted: true})
-    // this.props.closeModal();
+    this.props.closeModal();
   }
   componentDidMount(){
   }
   
 
   render(){
-    debugger 
 
     let dispImg 
-    // 
-    // if (this.state.imageUrl){
-    //   dispImg = <img className="song-form-album-art" src={this.state.imageUrl ? this.state.imageUrl : uploader.avatarUrl} />
-    // } 
-    // else {
-    //   dispImg = <div className="placeholder-album-art"/>
-    // }
 
     return (
       <>
@@ -191,7 +183,7 @@ class EditProfile extends React.Component{
             <div className="update-profile-continue-btn">
 
                   <p className="edit-song-cancel-btn"
-                    onClick={() => dispatch(closeModal())}>  
+                    onClick={() => this.props.closeModal()}>  
                     Cancel
                   </p>
                   <button className="edit-song-submit-btn"

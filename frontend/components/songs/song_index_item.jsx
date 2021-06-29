@@ -190,7 +190,7 @@ class SongIndexItem extends React.Component {
     const song = this.state.song
     const currentLikeId = this.props.currentUser.likes[song.id].id
     this.props.deleteLike(currentLikeId, song).then(() => {
-      // update appropriate tables
+
       this.props.fetchUser(this.props.currentUser.id)
       this.props.fetchSong(song.id)
     })
