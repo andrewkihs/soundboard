@@ -8,6 +8,7 @@ class EditProfile extends React.Component{
     }
     this.updateAvatarImage = this.updateAvatarImage.bind(this)
     this.updateHeaderImage = this.updateHeaderImage.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
    update(field) {
@@ -22,12 +23,12 @@ class EditProfile extends React.Component{
       file = e.currentTarget.files[0];
     }
     reader.onloadend = () =>
-      this.setState({ avatarUrl: reader.result, imageFile: file });
+      this.setState({ avatarUrl: reader.result, avatarImageFile: file });
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ avatarUrl: currentUser.avatarUrl, imageFile: null });
+      this.setState({ avatarUrl: currentUser.avatarUrl, avatarImageFile: null });
     }
   }
 
@@ -37,31 +38,35 @@ class EditProfile extends React.Component{
       file = e.currentTarget.files[0];
     }
     reader.onloadend = () =>
-      this.setState({ avatarUrl: reader.result, imageFile: file });
+      this.setState({ avatarUrl: reader.result, headerImageFile: file });
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ avatarUrl: currentUser.avatarUrl, imageFile: null });
+      this.setState({ avatarUrl: currentUser.avatarUrl, headerImageFile: null });
     }
   }
 
   handleSubmit(e) {
+    debugger
     e.preventDefault();
     const formData = new FormData();
-    formData.append('user[title]', this.state.title);
-    formData.append('user[description]', this.state.description);
-    formData.append('user[artistId]', this.state.artistId);
-    formData.append('user[genre]', this.state.genre);
-    if (this.state.imageFile) {
-      formData.append('user[image]', this.state.imageFile);
+    formData.append('user[username]', this.state.username);
+    formData.append('user[bio]', this.state.bio);
+    formData.append('user[city]', this.state.city);
+    formData.append('user[country]', this.state.country);
+    formData.append('user[bio]', this.state.bio);
+    formData.append('user[firstName]', this.state.firstName);
+    formData.append('user[lastName]', this.state.lastName);
+    if (this.state.avatarImageFile) {
+      formData.append('user[avatar]', this.state.avatarImageFile);
     }
-    if (this.state.audioFile) {
-      formData.append('user[audio]', this.state.audioFile);
+    if (this.state.headerImageFile) {
+      formData.append('user[header]', this.state.headerImageFile);
     }
-    this.props.updateSong(formData, this.state.id)
+    this.props.updateUser(formData, this.state.id)
     this.setState({submitted: true})
-    this.props.closeModal();
+    // this.props.closeModal();
   }
   componentDidMount(){
   }
@@ -167,7 +172,7 @@ class EditProfile extends React.Component{
                 <label className="uf-bio-label">Bio
                   <input 
                     type="textarea"
-                    value={this.state.lastName}
+                    value={this.state.bio}
                     onChange={this.update('bio')}
                     className="edit-profile-bio"
                     />

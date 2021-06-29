@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
   return {
-    updateUser: (user) => dispatch(updateUser(user)),
+    updateUser: (user, userId) => dispatch(updateUser(user, userId)),
   }
 }
 

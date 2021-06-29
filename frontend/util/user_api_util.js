@@ -35,12 +35,15 @@ export const fetchUser = (userId) =>
     url: `/api/users/${userId}`,
   });
 
-export const updateUser = (userData) => {
-  let user = convert.convertToSnakeCase(userData);
-
+export const updateUser = (user, userId) => {
+  let formData = convert.formDataConvert(user);
+  debugger;
   const req = $.ajax({
     method: "PATCH",
-    url: `/api/users/${user.id}`,
-    data: { user },
+    url: `/api/users/${userId}`,
+    data: formData,
+    contentType: false,
+    processData: false,
   });
+  return req;
 };

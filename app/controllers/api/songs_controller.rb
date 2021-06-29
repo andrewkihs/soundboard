@@ -20,6 +20,7 @@ class Api::SongsController < ApplicationController
   end
 
   def update 
+    debugger
     @song = Song.find(params[:id])
     if @song.update(song_params)
       render "api/songs/show"
