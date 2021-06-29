@@ -10,6 +10,7 @@
     "buffer": "^6.0.3",
     "direct-styled": "^1.0.1",
     "jsmediatags": "^3.9.7",
+    "lodash": "^4.17.21",
     "open-uri": "^0.4.3",
     "pure-react-carousel": "^1.27.6",
     "react": "^17.0.2",

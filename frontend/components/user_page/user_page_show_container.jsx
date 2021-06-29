@@ -18,8 +18,6 @@ const mSTP = (state, ownProps) => {
   })
 
   let likedSongs
-  // if (pageOwner){
-    // if accessing 
     if (pageOwner){
 
       let likedSongs = songs.filter(song => {

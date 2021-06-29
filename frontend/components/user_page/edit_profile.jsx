@@ -1,21 +1,30 @@
 import React from 'react'
 import SongIndexItemContainer from '../songs/song_index_item_container'
+
 class EditProfile extends React.Component{
    constructor(props){
     super(props)
+    Object.filter = (obj, predicate) => 
+    Object.keys(obj)
+          .filter( key => predicate(obj[key]) )
+          .reduce( (res, key) => (res[key] = obj[key], res), {} );
+
+    // const filtered = Object.filter(props.user, value => value!='null' && value!='undefined')
     this.state = {
-      ...props.user
+      ...Object.filter(props.user, value => value!='null' && value!='undefined')
     }
     this.updateAvatarImage = this.updateAvatarImage.bind(this)
     this.updateHeaderImage = this.updateHeaderImage.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-   update(field) {
+  update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
+
+  
 
   updateAvatarImage(e, file){
     const reader = new FileReader();
@@ -55,6 +64,7 @@ class EditProfile extends React.Component{
     formData.append('user[bio]', this.state.bio);
     formData.append('user[city]', this.state.city);
     formData.append('user[country]', this.state.country);
+    formData.append('user[displayName]', this.state.displayName);
     formData.append('user[bio]', this.state.bio);
     formData.append('user[firstName]', this.state.firstName);
     formData.append('user[lastName]', this.state.lastName);

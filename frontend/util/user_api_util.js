@@ -37,7 +37,6 @@ export const fetchUser = (userId) =>
 
 export const updateUser = (user, userId) => {
   let formData = convert.formDataConvert(user);
-  debugger;
   const req = $.ajax({
     method: "PATCH",
     url: `/api/users/${userId}`,

@@ -10,8 +10,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update 
-    debugger
     @user = User.find_by(id: params[:id])
+    debugger
     if @user && @user.update(user_params)
       render '/api/users/show'
     elsif !@user
@@ -46,6 +46,8 @@ class Api::UsersController < ApplicationController
       :country,
       :first_name,
       :last_name,
+      :header,
+      :avatar
     )
   end
 
