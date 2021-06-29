@@ -10,5 +10,5 @@ export { VolumeButton,
   AfterLikeButton} from './footer_icons'
 
 export { PauseIndexButton, PlayIndexButton, 
-  EditButton, ReplaceFile, DeleteSongButton
+  EditButton, ReplaceFile, DeleteSongButton, CameraIcon
 } from './song_index'

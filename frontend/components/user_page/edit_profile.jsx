@@ -1,6 +1,6 @@
 import React from 'react'
 import SongIndexItemContainer from '../songs/song_index_item_container'
-
+import { CameraIcon } from '../icons'
 class EditProfile extends React.Component{
    constructor(props){
     super(props)
@@ -47,12 +47,12 @@ class EditProfile extends React.Component{
       file = e.currentTarget.files[0];
     }
     reader.onloadend = () =>
-      this.setState({ avatarUrl: reader.result, headerImageFile: file });
+      this.setState({ headerUrl: reader.result, headerImageFile: file });
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      this.setState({ avatarUrl: currentUser.avatarUrl, headerImageFile: null });
+      this.setState({ headerUrl: currentUser.headerUrl, headerImageFile: null });
     }
   }
 
@@ -88,56 +88,85 @@ class EditProfile extends React.Component{
 
     return (
       <>
-        <div className="image-container">
-          <img className="song-form-album-art" src={this.state.avatarUrl}/>
-          {/* <button className="change-image-btn">Upload Image</button> */}
-          <label className="change-image-btn" >Replace profile picture
-            <input 
-            type="file"
-            id ="init-image-input"
-            accept="image/*"
-            className="init-image-input"
-            onChange={(e) => this.updateAvatarImage(e)}
-            />
-          </label>
-        </div>
+       <div className="user-show-page">
+          <div className="user-show-top">
+            <div className="header-photo-container">
+               <div className="us-header-left">
 
-         <div className="image-container">
-          <img className="song-form-album-art" src={this.state.headerUrl}/>
-          {/* <button className="change-image-btn">Upload Image</button> */}
-          <label className="change-image-btn" >Replace header photo
-            <input 
-            type="file"
-            id ="init-image-input"
-            accept="image/*"
-            className="init-image-input"
-            onChange={(e) => this.updateHeaderImage(e)}
-            />
-          </label>
-
-           <div className="edit-user-form-text-input-container">
-  
-                <label className="uf-title-label">Username
-                  <input 
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    className="edit-profile-username"
-                    />
+                <div className="profile-pic-container">
+                  <img className="edit-profile-avatar" src={this.state.avatarUrl}/>
+                  <label className="change-user-image-btn pfp" > <CameraIcon/> <p>Update image</p>
+                    <input 
+                    type="file"
+                    accept="image/*"
+                    className="edit-profile-image-input"
+                    onChange={(e) => this.updateAvatarImage(e)}
+                  />
                 </label>
-                <br/>
+                </div>
+              </div>
+              <img className="edit-profile-header" src={this.state.headerUrl}/>
+            <label className="change-user-image-btn header-btn" > <CameraIcon/><p>Update image</p>
+              <input 
+              type="file"
+              accept="image/*"
+              className="edit-profile-image-input"
+              onChange={(e) => this.updateHeaderImage(e)}
+              />
+            </label>
+            </div>
+          </div>
+        </div>
+       
+
+         <div className="user-form-large-container">
+          
+          <div className='edit-profile-h1'>
+            <h1 className='edit-profile'>Edit Profile</h1>
+          </div>
+           <div className="edit-user-form-text-input-container">
+              <div className='user-form-disp-names'>
+    
 
                  <label className="uf-displayName-label">Display name
+                 </label>
                   <input 
                     type="text"
                     value={this.state.displayName}
                     onChange={this.update('displayName')}
                     className="edit-profile-displayName"
                     />
-                </label>
+
+                
+              </div>
+
+               <div className='uf-fName'>
+
+                <label className="uf-firstName-label">First Name
                 <br/>
+                </label>
+                  <input 
+                    type="text"
+                    value={this.state.firstName}
+                    onChange={this.update('firstName')}
+                    className="edit-profile-firstName"
+                    />
+                    </div>
+                <div className='uf-lName'>
+                <label className="uf-lastName-label">Last Name
+                  <br/>
+                </label>
+                  <input 
+                    type="text"
+                    value={this.state.lastName}
+                    onChange={this.update('lastName')}
+                    className="edit-profile-lastName"
+                    />
+                </div>
+              <div className='uf-city'>
 
                 <label className="uf-city-label">City
+                <br/>
                   <input 
                     type="text"
                     value={this.state.city}
@@ -145,7 +174,10 @@ class EditProfile extends React.Component{
                     className="edit-profile-city"
                     />
                 </label>
+                </div>
+                <div className='uf-country'>
                 <label className="uf-country-label">Country
+                <br/>
                   <input 
                     type="text"
                     value={this.state.country}
@@ -153,33 +185,22 @@ class EditProfile extends React.Component{
                     className="edit-profile-country"
                     />
                 </label>
-                <br/>
-                <label className="uf-firstName-label">First Name
-                  <input 
-                    type="text"
-                    value={this.state.firstName}
-                    onChange={this.update('firstName')}
-                    className="edit-profile-firstName"
-                    />
-                </label>
-                <label className="uf-lastName-label">Last Name
-                  <input 
-                    type="text"
-                    value={this.state.lastName}
-                    onChange={this.update('lastName')}
-                    className="edit-profile-lastName"
-                    />
-                </label>
-                <br/>
+              </div>
+
+             
+              <div className='uf-bio'>
+
                 <label className="uf-bio-label">Bio
-                  <input 
+                </label>
+                <br/>
+                  <textarea
                     type="textarea"
                     value={this.state.bio}
                     onChange={this.update('bio')}
                     className="edit-profile-bio"
                     />
-                </label>
             </div>
+                    </div>
             <div className="update-profile-continue-btn">
 
                   <p className="edit-song-cancel-btn"

@@ -13,39 +13,39 @@ function Modal({modal, closeModal}) {
     return null;
   }
   let component;
-
+  
   if (typeof modal == "object"){
     switch(modal.modal){
       case 'edit-song':
         component = <EditSongContainer song={modal.props}/>;
         break;
-      case 'delete-song':
-        component = <DeleteSong song={modal.props}/>;
-        break;
-      case 'edit-profile':
-        component = <EditProfileContainer user={modal.props}/>;
-        break;
-      default:
-        return null;
-    }
-  } 
-  else{
-
-    switch (modal) {
-      case 'login':
-        component = <LoginFormContainer />;
-        break;
-      case 'signup':
-        component = <SignupFormContainer />;
-        break;
-      default:
-        return null;
-    }
-  } 
-  if (modal.modal == 'edit-song'){
-    return (
-
-      <div className="edit-song-modal-background" onClick={closeModal}>
+        case 'delete-song':
+          component = <DeleteSong song={modal.props}/>;
+          break;
+          case 'edit-profile':
+            component = <EditProfileContainer user={modal.props}/>;
+            break;
+            default:
+              return null;
+            }
+          } 
+          else{
+            
+            switch (modal) {
+              case 'login':
+                component = <LoginFormContainer />;
+                break;
+                case 'signup':
+                  component = <SignupFormContainer />;
+                  break;
+                  default:
+                    return null;
+                  }
+                } 
+                if (modal.modal == 'edit-song'){
+                  return (
+                    
+                    <div className="edit-song-modal-background" onClick={closeModal}>
         <div className="edit-song-modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>
@@ -54,7 +54,7 @@ function Modal({modal, closeModal}) {
   }
   if (modal.modal == 'delete-song'){
     return (
-
+      
       <div className="delete-song-modal-background" onClick={closeModal}>
         <div className="delete-song-modal-child" onClick={e => e.stopPropagation()}>
           { component }
@@ -62,7 +62,7 @@ function Modal({modal, closeModal}) {
       </div>
     )
   }
-  if (modal.modal == 'edit-user-profile'){
+  if (modal.modal == 'edit-profile'){
     return (
 
       <div className="edit-profile-modal-background" onClick={closeModal}>
