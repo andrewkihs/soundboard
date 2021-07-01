@@ -168,6 +168,7 @@ export default function Waveform({ url, ...props }) {
               </div>
               <img width="100px" height="100px"
                 className="playhead-photo"
+                // src={currrentSong.imageUrl ? currentSong.imageUrl : }
                 src={currentSong.imageUrl} />
               <div className="playhead-artist-info">
                 <h1 className="playhead-uploader"><Link to={`/users/${currentSong.artistId}`}>{currentSong.uploader}</Link></h1>

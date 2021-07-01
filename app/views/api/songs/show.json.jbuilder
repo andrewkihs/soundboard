@@ -10,7 +10,8 @@
   if @song.image.attached? 
     json.imageUrl url_for(@song.image)
   else
-    json.imageUrl ''
+      debugger
+      json.imageUrl url_for(@song.uploader.avatar)
   end
   json.timePosted @song.created_at
 

@@ -22,6 +22,9 @@
     end
     if song.image.attached?
       json.imageUrl url_for(song.image)
+    else 
+      json.imageUrl url_for(song.uploader.avatar)
     end
+
   end
 end
