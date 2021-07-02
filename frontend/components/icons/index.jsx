@@ -7,7 +7,10 @@ export { VolumeButton,
   NextButton, 
   LikeButton, 
   PauseButton, 
-  AfterLikeButton} from './footer_icons'
+  AfterLikeButton,
+  LoopSelected,
+  LoopUnselected
+} from './footer_icons'
 
 export { PauseIndexButton, PlayIndexButton, 
   EditButton, ReplaceFile, DeleteSongButton, CameraIcon

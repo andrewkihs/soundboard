@@ -14,7 +14,9 @@ import {
   LikeButton,
   FollowButton,
   AfterLikeButton,
-  PauseButton
+  PauseButton,
+  LoopSelected,
+  LoopUnselected
 } from '../icons'
 // adapted from
 // https://www.erikverweij.dev/blog/building-a-minimal-audioplayer/
@@ -32,6 +34,7 @@ export default function Waveform({ url, ...props }) {
   const [volume, setVolume] = useState(0.5);
   const [duration, setDuration] = useState("0:00")
   const [isSeeking, setSeeking] = useState(false);
+  const [isLooping, setLooping] = useState(false)
   const [userLikesSong, setUserLikesSong] = useState(props.currentUserLikes);
 
 
@@ -50,13 +53,17 @@ export default function Waveform({ url, ...props }) {
     audioElement.ref.current.currentTime = newSeek
   }, [props.currentTime])
 
-
+  useEffect(() => {
+    audioElement.ref.current.loop = isLooping;
+  }, [isLooping])
 
   const showDiv = () => {
     document.getElementById('volume-slider-div').style.display = 'block';
   }
 
-
+  const handleBack = () => {
+    audioElement.ref.current.currentTime = 0;
+  }
   const addLike = (e) => {
     e.preventDefault()
     const songId = currentSong.id
@@ -129,12 +136,13 @@ export default function Waveform({ url, ...props }) {
 
           <div className="controls">
             <div className="playhead-controls">
-              <button className="playhead-button"><BackButton /></button>
+              <button onClick={handleBack} className="playhead-button"><BackButton /></button>
               {/* <button onClick={handlePlayPause}>{!playing ? "Play" : "Pause"}</button> */}
               <button onClick={audioProps.playbackStatus === "pause" ? () => dispatch(playSong()) : () => dispatch(pauseSong())} className="playhead-button">
                 {audioProps.playbackStatus === "pause" ? <PlayButton /> : <PauseButton />}
               </button>
-              <button className="playhead-button"><NextButton /></button>
+              {/* <button className="playhead-button"><NextButton /></button> */}
+              <button onClick={() => setLooping(!isLooping)} className="playhead-button">{isLooping ? <LoopSelected/> : <LoopUnselected/>}</button>
             </div>
             <TimeBar
               currentTime={audioProps.currentTime}
