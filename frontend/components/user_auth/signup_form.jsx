@@ -181,9 +181,9 @@ class SignUpForm extends React.Component {
           className="continue-btn">Continue</button>
 
 
-          <p className="form-boilerplate">We may use your email and devices for updates and tips on SoundCloud's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
+          <p className="form-boilerplate">We won't use your email and devices for updates and tips on SoundBoard's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.
 
-We may use information you provide us in order to show you targeted ads as described in our Privacy Policy.</p>
+We won't use information you provide us in order to show you targeted ads as described in our non-existent Privacy Policy.</p>
         </>
       )
     }
