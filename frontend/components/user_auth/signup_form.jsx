@@ -5,7 +5,7 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formNum: 0,
+      formNum: 3,
       username: '',
       password: '',
       age: '',
@@ -118,7 +118,7 @@ class SignUpForm extends React.Component {
   }
 
   handleDisplayName(){
-    if (this.state.display_name === ''){
+    if (this.state.displayName === ''){
       return this.setState({showDisplayNameEror: true})
     } else {
       this.handleSubmit();
