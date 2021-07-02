@@ -44,14 +44,7 @@ class SongEditForm extends React.Component {
       file = e.currentTarget.files[0];
     } 
     this.setState({fileName: file.name})
-    jsmediatags.read(file, {
-      onSuccess: tag => {
-        
-        Object.assign(audioID3, tag)
-        this.setState({title: tag.tags.title})  
-      },
 
-    })
 
     reader.onloadend = () => {
       this.setState({ audioUrl: reader.result, audioFile: file });
