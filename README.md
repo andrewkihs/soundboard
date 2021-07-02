@@ -21,7 +21,6 @@ A large portion of SoundBoard's functionality comes from the user's ability to p
 
 ```javascript
 //song_index_item.jsx
-
 play() {
     const { currentPlayhead, song, playSong, setCurrentSong } = this.props
 
