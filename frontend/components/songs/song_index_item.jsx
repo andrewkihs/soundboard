@@ -165,9 +165,7 @@ class SongIndexItem extends React.Component {
     }
   }
 
-  handleComment(e) {
-    // e.preventDefault()
-    debugger
+  handleComment() {
     const comment = this.state.comment
     const songId = this.props.songId
     const currentUserId = this.props.currentUser.id
