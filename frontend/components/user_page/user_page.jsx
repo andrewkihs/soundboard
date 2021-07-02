@@ -92,8 +92,8 @@ class UserPage extends React.Component{
 
               <div className="user-show-info">
                 <h1 className="disp-name">{pageOwner.displayName}</h1>
-                {pageOwner.city & pageOwner.country ? (<h2 className="other-info">{!!pageOwner.city ? `${pageOwner.city}, ` : null} {!!pageOwner.country ? `${pageOwner.country}` : null}</h2>) : null }
-                {pageOwner.firstName & pageOwner.lastName ? (<h1 className="other-info">{!!pageOwner.firstName ? `${pageOwner.firstName}` : null} {!!pageOwner.lastName ? ` ${pageOwner.lastName}` : null}</h1>) : null}
+                {!!pageOwner.city & !!pageOwner.country ? (<h2 className="other-info">{!!pageOwner.city ? `${pageOwner.city}, ` : null} {!!pageOwner.country ? `${pageOwner.country}` : null}</h2>) : null }
+                {!!pageOwner.firstName & !!pageOwner.lastName ? (<h1 className="other-info">{!!pageOwner.firstName ? `${pageOwner.firstName}` : null} {!!pageOwner.lastName ? ` ${pageOwner.lastName}` : null}</h1>) : null}
               </div>
             </div>
           </div>
