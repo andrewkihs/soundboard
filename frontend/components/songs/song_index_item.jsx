@@ -127,6 +127,7 @@ class SongIndexItem extends React.Component {
 
     this.wavesurfer.on('ready', () => {
       this.wavesurfer.on('seek', position => {
+        this.setState({commentFocus: true})
         if (!this.props.currentPlayhead.currentSong) {
           return
         }
