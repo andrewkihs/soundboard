@@ -154,7 +154,6 @@ We may use information you provide us in order to show you targeted ads as descr
           <br/>
           <button className="continue-btn" onClick={this.handleSubmit}>{'Sign in'}</button>
           <br/>
-          <p>Don't know your password?</p>
           {/* </div> */}
         </div>
       )
