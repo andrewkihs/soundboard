@@ -20,23 +20,49 @@ User's can drag in and upload songs via a form in the top bar. Upon the loading 
 A large portion of SoundBoard's functionality comes from the user's ability to play music and navigate acrross the site, having music persisiting across each page. This is achieved by rendering a hidden audio element and updating it's current song prop whenever a user clicks on a track anywhere within the website.
 
 ```javascript
-this.audio = new Audio(props.currentSong.songUrl);
+//song_index_item.jsx
 
-this.audio.onloadedmetadata = () => {
-  this.setState({
-    songDuration: this.audio.duration,
-    s,
-  });
-};
+play() {
+    const { currentPlayhead, song, playSong, setCurrentSong } = this.props
+
+    if (currentPlayhead.currentSong) { // if there is a song on playhead
+      if (currentPlayhead.currentSong.id === song.id) { // if resuming play for currently paused song
+        this.wavesurfer.playPause();
+        playSong()
+        return
+      }
+    }
+    this.wavesurfer.playPause();
+    this.wavesurfer.seekTo(0); // restart the song
+    playSong()
+    setCurrentSong(song)
+  }
 ```
 
 ## Song show
 
 There are two ways in which songs are displayed across the site, in a grid and in the classic waveform style. Both can be seen on the discover and stream style respectively. User's can control the current song from both views.
-
+```javascript
+// song_index_item.jsx
+const {currentPlayhead, setCurrentProgress} = this.props;
+    const { song } = this.state; 
+    this.wavesurfer.load(song.songUrl)
+    this.wavesurfer.on('ready', () => {
+      this.wavesurfer.on('seek', position => {
+        this.setState({commentFocus: true})
+        if (!currentPlayhead.currentSong) {
+          return
+        }
+        if (song.id === currentPlayhead.currentSong.id) {
+          const songDuration = this.wavesurfer.getDuration()
+          let newTime = position * songDuration
+          setCurrentProgress(newTime)
+        }
+      })
+    })
+ ```
 Waveform components are being rendered with `wavebuilder.js`
 
-Note: Heroku implementation not correctly rendering peaks. Local version posted below
 
 ![stream_view](readme_assets/stream_view_demo.png)
 
