@@ -61,20 +61,19 @@ class SongIndexItem extends React.Component {
   }
 
   play() {
+    const { currentPlayhead, song, playSong, setCurrentSong } = this.props
 
-    const { currentPlayhead, song } = this.props
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if resuming play for currently paused song
         this.wavesurfer.playPause();
-        this.props.playSong()
+        playSong()
         return
       }
     }
     this.wavesurfer.playPause();
     this.wavesurfer.seekTo(0); // restart the song
-    this.props.playSong()
-    this.props.setCurrentSong(this.props.song)
-
+    playSong()
+    setCurrentSong(song)
   }
   pause() {
     this.wavesurfer.playPause();
@@ -122,22 +121,21 @@ class SongIndexItem extends React.Component {
       },
       backend: 'MediaElement',
     });
-
-    this.wavesurfer.load(this.state.song.songUrl)
-
+    const {currentPlayhead, setCurrentProgress} = this.props;
+    const { song } = this.state; 
+    this.wavesurfer.load(song.songUrl)
     this.wavesurfer.on('ready', () => {
       this.wavesurfer.on('seek', position => {
         this.setState({commentFocus: true})
-        if (!this.props.currentPlayhead.currentSong) {
+        if (!currentPlayhead.currentSong) {
           return
         }
-        if (this.state.song.id === this.props.currentPlayhead.currentSong.id) {
+        if (song.id === currentPlayhead.currentSong.id) {
           const songDuration = this.wavesurfer.getDuration()
           let newTime = position * songDuration
-          this.props.setCurrentProgress(newTime)
+          setCurrentProgress(newTime)
         }
       })
-
     })
 
     // if (!this.props.song.imageUrl){
