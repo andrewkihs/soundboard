@@ -125,6 +125,20 @@ class EditProfile extends React.Component{
             <h1 className='edit-profile'>Edit Profile</h1>
           </div>
            <div className="edit-user-form-text-input-container">
+             <div className='user-form-disp-names'>
+    
+
+                 <label className="uf-displayName-label">Display name
+                 </label>
+                  <input 
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    className="edit-profile-displayName"
+                    />
+
+                
+              </div>
               <div className='user-form-disp-names'>
     
 

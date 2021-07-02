@@ -52,6 +52,10 @@ class Header extends React.Component {
     }
   }
   
+  dropdownHandle() {
+    document.getElementById("settings-dropdown").classList.toggle("reveal");
+    document.getElementById("settings-dropdown").classList.toggle("hide");
+  }
 
   leave(e) {
     const currClass = e.currentTarget.className;
@@ -151,16 +155,23 @@ class Header extends React.Component {
                 </a>
             </button>
           </div>
-          <div className="settings-btn-container" onFocus={this.handleSettingsClick} onBlur={this.leave}>
-            <button className="settings-btn" onFocus={this.handleSettingsClick} onBlur={this.leave}> 
+          <div className="settings-btn-container" 
+          // onFocus={this.handleSettingsClick} onBlur={this.leave}
+          onClick={this.dropdownHandle}
+          >
+            <button className="settings-btn" 
+            // onFocus={this.handleSettingsClick} onBlur={this.leave}
+            > 
               <MoreOptions/>   
-              <ul id="settings-dropdown" className={this.state.settingsDrop ? 'reveal' : 'hide'}>
+              <ul id="settings-dropdown"
+              className='hide'
+              >
                 <li>
                   <a 
                     target="_blank" 
                     className="setting-link"
                     href="https://www.andrewkihs.com">Andrew's personal site</a>
-              </li>
+                </li>
                 <li>
                   <a onClick={() => this.handleLogout()}>Logout</a></li>
               </ul>
