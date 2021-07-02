@@ -2,7 +2,7 @@
   # 
   json.id @song.id
   json.title @song.title
-  json.uploader @song.uploader.username
+  json.uploader @song.uploader.display_name
   json.description @song.description
   json.genre @song.genre
   json.artistId @song.artist_id
@@ -10,7 +10,7 @@
   if @song.image.attached? 
     json.imageUrl url_for(@song.image)
   else
-      debugger
+      # debugger
       json.imageUrl url_for(@song.uploader.avatar)
   end
   json.timePosted @song.created_at

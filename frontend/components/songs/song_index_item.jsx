@@ -146,7 +146,8 @@ class SongIndexItem extends React.Component {
     this.setState({loaded: true})
   }
 
-  componentDidUpdate(prevProps) {
+  
+  Update(prevProps) {
     const { currentPlayhead, song } = this.props
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
@@ -165,7 +166,8 @@ class SongIndexItem extends React.Component {
   }
 
   handleComment(e) {
-    e.preventDefault()
+    // e.preventDefault()
+    debugger
     const comment = this.state.comment
     const songId = this.props.songId
     const currentUserId = this.props.currentUser.id
@@ -371,7 +373,7 @@ class SongIndexItem extends React.Component {
                   value={this.state.comment}>
 
                 </input>
-                {this.state.loggedIn ? <button onClick={() => this.handleComment}>Submit</button> : <button onClick={() => this.props.openModal('login')}>Submit</button>}
+                {this.state.loggedIn ? <button onClick={() => this.handleComment()}>Submit</button> : <button onClick={() => this.props.openModal('login')}>Submit</button>}
 
               </div>
             </div>

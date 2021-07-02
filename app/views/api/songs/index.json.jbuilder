@@ -6,7 +6,7 @@
     json.description song.description
     json.genre song.genre
     json.artistId song.artist_id
-    json.uploader song.uploader.username
+    json.uploader song.uploader.display_name
     json.comments song.comments.as_json(only: [:id, :body, :user_id])
     json.timePosted song.created_at
     json.set! :likes do
