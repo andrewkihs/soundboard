@@ -70,7 +70,8 @@
   position: relative;
   .user-page-avatar {
     display: block;
-    // width: 200px;
+    width: 200px;
+    object-fit: cover;
     z-index: 3;
     height: 200px;
     position: absolute;
@@ -120,6 +121,7 @@
   height: 260px;
   position: absolute;
   left: 0px;
+  object-fit: cover;
   display: block;
   z-index: 1;
 }
@@ -202,6 +204,7 @@
   width: 200px;
   z-index: 3;
   height: 200px;
+  object-fit: cover;
   position: absolute;
   border-radius: 50%;
 }
