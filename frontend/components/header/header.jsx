@@ -8,6 +8,7 @@ import SearchContainer from '../search/search_container'
 class Header extends React.Component {
   constructor(props){
     super(props);
+    debugger
     this.state = {
       settingsDrop: false,
       messageDrop: false,
@@ -76,13 +77,8 @@ class Header extends React.Component {
   }
 
   handleLogout(){
-    this.props.logout().then(
-      ()=>{
-        this.setState({settingsDrop: false})
-        window.location.hash = '/';
-      }
-
-    );
+    this.props.logout()
+    window.location.href = window.location.origin
 
   }
 

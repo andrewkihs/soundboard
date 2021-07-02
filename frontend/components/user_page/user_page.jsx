@@ -9,6 +9,7 @@ const _ = require('lodash');
 class UserPage extends React.Component{
   constructor(props){
     super(props)
+
     Object.filter = (obj, predicate) => 
     Object.keys(obj)
           .filter( key => predicate(obj[key]) )
@@ -91,9 +92,8 @@ class UserPage extends React.Component{
 
               <div className="user-show-info">
                 <h1 className="disp-name">{pageOwner.displayName}</h1>
-                  <h2 className="other-info">{!!pageOwner.city || pageOwner.city!='null' ? `${pageOwner.city}, ` : null} {!!pageOwner.country ? `${pageOwner.country}` : null}</h2>
-  
-                  <h1 className="other-info">{!!pageOwner.firstName ? `${pageOwner.firstName}` : null} {!!pageOwner.lastName ? ` ${pageOwner.lastName}` : null}</h1>
+                {pageOwner.city & pageOwner.country ? (<h2 className="other-info">{!!pageOwner.city ? `${pageOwner.city}, ` : null} {!!pageOwner.country ? `${pageOwner.country}` : null}</h2>) : null }
+                {pageOwner.firstName & pageOwner.lastName ? (<h1 className="other-info">{!!pageOwner.firstName ? `${pageOwner.firstName}` : null} {!!pageOwner.lastName ? ` ${pageOwner.lastName}` : null}</h1>) : null}
               </div>
             </div>
           </div>

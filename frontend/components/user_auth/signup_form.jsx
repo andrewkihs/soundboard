@@ -5,7 +5,7 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formNum: 3,
+      formNum: 0,
       username: '',
       password: '',
       age: '',
