@@ -36,8 +36,9 @@ class SongIndexItem extends React.Component {
 
     super(props)
     let owner = false;
+    // debugger
     if (props.currentUser) {
-      if (!!props.song.artistId){
+      if (typeof props.song.artistId !== 'undefined'){
         owner = props.song.artistId === props.currentUser.id
       }
     }
