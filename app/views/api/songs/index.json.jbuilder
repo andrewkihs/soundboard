@@ -7,12 +7,17 @@
     json.genre song.genre
     json.artistId song.artist_id
     json.uploader song.uploader.display_name
+    json.uploaderAvatar url_for(song.uploader.avatar)
     json.comments song.comments.as_json(only: [:id, :body, :user_id])
     json.timePosted song.created_at
     json.set! :likes do
     song.likes.each do |like|
       json.set! like.id do
         json.extract! like, :id, :song_id, :liker_id
+        json.uploader like.liker.display_name
+        if like.liker.avatar.attached?
+          json.uploaderAvatar url_for(like.liker.avatar)
+        end
         json.id like.id
       end
     end

@@ -2,6 +2,7 @@ import React from 'react'
 import WaveSurfer from 'wavesurfer.js';
 import { PauseIndexButton, PlayIndexButton, LikeButton, AfterLikeButton, EditButton, DeleteSongButton } from '../icons/index'
 import CommentShowContainer from '../comment_show/comment_show_container'
+import _ from 'lodash';
 import {
   Route,
   Redirect,
@@ -57,6 +58,7 @@ class SongIndexItem extends React.Component {
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
     this.dispNumLikes = this.dispNumLikes.bind(this)
+    this.seekWaveform = this.seekWaveform.bind(this)
     this.handleCommentFocus = this.handleCommentFocus.bind(this)
   }
 
@@ -130,23 +132,26 @@ class SongIndexItem extends React.Component {
         if (!currentPlayhead.currentSong) {
           return
         }
+        debugger
+        console.log('seek')
         if (song.id === currentPlayhead.currentSong.id) {
           const songDuration = this.wavesurfer.getDuration()
           let newTime = position * songDuration
           setCurrentProgress(newTime)
         }
       })
+      this.wavesurfer.setMute(true)
     })
 
     // if (!this.props.song.imageUrl){
-      this.props.fetchUser(this.state.song.artistId)
+      // this.props.fetchUser(this.state.song.artistId)
     // }
-    this.wavesurfer.setMute(true)
     this.setState({loaded: true})
+    this.setState({wavesurferObj: this.wavesurfer})
   }
 
   
-  Update(prevProps) {
+  componentDidUpdate(prevProps) {
     const { currentPlayhead, song } = this.props
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
@@ -161,6 +166,10 @@ class SongIndexItem extends React.Component {
     }
     if (!this.props.song.songUrl) {
       this.setState({ song: prevProps.song })
+    }
+
+    if (prevProps.currentlyPlaying != this.props.currentlyPlaying){
+      if (!this.props.currentlyPlaying) { this.wavesurfer.pause()}
     }
   }
 
@@ -184,6 +193,25 @@ class SongIndexItem extends React.Component {
     this.setState({ userLikesSong: true })
   }
 
+  seekWaveform() {
+    // const {currentPlayhead, setCurrentProgress} = this.props;
+    // const { song, wavesurferObj } = this.state; 
+    // debugger
+    // wavesurferObj.on('seek', position => {
+    //     this.setState({commentFocus: true})
+    //     if (!currentPlayhead.currentSong) {
+    //       return
+    //     }
+    //     debugger
+    //     console.log('seek')
+    //     if (song.id === currentPlayhead.currentSong.id) {
+    //       const songDuration = wavesurferObj.getDuration()
+    //       let newTime = position * songDuration
+    //       setCurrentProgress(newTime)
+    //       return 
+    //     }
+    //   })
+  }
   deleteLike(e) {
     e.preventDefault()
     const song = this.state.song
@@ -299,16 +327,34 @@ class SongIndexItem extends React.Component {
     return this.setState({commentFocus: true});
   }
   render() {
-    const { song, userLikesSong, currentPlayhead, openModal, uploader } = this.props
-    const { userOwnsSong, onStreamPage, loaded } = this.state
+    const { song, userLikesSong, currentPlayhead, openModal} = this.props
+    const { userOwnsSong, onStreamPage, loaded, wavesurferObj } = this.state
 
-      
-      
+      !!wavesurferObj ? ( wavesurferObj.on('seek', _.throttle(position => {
+          // console.log(position)
+          const {currentPlayhead, setCurrentProgress} = this.props;
+          const { song, wavesurferObj } = this.state; 
+  
+          this.setState({commentFocus: true})
+          if (!currentPlayhead.currentSong) {
+            return
+          }
+          if (song.id === currentPlayhead.currentSong.id) {
+            const songDuration = wavesurferObj.getDuration()
+            let newTime = position * songDuration
+            setCurrentProgress(newTime)
+            return 
+          }
+        return 
+        // console.log(position)
+      }, 200000))
+
+      ) : null
       return (
         <li className="song-list-item">
         {onStreamPage ? (
           <div className='stream-ts-container'>
-            {!!uploader ? <img className='stream-uploader-pfp' src={uploader.avatarUrl}/> : null }
+            {onStreamPage ? <img className='stream-uploader-pfp' src={song.uploaderAvatar}/> : null }
             <div className='stream-ts-uploader'>
               <Link to={`/users/${song.artistId}`}>
                 {song.uploader }
@@ -321,7 +367,7 @@ class SongIndexItem extends React.Component {
         ) : null}
         <div className="song-list-item-container">
           <div>
-            <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? uploader.avatarUrl : null)} />
+            <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? song.uploaderAvatar : null)} />
           </div>
           <div className="song-list-righthand">
             <div 

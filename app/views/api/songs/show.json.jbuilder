@@ -2,6 +2,7 @@
   json.id @song.id
   json.title @song.title
   json.uploader @song.uploader.display_name
+  json.uploaderAvatar url_for(@song.uploader.avatar)
   json.description @song.description
   json.genre @song.genre
   json.artistId @song.artist_id
@@ -17,6 +18,7 @@
     @song.likes.each do |like|
       json.set! like.id do
         json.extract! like, :id, :song_id, :liker_id
+        # debugger
         json.id like.id
       end
     end

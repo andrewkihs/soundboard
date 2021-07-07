@@ -26,7 +26,7 @@ class Discover extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchSongs()
+    // this.props.fetchSongs()
   }
   
 

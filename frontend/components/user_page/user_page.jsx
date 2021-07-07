@@ -22,7 +22,7 @@ class UserPage extends React.Component{
   }
   componentDidMount(){
     this.props.fetchUser(this.props.userId)
-    this.props.fetchSongs()
+    // this.props.fetchSongs()
   }
   componentDidUpdate(prevProps) {
     const tempObj = {...this.props.pageOwner}

@@ -14,7 +14,7 @@ class CommentBubble extends React.Component {
 
   componentDidMount() {
     // 
-    this.props.fetchUser(this.props.commenterId)
+    // this.props.fetchUser(this.props.commenterId)
   }
 
   handleHoverEnter(e) {
