@@ -193,10 +193,45 @@ class Header extends React.Component {
           </Link>
         </div>
         <div className="user-icons">
-          <div>
-
-            <button>
-              <MoreOptions/>             
+          <div className="settings-btn-container" 
+          // onFocus={this.handleSettingsClick} onBlur={this.leave}
+          onClick={this.dropdownHandle}
+          >
+            <button className="settings-btn" 
+            // onFocus={this.handleSettingsClick} onBlur={this.leave}
+            > 
+              <MoreOptions/>   
+              <ul id="settings-dropdown"
+              className='hide'
+              >
+                <li>
+                  <a 
+                    target="_blank" 
+                    className="setting-link"
+                    href="https://www.andrewkihs.com">Andrew's personal site</a>
+                </li>
+                <li>
+                  <a 
+                   target="_blank" 
+                    className="setting-link"
+                    href="https://www.linkedin.com/in/andrew-kihs/">LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a 
+                   target="_blank" 
+                    className="setting-link"
+                    href="https://angel.co/u/andrew-kihs">AngelList
+                  </a>
+                </li>
+                <li>
+                  <a 
+                   target="_blank" 
+                    className="setting-link"
+                    href="https://github.com/andrewkihs">GitHub
+                  </a>
+                </li>
+              </ul>
             </button>
           </div>
         </div>
