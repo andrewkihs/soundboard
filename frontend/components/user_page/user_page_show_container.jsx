@@ -14,7 +14,9 @@ const mSTP = (state, ownProps) => {
   const pageOwner = state.entities.users[userId]
   
   let postedSongs = songs.filter((song) => {
-    if (song.artistId == ownProps.match.params.userId) return song;
+    if (!!song){
+      if (song.artistId == ownProps.match.params.userId) return song;
+    }
   })
 
   let likedSongs
