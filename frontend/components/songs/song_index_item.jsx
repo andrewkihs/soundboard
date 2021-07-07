@@ -58,7 +58,6 @@ class SongIndexItem extends React.Component {
     this.createLike = this.createLike.bind(this)
     this.deleteLike = this.deleteLike.bind(this)
     this.dispNumLikes = this.dispNumLikes.bind(this)
-    this.seekWaveform = this.seekWaveform.bind(this)
     this.handleCommentFocus = this.handleCommentFocus.bind(this)
   }
 
