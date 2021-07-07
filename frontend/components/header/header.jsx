@@ -22,7 +22,9 @@ class Header extends React.Component {
     this.handleTabClick = this.handleTabClick.bind(this)
     this.leaveTab = this.leaveTab.bind(this)
   }
-
+  componentDidMount(){
+    this.props.fetchSongs()
+  }
   handleTabClick(e){
     const currEle = e.currentTarget;
     currEle.classList.add("selected")
@@ -77,8 +79,9 @@ class Header extends React.Component {
   }
 
   handleLogout(){
-    this.props.logout()
-    window.location.href = window.location.origin
+    this.props.logout().then(
+      window.location.href = window.location.origin
+    )
 
   }
 
