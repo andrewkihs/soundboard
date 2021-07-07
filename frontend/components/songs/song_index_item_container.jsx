@@ -38,11 +38,11 @@ const mSTP = (state, ownProps) => {
     }
   }
 
-  let uploader = null
-  if (state.entities.users[state.entities.songs[ownProps.songId]]){
+  // let uploader = null
+  // if (state.entities.users[state.entities.songs[ownProps.songId]]){
 
-    uploader = state.entities.users[state.entities.songs[ownProps.songId].artistId]
-  }
+  //   uploader = state.entities.users[state.entities.songs[ownProps.songId].artistId]
+  // }
 
   return {
     currentUser: currentUser,
@@ -52,7 +52,7 @@ const mSTP = (state, ownProps) => {
     userLikesSong: userLikesSong,
     currentTime: currentTime,
     currentLikeId: currentLikeId,
-    uploader: uploader
+    // uploader: uploader
   }
 }
 
