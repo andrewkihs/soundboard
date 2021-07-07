@@ -155,7 +155,6 @@ class SongIndexItem extends React.Component {
     const { currentPlayhead, song } = this.props
     if (currentPlayhead.currentSong) { // if there is a song on playhead
       if (currentPlayhead.currentSong.id === song.id) { // if playhead matches selected song
-        debugger
         if (prevProps.currentTime !== this.props.currentTime) {
           const progress = this.props.currentTime / this.wavesurfer.getDuration()
           if (progress !== 0) {
@@ -167,6 +166,10 @@ class SongIndexItem extends React.Component {
     }
     if (!this.props.song.songUrl) {
       this.setState({ song: prevProps.song })
+    }
+
+    if (prevProps.currentlyPlaying != this.props.currentlyPlaying){
+      if (!this.props.currentlyPlaying) { this.wavesurfer.pause()}
     }
   }
 
