@@ -333,9 +333,9 @@ class SongIndexItem extends React.Component {
           <div className='stream-ts-container'>
             {onStreamPage ? <img className='stream-uploader-pfp' src={song.uploaderAvatar}/> : null }
             <div className='stream-ts-uploader'>
-              {/* <Link to={`/users/${song.artistId}`}>
+              <Link to={`/users/${song.artistId}`}>
                 {song.uploader }
-              </Link> */}
+              </Link>
             </div>
             <div className='stream-ts-stamp'>
                {` posted a track `}{this.timeSince(song.timePosted)}
@@ -344,7 +344,7 @@ class SongIndexItem extends React.Component {
         ) : null}
         <div className="song-list-item-container">
           <div>
-            {/* <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? song.uploaderAvatar : null)} /> */}
+            <img className="song-container-photo" src={song.imageUrl ? song.imageUrl : (!!uploader ? song.uploaderAvatar : null)} />
           </div>
           <div className="song-list-righthand">
             <div 
