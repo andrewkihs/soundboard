@@ -15,7 +15,9 @@ const mSTP = (state, ownProps) => {
   
   let postedSongs = songs.filter((song) => {
     if (!!song){
-      if (song.artistId == ownProps.match.params.userId) return song;
+      if (!!song.artistId){
+        if (song.artistId == ownProps.match.params.userId) return song;
+      }
     }
   })
 
