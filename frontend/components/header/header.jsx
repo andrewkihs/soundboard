@@ -8,7 +8,6 @@ import SearchContainer from '../search/search_container'
 class Header extends React.Component {
   constructor(props){
     super(props);
-    debugger
     this.state = {
       settingsDrop: false,
       messageDrop: false,

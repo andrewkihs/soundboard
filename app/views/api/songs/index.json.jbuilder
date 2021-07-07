@@ -14,10 +14,6 @@
     song.likes.each do |like|
       json.set! like.id do
         json.extract! like, :id, :song_id, :liker_id
-        json.uploader like.liker.display_name
-        if like.liker.avatar.attached?
-          json.uploaderAvatar url_for(like.liker.avatar)
-        end
         json.id like.id
       end
     end

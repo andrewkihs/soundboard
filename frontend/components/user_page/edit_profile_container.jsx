@@ -5,7 +5,6 @@ import { closeModal } from '../../actions/modal_actions'
 import EditProfile from './edit_profile'
 
 const mSTP = (state, ownProps) => {
-  debugger
   return {
     currentUser: state.entities.users[state.session.id],
   }

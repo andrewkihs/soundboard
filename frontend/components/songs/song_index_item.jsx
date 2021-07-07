@@ -132,8 +132,6 @@ class SongIndexItem extends React.Component {
         if (!currentPlayhead.currentSong) {
           return
         }
-        debugger
-        console.log('seek')
         if (song.id === currentPlayhead.currentSong.id) {
           const songDuration = this.wavesurfer.getDuration()
           let newTime = position * songDuration
@@ -193,25 +191,6 @@ class SongIndexItem extends React.Component {
     this.setState({ userLikesSong: true })
   }
 
-  seekWaveform() {
-    // const {currentPlayhead, setCurrentProgress} = this.props;
-    // const { song, wavesurferObj } = this.state; 
-    // debugger
-    // wavesurferObj.on('seek', position => {
-    //     this.setState({commentFocus: true})
-    //     if (!currentPlayhead.currentSong) {
-    //       return
-    //     }
-    //     debugger
-    //     console.log('seek')
-    //     if (song.id === currentPlayhead.currentSong.id) {
-    //       const songDuration = wavesurferObj.getDuration()
-    //       let newTime = position * songDuration
-    //       setCurrentProgress(newTime)
-    //       return 
-    //     }
-    //   })
-  }
   deleteLike(e) {
     e.preventDefault()
     const song = this.state.song
@@ -331,7 +310,6 @@ class SongIndexItem extends React.Component {
     const { userOwnsSong, onStreamPage, loaded, wavesurferObj } = this.state
 
       !!wavesurferObj ? ( wavesurferObj.on('seek', _.throttle(position => {
-          // console.log(position)
           const {currentPlayhead, setCurrentProgress} = this.props;
           const { song, wavesurferObj } = this.state; 
   
@@ -346,7 +324,6 @@ class SongIndexItem extends React.Component {
             return 
           }
         return 
-        // console.log(position)
       }, 200000))
 
       ) : null

@@ -18,7 +18,6 @@
     @song.likes.each do |like|
       json.set! like.id do
         json.extract! like, :id, :song_id, :liker_id
-        # debugger
         json.id like.id
       end
     end

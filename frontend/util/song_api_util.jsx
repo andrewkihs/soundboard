@@ -30,7 +30,6 @@ export const createSong = (formDataObj) => {
 
 export const updateSong = (song, songId) => {
   let formData = convert.formDataConvert(song);
-  debugger
   const req = $.ajax({
     method: 'PATCH',
     url: `api/songs/${songId}`,

@@ -69,13 +69,11 @@ class UserPage extends React.Component{
   render(){
     const { currentUser, openModal } = this.props
     const { pageOwner } = this.state
-    debugger
     if (!!!pageOwner){
       return (<></>)
     }else {
       let currentUserOwnsPage 
       if (currentUser) { currentUserOwnsPage = pageOwner.id === currentUser.id }
-      debugger
       return (
         
       <div className="user-show-page">

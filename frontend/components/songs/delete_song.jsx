@@ -21,7 +21,6 @@ class DeleteSong extends React.Component {
 
   render(){
     const { song } = this.props
-    debugger
     return (
       <div className='delete-track-container'>
         <div className='bottom-delete-track'>

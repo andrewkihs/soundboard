@@ -15,7 +15,6 @@ const mSTP = (state, ownProps) => {
   let selectedSong = null;
   let currentUser
   let currentTime = 0;
-  debugger
   if (state.playhead.currentSong) {
     currentTime = state.playhead.currentTime;
     selectedSong = state.playhead.currrentSong
