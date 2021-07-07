@@ -37,7 +37,9 @@ class SongIndexItem extends React.Component {
     super(props)
     let owner = false;
     if (props.currentUser) {
-      owner = props.song.artistId === props.currentUser.id
+      if (!!props.song.artistId){
+        owner = props.song.artistId === props.currentUser.id
+      }
     }
     let onStreamPage = window.location.hash.includes('stream')
     this.state = {
