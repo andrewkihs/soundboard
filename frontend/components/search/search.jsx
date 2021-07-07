@@ -15,7 +15,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSongs();
+    // this.props.fetchSongs();
     this.setState({
       filtered: this.props.songs,
     });
