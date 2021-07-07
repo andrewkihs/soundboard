@@ -22,7 +22,7 @@ class Grid extends React.Component{
   }
 
   componentDidMount(){
-    this.props.fetchSong(this.props.songId)
+    // this.props.fetchSong(this.props.songId)
   }
   
 

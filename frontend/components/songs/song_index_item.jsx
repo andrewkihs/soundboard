@@ -139,7 +139,7 @@ class SongIndexItem extends React.Component {
     })
 
     // if (!this.props.song.imageUrl){
-      this.props.fetchUser(this.state.song.artistId)
+      // this.props.fetchUser(this.state.song.artistId)
     // }
     this.wavesurfer.setMute(true)
     this.setState({loaded: true})
@@ -299,16 +299,15 @@ class SongIndexItem extends React.Component {
     return this.setState({commentFocus: true});
   }
   render() {
-    const { song, userLikesSong, currentPlayhead, openModal, uploader } = this.props
+    const { song, userLikesSong, currentPlayhead, openModal} = this.props
     const { userOwnsSong, onStreamPage, loaded } = this.state
 
-      
       
       return (
         <li className="song-list-item">
         {onStreamPage ? (
           <div className='stream-ts-container'>
-            {!!uploader ? <img className='stream-uploader-pfp' src={uploader.avatarUrl}/> : null }
+            {onStreamPage ? <img className='stream-uploader-pfp' src={song.uploaderAvatar}/> : null }
             <div className='stream-ts-uploader'>
               <Link to={`/users/${song.artistId}`}>
                 {song.uploader }
