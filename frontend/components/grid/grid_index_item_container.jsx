@@ -24,6 +24,7 @@ const mSTP = (state, ownProps) => {
 
   let uploader = null
   if (state.entities.users[state.entities.songs[ownProps.songId]]){
+
     uploader = state.entities.users[state.entities.songs[ownProps.songId].artistId]
   }
 
