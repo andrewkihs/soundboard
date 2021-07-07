@@ -22,12 +22,16 @@ const mSTP = (state, ownProps) => {
     }
   }
 
+  let uploader = null
+  if (state.entities.users[state.entities.songs[ownProps.songId]]){
+    uploader = state.entities.users[state.entities.songs[ownProps.songId].artistId]
+  }
 
   return {
     currentUser: currentUser,
     song: state.entities.songs[ownProps.songId],
     currentlyPlaying: currentSongPlaying,
-    uploader: state.entities.users[state.entities.songs[ownProps.songId].artistId],
+    uploader: uploader,
     currentLikeId: currentLikeId
   }
 }
