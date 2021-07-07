@@ -37,11 +37,11 @@ class SongIndexItem extends React.Component {
     super(props)
     let owner = false;
     // debugger
-    if (props.currentUser) {
-      if (typeof props.song.artistId !== 'undefined'){
-        owner = props.song.artistId === props.currentUser.id
-      }
-    }
+    // if (props.currentUser) {
+    //   if (typeof props.song.artistId !== 'undefined'){
+    //     owner = props.song.artistId === props.currentUser.id
+    //   }
+    // }
     let onStreamPage = window.location.hash.includes('stream')
     this.state = {
       song: this.props.song,
@@ -49,7 +49,7 @@ class SongIndexItem extends React.Component {
       comment: '',
       userLikesSong: this.props.userLikesSong,
       loggedIn: !!props.currentUser,
-      userOwnsSong: owner,
+      // userOwnsSong: owner,
       onStreamPage: onStreamPage,
     }
 
