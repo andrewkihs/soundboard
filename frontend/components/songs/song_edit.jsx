@@ -15,8 +15,11 @@ class SongEdit extends React.Component{
   }
   componentDidUpdate(prevProps){
     if (this.props.song!==prevProps.song){
-      this.setState({
-        userOwnsSong: this.props.song.artistId === this.props.currentUser.id})
+      if (!!this.props.song){
+
+        this.setState({
+          userOwnsSong: this.props.song.artistId === this.props.currentUser.id})
+      ß}
     }
   }
   
