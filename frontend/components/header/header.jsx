@@ -172,7 +172,7 @@ class Header extends React.Component {
                     href="https://www.andrewkihs.com">Andrew's personal site</a>
                 </li>
                 <li>
-                  <a onClick={() => this.handleLogout()}>Logout</a></li>
+                  <a className='logout-link' onClick={() => this.handleLogout()}>Logout</a></li>
               </ul>
             </button>
           </div>
