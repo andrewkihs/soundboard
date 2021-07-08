@@ -36,12 +36,8 @@ class SongIndexItem extends React.Component {
 
     super(props)
     let owner = false;
-    // debugger
-    console.log(props.song)
     if (props.currentUser) {
-      if (typeof props.song.artistId !== 'undefined'){
-        owner = props.song.artistId === props.currentUser.id
-      }
+      owner = props.song.artistId === props.currentUser.id
     }
     let onStreamPage = window.location.hash.includes('stream')
     this.state = {
@@ -308,7 +304,6 @@ class SongIndexItem extends React.Component {
   render() {
     const { song, userLikesSong, currentPlayhead, openModal} = this.props
     const { userOwnsSong, onStreamPage, loaded, wavesurferObj } = this.state
-    console.log(song)
       !!wavesurferObj ? ( wavesurferObj.on('seek', _.throttle(position => {
           const {currentPlayhead, setCurrentProgress} = this.props;
           const { song, wavesurferObj } = this.state; 
