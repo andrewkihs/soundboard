@@ -8,8 +8,6 @@ class EditProfile extends React.Component{
     Object.keys(obj)
           .filter( key => predicate(obj[key]) )
           .reduce( (res, key) => (res[key] = obj[key], res), {} );
-
-    // const filtered = Object.filter(props.user, value => value!='null' && value!='undefined')
     this.state = {
       ...Object.filter(props.user, value => value!='null' && value!='undefined')
     }
@@ -77,8 +75,6 @@ class EditProfile extends React.Component{
     this.setState({submitted: true})
     this.props.closeModal();
   }
-  componentDidMount(){
-  }
   
 
   render(){
@@ -124,71 +120,53 @@ class EditProfile extends React.Component{
             <h1 className='edit-profile'>Edit Profile</h1>
           </div>
            <div className="edit-user-form-text-input-container">
-             {/* <div className='user-form-disp-names'> */}
-    
-
-                 {/* <label className="uf-displayName-label">Display name
-                 </label>
-                  <input 
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}
-                    className="edit-profile-displayName"
-                    />
-
-                
-              </div> */}
               <div className='user-form-disp-names'>
     
 
-                 <label className="uf-displayName-label">Display name
-                 </label>
-                  <input 
-                    type="text"
-                    value={this.state.displayName}
-                    onChange={this.update('displayName')}
-                    className="edit-profile-displayName"
-                    />
-
-                
+                <label className="uf-displayName-label">Display name</label>
+                <input 
+                  type="text"
+                  value={this.state.displayName}
+                  onChange={this.update('displayName')}
+                  className="edit-profile-displayName"
+                />
               </div>
 
-               <div className='uf-fName'>
-
-                <label className="uf-firstName-label">First Name
-                <br/>
-                </label>
-                  <input 
-                    type="text"
-                    value={this.state.firstName}
-                    onChange={this.update('firstName')}
-                    className="edit-profile-firstName"
-                    />
-                    </div>
-                <div className='uf-lName'>
-                <label className="uf-lastName-label">Last Name
+              <div className='uf-fName'>
+                <label className="uf-firstName-label">
+                  First Name
                   <br/>
                 </label>
-                  <input 
-                    type="text"
-                    value={this.state.lastName}
-                    onChange={this.update('lastName')}
-                    className="edit-profile-lastName"
-                    />
-                </div>
-              <div className='uf-city'>
-
-                <label className="uf-city-label">City
+                <input 
+                  type="text"
+                  value={this.state.firstName}
+                  onChange={this.update('firstName')}
+                  className="edit-profile-firstName"
+                />
+              </div>
+              <div className='uf-lName'>
+              <label className="uf-lastName-label">Last Name
                 <br/>
+              </label>
+                <input 
+                  type="text"
+                  value={this.state.lastName}
+                  onChange={this.update('lastName')}
+                  className="edit-profile-lastName"
+                />
+              </div>
+              <div className='uf-city'>
+                <label className="uf-city-label">City
+                  <br/>
                   <input 
                     type="text"
                     value={this.state.city}
                     onChange={this.update('city')}
                     className="edit-profile-city"
-                    />
+                  />
                 </label>
-                </div>
-                <div className='uf-country'>
+              </div>
+              <div className='uf-country'>
                 <label className="uf-country-label">Country
                 <br/>
                   <input 
@@ -196,40 +174,38 @@ class EditProfile extends React.Component{
                     value={this.state.country}
                     onChange={this.update('country')}
                     className="edit-profile-country"
-                    />
+                  />
                 </label>
               </div>
 
-             
               <div className='uf-bio'>
-
-                <label className="uf-bio-label">Bio
-                </label>
+                <label className="uf-bio-label">Bio</label>
                 <br/>
                   <textarea
                     type="textarea"
                     value={this.state.bio}
                     onChange={this.update('bio')}
                     className="edit-profile-bio"
-                    />
+                  />
+              </div>
             </div>
-                    </div>
-            <div className="update-profile-continue-btn">
 
-                  <p className="edit-song-cancel-btn"
-                    onClick={() => this.props.closeModal()}>  
-                    Cancel
-                  </p>
-                  <button className="edit-song-submit-btn"
-                  type="submit" 
-                  onClick={this.handleSubmit}>  
-                  Update profile
-                  </button>
+            <div className="update-profile-continue-btn">
+              <p className="edit-song-cancel-btn"
+                onClick={() => this.props.closeModal()}
+                >  
+                Cancel
+              </p>
+              <button className="edit-song-submit-btn"
+              type="submit" 
+              onClick={this.handleSubmit}>  
+                Update profile
+              </button>
             </div>
         </div>
-        {/* </div> */}
       </>
     )
   }
 }
+
 export default EditProfile

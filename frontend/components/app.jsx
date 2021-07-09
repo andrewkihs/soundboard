@@ -32,8 +32,6 @@ const App = () => (
         <Route exact path="/users/:userId" component={UserPageShowContainer} />
         <Route exact path="/songs/:songId" component={SongShowContainer} />
         <Route exact path="/songs/:songId/edit" component={SongEditContainer} />
-        {/* <Route path="/songs/" component={SongUploadContainer}/> */}
-        {/* <Route path="/upload" component={SongUploadContainer} /> */}
         <Route exact path="/discover" component={DiscoverContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/" component={SplashContainer} />
