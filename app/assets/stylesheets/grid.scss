@@ -25,15 +25,12 @@
   display: block;
   background: rgba(0, 0, 0, 0.3);
 }
-// .grid-image-container:hover {
-//   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-// }
+
 
 .grid-container {
   padding-top: 25px;
   padding-left: 50px;
   padding-bottom: 68px;
-  // padding-right: 50px;
   display: grid;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
@@ -69,10 +66,6 @@
       width: 30px;
       height: 30px;
     }
-    // top: 50%;
-    // left: 50%;
-    // -ms-transform: translate(-50%, -50%);
-    // transform: translate(-50%, -50%);
   }
 }
 

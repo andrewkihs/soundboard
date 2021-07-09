@@ -1,28 +1,18 @@
 .full_header {
   margin: 0;
   padding: 0;
-  // display: flex;
-  // flex-direction: row;
-  // align-items: center;
-  // justify-content: space-between;
   background: #333;
   font-weight: 100;
-  // width: 100%;
   font-size: 14px;
   height: 46px;
   color: #fff;
 }
 .header-icon-logo {
   width: 15px;
-  // height: 16px;
 }
 
 .header__innerContainer {
   margin: 0 auto;
-
-  /* padding-left: 7%;
-  displa
-  padding-right: 7%; */
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -59,7 +49,6 @@
   flex-direction: column;
   padding-left: 10px;
   padding-right: 10px;
-  // align-items: center;
   .headerSearch {
     width: 100%;
   }
@@ -71,7 +60,6 @@
 .headerSearch__input {
   color: #666;
   outline: 0;
-  // padding: 5px 7px;
   background: #e5e5e5;
   border-radius: 4px;
   font-weight: 100;
@@ -80,13 +68,10 @@
   box-shadow: none;
   outline: none;
   border: none;
-
-  /* width: 100%; */
 }
 
 .header__left,
 .header__right {
-  // width: 420px;
   > div {
     display: flex;
     flex-direction: row;
@@ -128,29 +113,16 @@
     }
   }
 }
-.message-btn-container {
-  // background: pink;
-}
 .selected {
   background-color: #111;
   color: white;
-  // > a {
-  //   color: white;
-  // }
 }
 
 .user-icons {
-  // width: 250px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  // justify-content: space-between;
-
-  /* padding: 12px;
-  height: 46px;
-  width: 104px; */
-
   > div > button {
     background: transparent;
     border: none !important;
@@ -197,8 +169,6 @@
   font-weight: 100;
   text-align: center;
   vertical-align: baseline;
-
-  /* background: none; */
   outline: none;
   border: none;
 }
@@ -214,9 +184,7 @@
 }
 
 .header__user-nav {
-  // width: 500px;
   > .user-drop-down {
-    // width: 100px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -227,15 +195,11 @@
 .message-btn-container,
 .notif-btn-container,
 .settings-btn-container {
-  // background: none;
   height: 100%;
   display: flex;
-  // cursor: pointer;
   width: 40px;
   flex-direction: row;
   align-items: center;
-  // justify-content: space-between;
-  // width: 100%;
 }
 
 .settings-btn,
@@ -244,10 +208,6 @@
   padding: 0px;
   width: 100%;
   height: 100%;
-  // position: relative;
-  // overflow: hidden;
-  // selected {
-  // }
 }
 
 .settings-btn {
@@ -256,15 +216,8 @@
 
 #settings-dropdown {
   position: absolute;
-  // display: block;
-  // margin-inline-start: 0px;
-  // margin-inline-end: 0px;
-  // padding-inline-start: 40px;
 
   border-color: #f2f2f2;
-  :first-child > a {
-    // border-bottom: 1px solid #333;
-  }
   li {
     padding: 8px 10px;
     font-size: 6px;
@@ -281,12 +234,6 @@
   }
 }
 
-#message-dropdown {
-  // right: 20px;
-}
-#notif-dropdown {
-  // right: 15px;
-}
 
 .reveal {
   font-size: 24px;
@@ -300,7 +247,6 @@
   top: 46px;
   width: 184px;
   text-align: left;
-  // box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
   z-index: 100001;
   right: 0px;
 }
@@ -315,7 +261,6 @@
   overflow: hidden;
   white-space: nowrap;
   color: rgb(216, 211, 211);
-  // padding-bottom: 5px;
 }
 .header-display-name:hover {
   color: rgb(231, 227, 227);
@@ -323,7 +268,6 @@
 .header__user-image {
   width: 24px;
   height: 24px;
-
   border-radius: 50%;
 }
 

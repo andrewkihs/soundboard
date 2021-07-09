@@ -19,28 +19,24 @@
   text-align: center;
 }
 .audio-file-custom-input {
-  // border: 1px solid #ccc;
   border-radius: 3px;
   display: inline-block;
   color: white;
   padding: 12px 80px;
   cursor: pointer;
   background-color: #f50;
-  // height: 26px;
   text-align: center;
 }
 .replace-file-btn {
   background-color: #f50;
   height: 26px;
   margin: 0;
-  // padding: 2px 11px 2px 10px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   cursor: pointer;
   color: white;
   font-size: 14px;
   line-height: 20px;
-  // white-space: nowrap;
   outline: none;
   border: none;
   font-weight: 100;
@@ -50,17 +46,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
   padding-left: 5px;
-  // margin-left: 14px;
-  // padding: 13px 23px;
-  // font-size: 16px;
-  // line-height: 18px;
-  // height: 46px;
 }
 .song-submit-btn {
   background-color: #f50;
   height: 26px;
   margin: 0;
-  // padding: 2px 11px 2px 10px;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
   cursor: pointer;
@@ -76,7 +66,6 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  // margin-left: 14px;
   margin-left: 265px;
   padding: 13px 23px;
   font-size: 16px;
@@ -99,25 +88,16 @@
   margin: 0 auto;
   border-radius: 2px;
   background-color: #fff;
-  // background: blue;
   display: flex;
   position: relative;
-
-  /* display: flex; */
 }
 .above-drag-drop {
-  // vertical-align: auto;
-  // background: green;
   width: 800px;
   height: 50px;
   margin: 0;
   position: absolute;
-  // top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
-  // transform: translate(-50%, -50%);
-  // width: 900px;
-  // height: 388px;
   padding: 0%;
 }
 .first-form-container {
@@ -128,7 +108,6 @@
 }
 
 .drag-drop-song-form {
-  /* margin: 0 auto; */
   vertical-align: auto;
   background: white;
   margin: 0 auto;
@@ -155,18 +134,14 @@
   flex-direction: column;
 }
 .sf-basic-info {
-  // position: absolute;
   font-size: x-large;
   width: 678px;
-  // height: 30px;
 }
 .basic-info-banner {
   width: 678px;
-  // height: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  // padding-bottom: ;
 }
 
 .first-form-container {
@@ -178,14 +153,12 @@
   justify-content: flex-start;
   height: 49px;
   color: #333;
-  // background: purple;
   border-bottom: 1px solid #f2f2f2;
   margin-left: 10px;
   h1 {
     font-size: 14px;
     padding: 10px;
   }
-  /* align-items: center; */
 }
 .song-form-text-input-container {
   height: 260px;
@@ -217,11 +190,9 @@
   width: 100%;
   align-items: center;
   flex-direction: column;
-  // justify-content: center;
 }
 .sf-replace-container {
   width: 800px;
-  // background: orange;
   display: flex;
   height: 120px;
   align-items: center;
@@ -233,14 +204,12 @@
     font-size: 15px;
     background: purple;
     display: flex;
-    // flex: row;
     justify-content: space-between;
     padding: 8px 16px;
     background: #f5f5f5;
     border-radius: 6px;
     border: 1px solid hsla(0, 0%, 59.2%, 0.2);
     margin-bottom: 8px;
-    // height: 200px;
     align-items: center;
     .learn-more-audio {
       p {
@@ -263,7 +232,6 @@
 
 .song-form-image-container {
   vertical-align: auto;
-  // background: pink;
   border: 3px solid #e5e5e5;
   margin: 0;
   position: absolute;
@@ -303,8 +271,6 @@
   img {
     width: 100%;
     height: 100%;
-
-    /* height: auto; */
   }
 
   .change-image-btn {
@@ -312,8 +278,6 @@
     top: 75%;
     left: 30%;
     padding-left: 20px;
-    /* transform: translate(-50%, -50%); */
-    /* -ms-transform: translate(-50%, -50%); */
     background-color: #555;
     color: white;
     font-size: 12px;
@@ -343,17 +307,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* flex-direction: row; */
-  /* justify-content: space-around; */
   width: 850px;
   height: 550px;
-  /* display: flex; */
   background-color: white;
   align-items: center;
 }
+
 .edit-form-audio-input {
   display: none;
 }
+
 .edit-song-form-text-input-container {
   width: 470px;
   height: 340px;
@@ -361,6 +324,7 @@
   justify-content: space-between;
   flex-direction: column;
 }
+
 .edit-audio-file-custom-input {
   appearance: auto;
   margin: 30px;
@@ -449,7 +413,6 @@
 }
 .edit-song-submit-btn {
   background-color: #f50;
-  /* height: 26px; */
   margin: 0;
   border: 1px solid #e5e5e5;
   border-radius: 3px;
@@ -480,27 +443,28 @@
   background: rgba(0, 0, 0, 0.329);
   z-index: 10;
 }
+
 .bottom-delete-track {
   margin: 30px;
 }
+
 .delete-song-modal-child {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* flex-direction: row; */
-  /* justify-content: space-around; */
   width: 550px;
   height: 220px;
-  /* display: flex; */
   background-color: white;
   align-items: center;
 }
+
 .delete-track-p {
   border: 1px solid #ececec;
   padding: 20px;
   border-radius: 5px;
 }
+
 .delete-h1 {
   font-size: 16px;
   font-weight: 550;

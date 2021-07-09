@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AudioPlayer from '../playhead/audio_player'
 import Waveform from "./waveform";
-// import {playSong, pauseSong} from '../../actions/playhead_actions'
 export const Playhead = props => {
 
   let tracks;
@@ -33,7 +32,6 @@ export const Playhead = props => {
     let tracksParsed = JSON.parse(tracksString)
     setSelectedTrack(tracksParsed[0])
   }, [tracksString])
-  // 
 
   const { currentSong, currentUser } = props
 
