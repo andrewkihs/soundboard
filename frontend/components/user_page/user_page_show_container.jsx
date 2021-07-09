@@ -6,8 +6,6 @@ import { openModal } from '../../actions/modal_actions'
 import UserPage from './user_page'
 
 const mSTP = (state, ownProps) => {
-  // 
-  // let user;
   const songs = Object.values(state.entities.songs)
   const currentUser = state.entities.users[state.session.id]
   const userId = ownProps.match.params.userId;

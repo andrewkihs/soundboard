@@ -11,62 +11,56 @@ class Splash extends React.Component {
     super(props)
   }
 
-  componentDidMount(){
-    // this.props.fetchSongs()
-  }
-
-
   render(){
     const { openModal, songs } = this.props
     
     return (
       <div className="splash-page-whole">
         <div className="carousel-container">
-
-        <CarouselProvider
-        className="carousel"
-        naturalSlideWidth={100}
-        naturalSlideHeight={100}
-        height="inherit"
-        totalSlides={2}
-        isPlaying={true}
-        >
-          <Slider>
-            <Slide index={0}><img className="landing-image" src={window.landingImageURL0}/></Slide>
-            <Slide index={1}><img className="landing-image" src={window.landingImageURL1}/></Slide>
-          </Slider>
-        </CarouselProvider>
-      </div>
+          <CarouselProvider
+          className="carousel"
+          naturalSlideWidth={100}
+          naturalSlideHeight={100}
+          height="inherit"
+          totalSlides={2}
+          isPlaying={true}
+          >
+            <Slider>
+              <Slide index={0}><img className="landing-image" src={window.landingImageURL0}/></Slide>
+              <Slide index={1}><img className="landing-image" src={window.landingImageURL1}/></Slide>
+            </Slider>
+          </CarouselProvider>
+        </div>
       <div className="splash-under">
         <div className="splash-search">
-          {/* <input id="splash-search-bar"
-          type="search" 
-          placeholder="Search for artists, bands, tracks, podcasts"/> */}
           <form className='splash-search-container'>
             <SearchContainer location='splash'/>
           </form>
           <span className="splash-or">or</span>
           <button 
-          className="splash-btn" id="splash-upload" onClick={() => openModal('login')}>Upload your own</button>
+            className="splash-btn" 
+            id="splash-upload" 
+            onClick={() => openModal('login')}>
+              Upload your own
+          </button>
         </div>
         <div className="splash-banner">
           <h1 className="hear-trending">Hear what's trending for free in the SoundBoard Community</h1>
           <div className="splash-trending">
             {songs ?  (<>
                 <div className="grid-container">
-                  {Object.keys(this.props.songs).map((key, i) =>{
+                  {Object.keys(songs).map((key, i) =>{
                     if (i<8){
                       return <GridContainer key={i} songId={key}/>
                     }
                     })}
                 </div>  
             
-            </>): <></>}
+            </>): null}
           
           </div>
         </div>
-        <div className="splash-grid-trending">
-        </div>
+        <div className="splash-grid-trending"/>
         <div className="splash-mini-banner">
           <button className="splash-explore-btn">Explore trending playlists</button>
         </div>
@@ -78,8 +72,11 @@ class Splash extends React.Component {
           onClick={() => openModal('signup')}>Create account</button>
           <div className="have-act">
             <span>Already have an account?</span>
-            <button className="splash-sign-in"
-            onClick={() => openModal('login')}>Sign in</button>
+            <button 
+              className="splash-sign-in"
+              onClick={() => openModal('login')}>
+                Sign in
+            </button>
           </div>
         </div>
       </div>
