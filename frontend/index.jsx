@@ -5,11 +5,8 @@ import Root from './components/root'
 import {login, signup, logout} from './actions/session_actions'
 import {fetchUser} from './actions/user_actions'
 document.addEventListener("DOMContentLoaded", () => {
-  // const store = configureStore();
-  
   let store;
   if (window.currentUser) {
-    
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
@@ -21,12 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  
-  // window.logout = logout;
-  // window.login = login;
-  window.fetchUser = fetchUser
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
   const root = document.getElementById("root");
   ReactDOM.render(<Root store={store}/>, root);
 });

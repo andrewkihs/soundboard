@@ -2,7 +2,7 @@ import * as convert from "../util/camel_to_snake";
 
 export const login = (userData) => {
   let user = convert.convertToSnakeCase(userData);
-  // let userData = camelToSnakeCase(user);
+
   const req = $.ajax({
     method: "POST",
     url: "/api/session",
@@ -19,7 +19,6 @@ export const logout = () =>
 
 export const signup = (userData) => {
   let user = convert.convertToSnakeCase(userData);
-  // ;
 
   const req = $.ajax({
     method: "POST",
@@ -37,6 +36,7 @@ export const fetchUser = (userId) =>
 
 export const updateUser = (user, userId) => {
   let formData = convert.formDataConvert(user);
+  
   const req = $.ajax({
     method: "PATCH",
     url: `/api/users/${userId}`,
