@@ -112,9 +112,7 @@ class EditProfile extends React.Component{
             </div>
           </div>
         </div>
-       
-
-         <div className="user-form-large-container">
+        <div className="user-form-large-container">
           
           <div className='edit-profile-h1'>
             <h1 className='edit-profile'>Edit Profile</h1>
