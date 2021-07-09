@@ -54,7 +54,7 @@ export const Messages = (props) => (
   height="13px" 
   viewBox="0 0 18 13" 
   version="1.1" 
-//   {...props}
+  // {...props}
   >
     <title>Fill 1</title>
     <desc>Created with Sketch.</desc>

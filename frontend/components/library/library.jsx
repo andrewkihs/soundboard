@@ -5,29 +5,20 @@ class Library extends React.Component{
   constructor(props){
     super(props)
   }
-  
-
-  componentDidMount() {
-    // this.props.fetchSongs()
-    
-  }
 
   filterLikes(obj){
     let res = {}  
     const toArr = Object.entries(obj)
-
   }
 
   render() {
-   
-    const { songs } = this.props
-    // 
-    if (!this.props.currentUser.likes){
+    const { songs , currentUser} = this.props
+    if (!currentUser.likes){
       return(
         <>You have no likes! Start liking some songs to populate this page.</>
       )
     }
-    if (Object.keys(this.props.songs).length===0){
+    if (Object.keys(songs).length===0){
       return null
     } else {
       return(
@@ -37,7 +28,7 @@ class Library extends React.Component{
           </div>
           <ul className="stream-ul">
             
-            {Object.keys(this.props.currentUser.likes).map((key, i) =>{
+            {Object.keys(currentUser.likes).map((key, i) =>{
               return <SongIndexItemContainer key={i} songId={parseInt(key)}/>
             })}
           </ul>
