@@ -1,4 +1,5 @@
 import * as React from "react";
+import { store } from 'react-redux';
 import { useDrag } from "react-use-gesture";
 import { directstyled, useDirectStyle } from "direct-styled";
 import { setCurrentProgress } from '../../actions/playhead_actions'
