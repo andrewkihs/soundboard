@@ -9,7 +9,7 @@ const _ = require('lodash');
 class UserPage extends React.Component{
   constructor(props){
     super(props)
-
+    
     Object.filter = (obj, predicate) => 
     Object.keys(obj)
           .filter( key => predicate(obj[key]) )
@@ -27,9 +27,12 @@ class UserPage extends React.Component{
   componentDidUpdate(prevProps) {
     const tempObj = {...this.props.pageOwner}
     const tempObj2 = {...prevProps.pageOwner}
-    if (!_.isEqual(tempObj, tempObj2)){
-      this.setState({pageOwner: Object.filter(this.props.pageOwner, value => value!='null' && value!='undefined')})
+    if (this.props.pageOwner){
+      if (!_.isEqual(tempObj, tempObj2)){
+        this.setState({pageOwner: Object.filter(this.props.pageOwner, value => value!='null' && value!='undefined')})
+      }
     }
+    
     // ...prevProps.pageOwner
   }
   postedSongs(){
