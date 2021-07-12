@@ -91,14 +91,14 @@ class SongIndexItem extends React.Component {
   componentDidMount() {
     
     let ctx = document.createElement('canvas').getContext('2d');
-    let linGrad = ctx.createLinearGradient(0, 40, 0, 200);
+    let linGrad = ctx.createLinearGradient(0, 40, 0, 161);
     linGrad.addColorStop(0.5, 'rgba(100, 100, 100, 1.000)');
     linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
 
     this.wavesurfer = WaveSurfer.create({
       container: `#waveform_${this.props.song.id}`,
       progressColor: '#f50',
-      backend: 'WebAudio',
+      // backend: 'WebAudio',
       height: 100,
       barHeight: 100,
       barWidth: 1.5,
@@ -106,10 +106,9 @@ class SongIndexItem extends React.Component {
       cursorWidth: 0,
       normalize: true,
       waveColor: linGrad,
-      forceDecode: true,
-      normalize: true,
       cursorColor: '#fff',
       barWidth: 2,
+      backend: 'MediaElement',
       xhr: {
         cache: "default",
         mode: "cors",
@@ -120,12 +119,25 @@ class SongIndexItem extends React.Component {
           { key: "pragma", value: "no-cache" }
         ]
       },
-      backend: 'MediaElement',
     });
     const {currentPlayhead, setCurrentProgress} = this.props;
     const { song } = this.state; 
-    this.wavesurfer.load(song.songUrl)
-    this.wavesurfer.on('ready', () => {
+    let hadPeaks
+    if (!song.audioPeaks.length){ // if it is empty
+      hadPeaks = false;
+      this.wavesurfer.load(song.songUrl)
+    } else {
+      hadPeaks = true
+      let peaks = JSON.parse(song.audioPeaks);
+      this.wavesurfer.load(song.songUrl, peaks)
+    }
+    this.wavesurfer.on('waveform-ready', () => {
+      if (!hadPeaks){
+        let string = JSON.stringify(this.wavesurfer.backend.getPeaks(40));
+        const formData = new FormData();
+        formData.append("song[audioPeaks]", string); 
+        this.props.updateSong(formData, song.id); 
+      }
       this.wavesurfer.on('seek', position => {
         this.setState({commentFocus: true})
         if (!currentPlayhead.currentSong) {
@@ -137,11 +149,11 @@ class SongIndexItem extends React.Component {
           setCurrentProgress(newTime)
         }
       })
-      this.wavesurfer.setMute(true)
     })
-
+    
     this.setState({loaded: true})
     this.setState({wavesurferObj: this.wavesurfer})
+    this.wavesurfer.setMute(true)
   }
 
   
