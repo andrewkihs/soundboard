@@ -124,9 +124,11 @@ class SongIndexItem extends React.Component {
     const { song } = this.state; 
     let hadPeaks
     if (!song.audioPeaks.length){ // if it is empty
+      console.log('loading fresh')
       hadPeaks = false;
       this.wavesurfer.load(song.songUrl)
     } else {
+      console.log('new load')
       hadPeaks = true
       let peaks = JSON.parse(song.audioPeaks);
       this.wavesurfer.load(song.songUrl, peaks)
