@@ -13,7 +13,7 @@ else
     json.imageUrl url_for(@song.uploader.avatar)
 end
 json.timePosted @song.created_at
-peaks = song.audio_peaks ? song.audio_peaks : []
+peaks = @song.audio_peaks ? @song.audio_peaks : []
 json.audioPeaks peaks 
 json.set! :likes do
   @song.likes.each do |like|

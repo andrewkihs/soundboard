@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { fetchSong } from '../../actions/song_actions'
+import { fetchSong, updateSong } from '../../actions/song_actions'
 import { createLike, deleteLike } from '../../actions/like_actions'
 import { openModal } from '../../actions/modal_actions'
 import { playSong, setCurrentSong, pauseSong, setCurrentProgress } from '../../actions/playhead_actions'
@@ -65,6 +65,7 @@ const mDTP = dispatch => {
     setCurrentProgress: (progress) => dispatch(setCurrentProgress(progress)),
     playSong: () => dispatch(playSong()),
     pauseSong: () => dispatch(pauseSong()),
+    updateSong: (song, id) => dispatch(updateSong(song, id)),
     createComment: (comment, song) => dispatch(createComment(comment, song)),
     createLike: (like, songId) => dispatch(createLike(like)),
     deleteLike: (likeId, song) => dispatch(deleteLike(likeId, song))

@@ -42,6 +42,7 @@ class Api::SongsController < ApplicationController
       :description,
       :audio,
       :image,
+      :audio_peaks,
       :genre
     )
   end
